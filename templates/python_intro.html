@@ -316,6 +316,148 @@
     34
     </pre>
 
+    <h2>Lists in Python</h2>
+    <p>Python knows a number of compound data types, used to group together other values. The most versatile is the list, which can be written as a list of comma-separated values (items) between square brackets. Lists might contain items of different types, but usually the items all have the same type:</p>
+    <pre>
+    &gt;&gt;&gt; squares = [1, 4, 9, 16, 25]
+
+    &gt;&gt;&gt; squares
+    [1, 4, 9, 16, 25]
+    </pre>
+    <p>Like strings (and all other built-in sequence types), lists can be indexed and sliced:</p>
+    <pre>
+    &gt;&gt;&gt; squares[0]  # indexing returns the item
+    1
+
+    &gt;&gt;&gt; squares[-1]
+    25
+
+    &gt;&gt;&gt; squares[-3:]  # slicing returns a new list
+    [9, 16, 25]
+    </pre>
+    <p>All slice operations return a new list containing the requested elements. This means that the following slice returns a shallow copy of the list:</p>
+    <pre>
+    &gt;&gt;&gt; squares[:]
+    [1, 4, 9, 16, 25]
+    </pre>
+    <p>Lists also support operations like concatenation:</p>
+    <pre>
+    &gt;&gt;&gt; squares + [36, 49, 64, 81, 100]
+    [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+    </pre>
+    <p>Unlike strings, which are immutable, lists are a mutable type, i.e. it is possible to change their content:</p>
+    <pre>
+    &gt;&gt;&gt; cubes = [1, 8, 27, 65, 125]  # something's wrong here
+
+    &gt;&gt;&gt; 4 ** 3  # the cube of 4 is 64, not 65!
+    64
+
+    &gt;&gt;&gt; cubes[3] = 64  # replace the wrong value
+
+    &gt;&gt;&gt; cubes
+    [1, 8, 27, 64, 125]
+    </pre>
+    <p>You can also add new items at the end of the list, by using the append() method (we will see more about methods later):</p>
+    <pre>
+    &gt;&gt;&gt; cubes.append(216)  # add the cube of 6
+
+    &gt;&gt;&gt; cubes.append(7 ** 3)  # and the cube of 7
+
+    &gt;&gt;&gt; cubes
+    [1, 8, 27, 64, 125, 216, 343]
+    </pre>
+    <p>Assignment to slices is also possible, and this can even change the size of the list or clear it entirely:</p>
+    <pre>
+    &gt;&gt;&gt; letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+    &gt;&gt;&gt; letters
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+    # replace some values
+
+    &gt;&gt;&gt; letters[2:5] = ['C', 'D', 'E']
+
+    &gt;&gt;&gt; letters
+    ['a', 'b', 'C', 'D', 'E', 'f', 'g']
+
+    # now remove them
+
+    &gt;&gt;&gt; letters[2:5] = []
+
+    &gt;&gt;&gt; letters
+    ['a', 'b', 'f', 'g']
+
+    # clear the list by replacing all the elements with an empty list
+
+    &gt;&gt;&gt; letters[:] = []
+
+    &gt;&gt;&gt; letters
+    []
+    </pre>
+    <p>The built-in function len() also applies to lists:</p>
+    <pre>
+    &gt;&gt;&gt; letters = ['a', 'b', 'c', 'd']
+
+    &gt;&gt;&gt; len(letters)
+    4
+    </pre>
+    <p>It is possible to nest lists (create lists containing other lists), for example:</p>
+    <pre>
+    &gt;&gt;&gt; a = ['a', 'b', 'c']
+
+    &gt;&gt;&gt; n = [1, 2, 3]
+
+    &gt;&gt;&gt; x = [a, n]
+
+    &gt;&gt;&gt; x
+    [['a', 'b', 'c'], [1, 2, 3]]
+
+    &gt;&gt;&gt; x[0]
+    ['a', 'b', 'c']
+
+    &gt;&gt;&gt; x[0][1]
+    'b'
+    </pre>
+
+    <h2>First Steps Towards Programming in Python</h2>
+    <p>Of course, we can use Python for more complicated tasks than adding two and two together. For instance, we can write an initial sub-sequence of the Fibonacci series as follows:</p>
+    <pre>
+    &gt;&gt;&gt; # Fibonacci series:
+    &gt;&gt;&gt; # the sum of two elements defines the next
+    &gt;&gt;&gt; a, b = 0, 1
+    &gt;&gt;&gt; while a < 10:
+    ...     print(a)
+    ...     a, b = b, a+b
+    0
+    1
+    1
+    2
+    3
+    5
+    8
+    </pre>
+    <p>This example introduces several new features.</p>
+    <ul>
+        <li>The first line contains a multiple assignment: the variables a and b simultaneously get the new values 0 and 1. On the last line, this is used again, demonstrating that the expressions on the right-hand side are all evaluated first before any of the assignments take place. The right-hand side expressions are evaluated from left to right.</li>
+        <li>The while loop executes as long as the condition (here: a < 10) remains true. In Python, like in C, any non-zero integer value is true; zero is false. The condition may also be a string or list value; in fact, any sequence; anything with a non-zero length is true, empty sequences are false. The test used in the example is a simple comparison. The standard comparison operators are written the same as in C: &lt; (less than), &gt; (greater than), == (equal to), &lt;= (less than or equal to), &gt;= (greater than or equal to), and != (not equal to).</li>
+        <li>The body of the loop is indented: indentation is Python’s way of grouping statements. At the interactive prompt, you have to type a tab or space(s) for each indented line. In practice, you will prepare more complicated input for Python with a text editor; all decent text editors have an auto-indent facility. When a compound statement is entered interactively, it must be followed by a blank line to indicate completion (since the parser cannot guess when you have typed the last line). Note that each line within a basic block must be indented by the same amount.</li>
+        <li>The print() function writes the value of the argument(s) it is given. It differs from just writing the expression you want to write (as we did earlier in the calculator examples) in the way it handles multiple arguments, floating-point quantities, and strings. Strings are printed without quotes, and a space is inserted between items, so you can format things nicely, like this:
+        </li>
+    </ul>
+    <pre>
+    &gt;&gt;&gt; i = 256*256
+    &gt;&gt;&gt; print('The value of i is', i)
+    The value of i is 65536
+    </pre>
+    <p>The keyword argument end can be used to avoid the newline after the output or end the output with a different string:</p>
+    <pre>
+    &gt;&gt;&gt; a, b = 0, 1
+    &gt;&gt;&gt; while a < 1000:
+    ...     print(a, end=',')
+    ...     a, b = b, a+b
+    0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
+    </pre>
+
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
         <p></p><br>
