@@ -198,3 +198,26 @@ button[type=submit] {
             background-color: #0e0c14 !important;
             color: #ffffff !important;
         }
+
+/* Styling for the box-like menu */
+        .menu-box {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Additional styles for the box-like menu content */
+        .menu-box p, .menu-box a {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .menu-box a {
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        .menu-box a:hover {
+            color: #0056b3;
+        }
