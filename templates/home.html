@@ -24,9 +24,29 @@
             background-color: lightgray !important;
             color: darkgray !important;
         }
+
+        /* Styling for the toggle button */
+        #colorToggler {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #colorToggler:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
     <div class="container mt-5">
         <h1>Welcome to the Home Page</h1>
         <p>This is the home page of our Flask app.</p>
@@ -63,14 +83,10 @@
         </footer>
     </div>
 
-    <!-- Toggler for Background and Text Color -->
-    <button id="colorToggler">Toggle Background and Text Color</button>
-
+    <!-- JavaScript for toggling background and text color -->
     <script>
-        // JavaScript/jQuery for toggling background and text color
         $(document).ready(function() {
             $("#colorToggler").click(function() {
-                // Toggle background color between white and light gray
                 $("body").toggleClass("bg-white bg-lightgray");
             });
         });
