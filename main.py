@@ -28,5 +28,9 @@ def about():
 def contact():
     return render_template('contact.html')
 
+@app.route('/about_me')
+def about_me():
+    return render_template('about_me.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

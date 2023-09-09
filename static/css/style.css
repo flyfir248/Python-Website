@@ -1,3 +1,4 @@
+/* Your existing CSS styles... */
 body {
   background-color: #202225;
   font-family: Arial, sans-serif;
@@ -61,163 +62,164 @@ pre {
    padding: 10px;
    border-radius: 5px;
    overflow-x: auto;
-     }
+}
 
 code {
    font-family: 'Courier New', monospace;
    font-size: 14px;
    color: #333;
-      }
+}
 
- body {
+body {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
    min-height: 100vh;
-      }
+}
 
 .header-image {
    display: flex;
    justify-content: center;
    align-items: center;
    margin-top: 50px;
-     }
+}
 
 .header-image img {
-     max-width: 80%;
-     height: auto;
-     }
+   max-width: 80%;
+   height: auto;
+}
 
 form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-top: 50px;
-      margin-bottom: 50px;
-      }
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 50px;
+   margin-bottom: 50px;
+}
 
 label {
-      margin-bottom: 20px;
-      }
+   margin-bottom: 20px;
+}
 
 input[type=text] {
-       padding: 10px;
-       font-size: 16px;
-       border-radius: 5px;
-       border: none;
-       box-shadow: 0px 0px 5px #ccc;
+   padding: 10px;
+   font-size: 16px;
+   border-radius: 5px;
+   border: none;
+   box-shadow: 0px 0px 5px #ccc;
 }
 
 button[type=submit] {
-       margin-top: 20px;
-       padding: 10px 20px;
-       font-size: 16px;
-       border-radius: 5px;
-       border: none;
-       background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            box-shadow: 0px 0px 5px #007bff;
-            transition: all 0.2s ease-in-out;
+   margin-top: 20px;
+   padding: 10px 20px;
+   font-size: 16px;
+   border-radius: 5px;
+   border: none;
+   background-color: #007bff;
+   color: #fff;
+   cursor: pointer;
+   box-shadow: 0px 0px 5px #007bff;
+   transition: all 0.2s ease-in-out;
 }
 
-        button[type=submit]:hover {
-            background-color: #fff;
-            color: #007bff;
-            box-shadow: 0px 0px 10px #007bff;
-        }
-        footer {
-            background-color: #262626;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-size: 14px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+button[type=submit]:hover {
+   background-color: #fff;
+   color: #007bff;
+   box-shadow: 0px 0px 10px #007bff;
+}
 
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-        }
+footer {
+   background-color: #262626;
+   color: #fff;
+   padding: 10px;
+   text-align: center;
+   font-size: 14px;
+   position: relative;
+   bottom: 0;
+   width: 100%;
+}
 
-        .footer a:hover {
-            color: #007bff;
-        }
+.footer a {
+   color: #fff;
+   text-decoration: none;
+}
 
-        .footer p {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-        }
+.footer a:hover {
+   color: #007bff;
+}
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+.footer p {
+   font-family: Arial, sans-serif;
+   font-size: 12px;
+}
 
-        .social-icons a {
-            margin: 0 10px;
-        }
+.social-icons {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 20px;
+}
 
-        .social-icons img {
-            max-width: 30px;
-            height: auto;
-        }
+.social-icons a {
+   margin: 0 10px;
+}
+
+.social-icons img {
+   max-width: 30px;
+   height: auto;
+}
 
 /* Default background and text colors */
-        body {
-            background-color: #ffffff !important;
-            color: #111112 !important;
-            transition: background-color 0.5s, color 0.5s; /* Smooth transition effect */
-        }
+body {
+   background-color: #ffffff !important;
+   color: #111112 !important;
+   transition: background-color 0.5s, color 0.5s; /* Smooth transition effect */
+}
 
-        /* Styling for the toggle button */
-        #colorToggler {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s; /* Smooth button color transition */
-        }
+/* Styling for the toggle button */
+#colorToggler {
+   position: fixed;
+   top: 20px;
+   right: 20px;
+   background-color: #007bff;
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s; /* Smooth button color transition */
+}
 
-        #colorToggler:hover {
-            background-color: #1610de;
-        }
+#colorToggler:hover {
+   background-color: #1610de;
+}
 
-        /* Styling for the toggle button when active */
-        .bg-lightgray {
-            background-color: #0e0c14 !important;
-            color: #ffffff !important;
-        }
+/* Styling for the toggle button when active */
+.bg-lightgray {
+   background-color: #0e0c14 !important;
+   color: #ffffff !important;
+}
 
 /* Styling for the box-like menu */
-        .menu-box {
-            background-color: #f0f0f0;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.menu-box {
+   background-color: #f0f0f0;
+   padding: 20px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
 
-        /* Additional styles for the box-like menu content */
-        .menu-box p, .menu-box a {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
+/* Additional styles for the box-like menu content */
+.menu-box p, .menu-box a {
+   margin-bottom: 10px;
+   font-size: 18px;
+}
 
-        .menu-box a {
-            color: #007bff;
-            transition: color 0.3s;
-        }
+.menu-box a {
+   color: #007bff;
+   transition: color 0.3s;
+}
 
-        .menu-box a:hover {
-            color: #0056b3;
-        }
+.menu-box a:hover {
+   color: #0056b3;
+}
