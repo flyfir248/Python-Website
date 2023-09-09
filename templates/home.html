@@ -14,32 +14,35 @@
 
     <!-- Custom CSS -->
     <style>
-        /* Your custom styles here */
-        .bg-white {
-            background-color: white !important;
-            color: black !important;
-        }
-
-        .bg-lightgray {
-            background-color: lightgray !important;
-            color: darkgray !important;
+        /* Default background and text colors */
+        body {
+            background-color: #ffffff !important;
+            color: #111112 !important;
+            transition: background-color 0.5s, color 0.5s; /* Smooth transition effect */
         }
 
         /* Styling for the toggle button */
         #colorToggler {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
             background-color: #007bff;
             color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s; /* Smooth button color transition */
         }
 
         #colorToggler:hover {
-            background-color: #0056b3;
+            background-color: #1610de;
+        }
+
+        /* Styling for the toggle button when active */
+        .bg-lightgray {
+            background-color: #0e0c14 !important;
+            color: #ffffff !important;
         }
     </style>
 </head>
@@ -87,7 +90,7 @@
     <script>
         $(document).ready(function() {
             $("#colorToggler").click(function() {
-                $("body").toggleClass("bg-white bg-lightgray");
+                $("body").toggleClass("bg-lightgray");
             });
         });
     </script>
