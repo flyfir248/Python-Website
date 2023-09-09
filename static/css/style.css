@@ -223,3 +223,17 @@ body {
 .menu-box a:hover {
    color: #0056b3;
 }
+
+/* Center the image horizontally and vertically */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; /* Adjust as needed to center vertically within the viewport */
+}
+
+/* Optional: Add a max-width to the image to prevent it from becoming too large */
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}

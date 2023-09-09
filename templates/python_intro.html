@@ -44,13 +44,76 @@
 
     <p>The integer numbers (e.g. 2, 4, 20) have type int, the ones with a fractional part (e.g. 5.0, 1.6) have type float. We will see more about numeric types later in the tutorial.</p>
 
+    <h2>Python Arithmetic Operators</h2>
+    <p>Division (/) always returns a float. To do floor division and get an integer result you can use the // operator; to calculate the remainder you can use %:</p>
+    <pre>
+        17 / 3  # classic division returns a float
+        5.666666666666667
+        <br>
+        17 // 3  # floor division discards the fractional part
+        5
+        <br>
+        17 % 3  # the % operator returns the remainder of the division
+        2
+        <br>
+        5 * 3 + 2  # floored quotient * divisor + remainder
+        17
+    </pre>
+    <p>With Python, it is possible to use the ** operator to calculate powers:</p>
+    <pre>
+        5 ** 2  # 5 squared
+        25
+        <br>
+        2 ** 7  # 2 to the power of 7
+        128
+    </pre>
+    <h2>Assigning Values to Variables</h2>
+    <p>The equal sign (=) is used to assign a value to a variable. Afterwards, no result is displayed before the next interactive prompt:</p>
+    <pre>
+        width = 20
+        <br>
+        height = 5 * 9
+        <br>
+        width * height
+        900
+    </pre>
+    <p>If a variable is not “defined” (assigned a value), trying to use it will give you an error:</p>
+    <pre>
+        n  <!-- try to access an undefined variable -->
+        <!-- Output: NameError: name 'n' is not defined -->
+    </pre>
+    <p>There is full support for floating point; operators with mixed type operands convert the integer operand to floating point:</p>
+    <pre>
+        4 * 3.75 - 1
+        14.0
+    </pre>
+    <h2>Interactive Mode</h2>
+    <p>In interactive mode, the last printed expression is assigned to the variable _. This means that when you are using Python as a desk calculator, it is somewhat easier to continue calculations:</p>
+    <pre>
+        tax = 12.5 / 100
+        <br>
+        price = 100.50
+        <br>
+        price * tax
+        12.5625
+        <br>
+        price + _
+        113.0625
+        <br>
+        round(_, 2)
+        113.06
+    </pre>
+    <p>This variable should be treated as read-only by the user. Don’t explicitly assign a value to it — you would create an independent local variable with the same name masking the built-in variable with its magic behavior.</p>
+    <h2>Other Numeric Types</h2>
+    <p>In addition to int and float, Python supports other types of numbers, such as Decimal and Fraction. Python also has built-in support for complex numbers, and uses the j or J suffix to indicate the imaginary part (e.g. 3+5j).</p>
+
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
         <p></p><br>
         <a href="/">Home</a><br><br>
         <a href="/about">About</a><br><br>
         <a href="/contact">Contact</a><br><br>
-    <div>
+    </div>
     <!-- JavaScript for toggling background and text color -->
     <script>
         $(document).ready(function() {
