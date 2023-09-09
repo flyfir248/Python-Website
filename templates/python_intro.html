@@ -12,6 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
     <h1>An Informal Introduction to Python</h1>
     <p>In the following examples, input and output are distinguished by the presence or absence of prompts (>>> and …): to repeat the example, you must type everything after the prompt, when the prompt appears; lines that do not begin with a prompt are output from the interpreter. Note that a secondary prompt on a line by itself in an example means you must type a blank line; this is used to end a multi-line command.</p>
 
@@ -43,9 +46,19 @@
 
     <!-- You can continue to add more sections as needed -->
 
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
+    <a href="/">Home</a><br><br>
+    <a href="/about">About</a><br><br>
+    <a href="/contact">Contact</a><br><br>
+
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
     <footer class="footer">
         <div class="container">
             <div class="row">
