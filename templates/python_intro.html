@@ -15,6 +15,12 @@
     <!-- Toggler for Background and Text Color -->
     <button id="colorToggler">Color</button>
 
+    <div class="image-container">
+        <a href="templates/home.html">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
     <h1>An Informal Introduction to Python</h1>
     <p>In the following examples, input and output are distinguished by the presence or absence of prompts (>>> and …): to repeat the example, you must type everything after the prompt, when the prompt appears; lines that do not begin with a prompt are output from the interpreter. Note that a secondary prompt on a line by itself in an example means you must type a blank line; this is used to end a multi-line command.</p>
 
@@ -158,6 +164,157 @@
     </pre>
     <p>There is one subtle aspect to raw strings: a raw string may not end in an odd number of \ characters; see the FAQ entry for more information and workarounds.</p>
 
+    <h2>Working with Strings in Python</h2>
+    <p>String literals can span multiple lines. One way is using triple-quotes: <code>"""..."""</code> or <code>'''...'''</code>. End of lines are automatically included in the string, but it’s possible to prevent this by adding a <code>\</code> at the end of the line. The following example:</p>
+    <pre>
+    &gt;&gt;&gt; print("""\
+    Usage: thingy [OPTIONS]
+         -h                        Display this usage message
+         -H hostname               Hostname to connect to
+    """)
+    </pre>
+    <p>produces the following output (note that the initial newline is not included):</p>
+    <pre>
+    Usage: thingy [OPTIONS]
+         -h                        Display this usage message
+         -H hostname               Hostname to connect to
+    </pre>
+    <p>Strings can be concatenated (glued together) with the <code>+</code> operator, and repeated with <code>*</code>:</p>
+    <pre>
+    &gt;&gt;&gt; # 3 times 'un', followed by 'ium'
+    3 * 'un' + 'ium'
+    'unununium'
+    </pre>
+    <p>Two or more string literals (i.e. the ones enclosed between quotes) next to each other are automatically concatenated:</p>
+    <pre>
+    &gt;&gt;&gt; 'Py' 'thon'
+    'Python'
+    </pre>
+    <p>This feature is particularly useful when you want to break long strings:</p>
+    <pre>
+    &gt;&gt;&gt; text = ('Put several strings within parentheses '
+    ...
+    ...         'to have them joined together.')
+    &gt;&gt;&gt; text
+    'Put several strings within parentheses to have them joined together.'
+    </pre>
+    <p>This only works with two literals though, not with variables or expressions:</p>
+    <pre>
+    &gt;&gt;&gt; prefix = 'Py'
+    &gt;&gt;&gt; prefix 'thon'  # can't concatenate a variable and a string literal
+      File "&lt;stdin&gt;", line 1
+        prefix 'thon'
+               ^^^^^^
+    SyntaxError: invalid syntax
+    &gt;&gt;&gt; ('un' * 3) 'ium'
+      File "&lt;stdin&gt;", line 1
+        ('un' * 3) 'ium'
+                   ^^^^^
+    SyntaxError: invalid syntax
+    </pre>
+    <p>If you want to concatenate variables or a variable and a literal, use <code>+</code>:</p>
+    <pre>
+    &gt;&gt;&gt; prefix + 'thon'
+    'Python'
+    </pre>
+    <p>Strings can be indexed (subscripted), with the first character having index 0. There is no separate character type; a character is simply a string of size one:</p>
+    <pre>
+    &gt;&gt;&gt; word = 'Python'
+    &gt;&gt;&gt; word[0]  # character in position 0
+    'P'
+    &gt;&gt;&gt; word[5]  # character in position 5
+    'n'
+    </pre>
+    <p>Indices may also be negative numbers, to start counting from the right:</p>
+    <pre>
+    &gt;&gt;&gt; word[-1]  # last character
+    'n'
+    &gt;&gt;&gt; word[-2]  # second-last character
+    'o'
+    &gt;&gt;&gt; word[-6]
+    'P'
+    </pre>
+    <p>Note that since -0 is the same as 0, negative indices start from -1.</p>
+
+    <h2>String Slicing in Python</h2>
+    <p>In addition to indexing, slicing is also supported. While indexing is used to obtain individual characters, slicing allows you to obtain substrings:</p>
+    <pre>
+    &gt;&gt;&gt; word[0:2]  # characters from position 0 (included) to 2 (excluded)
+    'Py'
+
+    &gt;&gt;&gt; word[2:5]  # characters from position 2 (included) to 5 (excluded)
+    'tho'
+    </pre>
+    <p>Slice indices have useful defaults; an omitted first index defaults to zero, an omitted second index defaults to the size of the string being sliced:</p>
+    <pre>
+    &gt;&gt;&gt; word[:2]   # character from the beginning to position 2 (excluded)
+    'Py'
+
+    &gt;&gt;&gt; word[4:]   # characters from position 4 (included) to the end
+    'on'
+
+    &gt;&gt;&gt; word[-2:]  # characters from the second-last (included) to the end
+    'on'
+    </pre>
+    <p>Note how the start is always included, and the end always excluded. This makes sure that <code>s[:i] + s[i:]</code> is always equal to <code>s</code>:</p>
+    <pre>
+    &gt;&gt;&gt; word[:2] + word[2:]
+    'Python'
+
+    &gt;&gt;&gt; word[:4] + word[4:]
+    'Python'
+    </pre>
+    <p>One way to remember how slices work is to think of the indices as pointing between characters, with the left edge of the first character numbered 0. Then the right edge of the last character of a string of n characters has index n, for example:</p>
+    <pre>
+     +---+---+---+---+---+---+
+     | P | y | t | h | o | n |
+     +---+---+---+---+---+---+
+     0   1   2   3   4   5   6
+    -6  -5  -4  -3  -2  -1
+    </pre>
+    <p>The first row of numbers gives the position of the indices 0…6 in the string; the second row gives the corresponding negative indices. The slice from i to j consists of all characters between the edges labeled i and j, respectively.</p>
+    <p>For non-negative indices, the length of a slice is the difference of the indices, if both are within bounds. For example, the length of <code>word[1:3]</code> is 2.</p>
+    <p>Attempting to use an index that is too large will result in an error:</p>
+    <pre>
+    &gt;&gt;&gt; word[42]  # the word only has 6 characters
+    Traceback (most recent call last):
+      File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    IndexError: string index out of range
+    </pre>
+    <p>However, out of range slice indexes are handled gracefully when used for slicing:</p>
+    <pre>
+    &gt;&gt;&gt; word[4:42]
+    'on'
+
+    &gt;&gt;&gt; word[42:]
+    ''
+    </pre>
+    <p>Python strings cannot be changed — they are immutable. Therefore, assigning to an indexed position in the string results in an error:</p>
+    <pre>
+    &gt;&gt;&gt; word[0] = 'J'
+    Traceback (most recent call last):
+      File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    TypeError: 'str' object does not support item assignment
+
+    &gt;&gt;&gt; word[2:] = 'py'
+    Traceback (most recent call last):
+      File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+    TypeError: 'str' object does not support item assignment
+    </pre>
+    <p>If you need a different string, you should create a new one:</p>
+    <pre>
+    &gt;&gt;&gt; 'J' + word[1:]
+    'Jython'
+
+    &gt;&gt;&gt; word[:2] + 'py'
+    'Pypy'
+    </pre>
+    <p>The built-in function <code>len()</code> returns the length of a string:</p>
+    <pre>
+    &gt;&gt;&gt; s = 'supercalifragilisticexpialidocious'
+    &gt;&gt;&gt; len(s)
+    34
+    </pre>
 
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
