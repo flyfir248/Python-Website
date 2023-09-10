@@ -32,5 +32,9 @@ def contact():
 def about_me():
     return render_template('about_me.html')
 
+@app.route('/flow_of_control')
+def flow_of_control():
+    return render_template('flow_of_control.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
