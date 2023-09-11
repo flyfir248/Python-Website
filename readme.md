@@ -65,7 +65,7 @@ We welcome contributions from the Python community! Whether you want to fix a ty
 1. Fork the repository on GitHub.
 2. Make your changes or additions.
 3. Submit a pull request with a clear description of your contributions.
-
+4. 
 We appreciate your contributions in making Python learning accessible to everyone.
 
 ## License
