@@ -79,3 +79,8 @@ Happy coding and learning Python!
 You can customize this README to suit your specific project and website content. Make sure to update the URLs, repository name, and other details to match your project's information.
 
 look up here :https://docs.python.org/3/tutorial/introduction.html
+
+
+### link to that repo
+
+https://chat.openai.com/c/c1c09cb5-013b-43c1-9f28-3a8e2e51c89e
