@@ -36,5 +36,9 @@ def about_me():
 def flow_of_control():
     return render_template('flow_of_control.html')
 
+@app.route('/Data_structure')
+def Datastructure():
+    return render_template('Datastructure.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
