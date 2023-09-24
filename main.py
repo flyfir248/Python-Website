@@ -40,5 +40,21 @@ def flow_of_control():
 def Datastructure():
     return render_template('Datastructure.html')
 
+@app.route('/class1')
+def class1():
+    return render_template('class1.html')
+
+@app.route('/class2')
+def class2():
+    return render_template('class2.html')
+
+@app.route('/class3')
+def class3():
+    return render_template('class3.html')
+
+@app.route('/class4')
+def class4():
+    return render_template('class4.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+    <h1>Agenda</h1>
+
+    <ul>
+        <li>Recap</li>
+        <li>Datatypes</li>
+        <li>Operators</li>
+        <li>Conditional statements</li>
+    </ul>
+
+    <h2>Recap</h2>
+
+    <h3>Components of Spyder</h3>
+    <ul>
+        <li>Editor</li>
+        <li>Console</li>
+        <li>Variable explorer</li>
+    </ul>
+
+    <h3>Working with Jupyter</h3>
+    <ul>
+        <li>How to launch Jupyter</li>
+        <li>How to create a folder</li>
+        <li>How to create an ipynb file</li>
+        <li>How to create a new cell in Jupyter notebook</li>
+        <li>How to execute?</li>
+        <ul>
+            <li>Run current cell and create a new cell - Shift+Enter</li>
+            <li>Only run the current cell - Ctrl+Enter</li>
+        </ul>
+    </ul>
+
+    <h3>Basics of Python</h3>
+    <ul>
+        <li>How to create a variable?</li>
+        <ul>
+            <li>variable_name, assignment operator, constant/literal</li>
+        </ul>
+        <li>How to comment a single line and multiline</li>
+    </ul>
+
+    <h2>Creating a markdown cell</h2>
+
+    <p>To create a markdown cell:</p>
+    <ul>
+        <li>Press Esc+m</li>
+        <li>Select markdown from the taskbar, visible on top of the notebook</li>
+    </ul>
+
+    <h2>Creating bullets</h2>
+
+    <p>To create bullets:</p>
+    <ul>
+        <li>Use (-) hyphen and space</li>
+        <li>Nested bullets, use tab and then use hyphen and space</li>
+    </ul>
+
+    <p>After creating the markdown and adding the text, run the cell to see it using Shift+Enter or Ctrl+Enter.</p>
+
+    <h2>Elements of variables</h2>
+
+    <ul>
+        <li>Data type</li>
+        <li>Value</li>
+    </ul>
+
+    <p>For example:</p>
+
+    <pre>
+    <code>a = 23
+    </code>
+    </pre>
+
+    <h3>Data Type</h3>
+
+    <p>The type of value the variable contains is called a datatype.</p>
+
+    <h3>Different datatypes available in Python</h3>
+
+    <ul>
+        <li>integer</li>
+        <li>float</li>
+        <li>complex</li>
+        <li>string</li>
+        <li>boolean</li>
+        <li>list</li>
+        <li>tuple</li>
+        <li>dictionary</li>
+        <li>set</li>
+    </ul>
+
+    <pre>
+    <code>a = 1
+    b = 2
+    c = 23
+
+    print(a)
+    print(b)
+    print(c)
+    </code>
+    </pre>
+
+    <h3>Float</h3>
+
+    <pre>
+    <code>c = 1.2
+    d = 3.4
+
+    print(c)
+    print(d)
+    </code>
+    </pre>
+
+    <h3>Finding data type</h3>
+
+    <pre>
+    <code>type(c)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>float
+    </code>
+    </pre>
+
+    <h3>Rules for creating a variable name</h3>
+
+    <ul>
+        <li>Start with alphabet or underscore ( _ )</li>
+        <li>Can contain alphabets, underscore, or number. Special characters are not allowed (including space)</li>
+        <li>Case sensitive</li>
+    </ul>
+
+    <h3>Valid variable names</h3>
+
+    <pre>
+    <code>a = 12
+    _a = 123.4
+    b34 = 2354
+
+    print(a)
+    print(_a)
+    print(b34)
+    </code>
+    </pre>
+
+    <h3>Invalid variable names</h3>
+
+    <pre>
+    <code>1a = 23 # Invalid variable name results in an error
+    $a = 23 # Invalid variable name results in an error
+    abc! = 23 # Invalid variable name results in an error
+    abc% = 23 # Invalid variable name results in an error
+    </code>
+    </pre>
+
+    <h2>Basic Operations with Integers and Float</h2>
+
+    <h3>Arithmetic operators</h3>
+
+    <ul>
+        <li>+ Addition</li>
+        <li>- Subtraction</li>
+        <li>* Multiplication</li>
+        <li>/ Division</li>
+        <li>// Quotient</li>
+        <li>% Modulo</li>
+        <li>** Power or Exponent</li>
+    </ul>
+
+    <h3>Addition</h3>
+
+    <pre>
+    <code>add = 2 + 3
+    print(add)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>5
+    </code>
+    </pre>
+
+    <p>You can also print a message along with the result:</p>
+
+    <pre>
+    <code>print('Addition of the given numbers is', add)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>Addition of the given numbers is 5
+    </code>
+    </pre>
+
+    <h3>Subtraction</h3>
+
+    <pre>
+    <code>a = 23
+    b = 3
+    diff_1 = a - b
+    bus = b - a  # Any valid variable name can be given
+    print(diff_1)
+    print(bus)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>20
+    -20
+    </code>
+    </pre>
+
+    <p>To get the value of 'a', use print:</p>
+
+    <pre>
+    <code>print(a)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>23
+    </code>
+    </pre>
+
+    <h3>Multiplication</h3>
+
+    <pre>
+    <code>z = a * 2
+    print(z)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>46
+    </code>
+    </pre>
+
+    <h3>Division</h3>
+
+    <pre>
+    <code>a = 5
+    b = 2
+    quo = a / b
+    print(quo)
+
+    print(a)
+    print(b)
+    print(quo)
+
+    print(type(a))
+    print(type(b))
+    print(type(quo))
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>2.5
+    5
+    2
+    2.5
+    <class 'int'>
+    <class 'int'>
+    <class 'float'>
+    </code>
+    </pre>
+
+    <h3>Multiple assignments</h3>
+
+    <pre>
+    <code>a, b = 5, 6
+    print(a)
+    print(b)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>5
+    6
+    </code>
+    </pre>
+
+    <h2>Three Different Ways of Converting a Floating Value to an Integer</h2>
+
+    <h3>Round</h3>
+
+    <p>Nearest integer</p>
+
+    <pre>
+    <code>print(round(3.2))
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>3
+    </code>
+    </pre>
+
+    <h3>Ceil</h3>
+
+    <p>Nearest integer greater than the given floating value</p>
+
+    <pre>
+    <code>print(math.ceil(3.2))
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>4
+    </code>
+    </pre>
+
+    <h3>Floor</h3>
+
+    <p>Nearest integer smaller than the given floating value</p>
+
+    <pre>
+    <code>print(math.floor(3.7))
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>3
+    </code>
+    </pre>
+
+    <h2>Importing Libraries</h2>
+
+    <p>Whenever a functionality is not available in Python by default, you can import external libraries.</p>
+
+    <p>In the below example, we are importing 'math' because 'ceil' and 'floor' are not available in Python by default.</p>
+
+    <p>Import will include all the functions available in the external library to the current executing Jupyter notebook.</p>
+
+    <p>One of the simple syntaxes to import a library is:</p>
+
+    <pre>
+    <code>import library_name
+    # Example:
+    import math
+    </code>
+    </pre>
+
+    <p>Only after importing a library can you use its functions. Use functions with the library by using the library name followed by a dot (.), then the function name.</p>
+
+    <p>For one Jupyter notebook execution, importing a library once is sufficient.</p>
+
+    <pre>
+    <code>import math
+
+    print(round(3.2))
+    print(math.ceil(3.2))
+    print(math.floor(3.7))
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>3
+    4
+    3
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(math.floor(123.784))
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>123
+    </code>
+    </pre>
+
+    <h2>Floor Division or Floored Quotient</h2>
+
+    <pre>
+    <code>c, d = 11, 3
+    fl_quo = c // d
+    # Above code is equivalent to
+    print(math.floor(c / d))
+    print(fl_quo)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>3
+    3
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(11 / 3)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>3.6666666666666665
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(math.ceil(11 / 3))
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>4
+    </code>
+    </pre>
+
+    <h2>Modulo Operator or Remainder</h2>
+
+    <pre>
+    <code>x54545, jhjhjhjhjh = 13, 4
+    zdkfghdk7673567 = x54545 % jhjhjhjhjh
+    print(zdkfghdk7673567)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>1
+    </code>
+    </pre>
+
+    <h2>Power Operator</h2>
+
+    <pre>
+    <code>num1, num2 = 2, 6
+    power_of_two_num1 = num1 ** num2
+    print(power_of_two_num1)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>64
+    </code>
+    </pre>
+
+    <p>Boolean Constants</p>
+
+    <ul>
+        <li>True</li>
+        <li>False</li>
+    </ul>
+
+    <p>Invalid boolean values</p>
+
+    <ul>
+        <li>flase</li>
+        <li>true</li>
+        <li>FALSE</li>
+        <li>TRUE</li>
+    </ul>
+
+    <p>Fundamental operation in mathematics</p>
+
+    <ul>
+        <li>Addition</li>
+        <li>Comparison</li>
+        <ul>
+            <li>True</li>
+            <li>False</li>
+        </ul>
+    </ul>
+
+    <h2>What a CPU Contains</h2>
+
+    <p>Arithmetic and Logical unit (ALU)</p>
+
+    <h2>Comparison Operators</h2>
+
+    <p>Only two possible results:</p>
+
+    <ul>
+        <li>True</li>
+        <li>False</li>
+    </ul>
+
+    <p>Different comparison operators:</p>
+
+    <ul>
+        <li>== Equal</li>
+        <li>!= Not equal</li>
+        <li>&gt; Greater than</li>
+        <li>&lt; Less than</li>
+        <li>&gt;= Greater than or equal</li>
+        <li>&lt;= Less than or equal</li>
+    </ul>
+
+    <h3>Equal operator</h3>
+
+    <pre>
+    <code>i = 4
+    j = 8
+    print(i == j)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>False
+    </code>
+    </pre>
+
+    <pre>
+    <code>i = 4
+    j = 4
+    print(i == j)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>True
+    </code>
+    </pre>
+
+    <pre>
+    <code>i = 4.6
+    j = 4.6
+    print(i == j)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>True
+    </code>
+    </pre>
+
+    <h3>Common error while declaring and printing the variables</h3>
+
+    <pre>
+    <code>power_of_two_num = 1
+    print(power_of _two _num)  # Please verify if you are using the same name as you declared, character by character
+    </code>
+    </pre>
+
+    <p>This will result in a SyntaxError:</p>
+
+    <pre>
+    <code>SyntaxError: invalid syntax
+    </code>
+    </pre>
+
+    <h3>Not equal operator</h3>
+
+    <pre>
+    <code>i = 4.6
+    j = 4.6
+    print(i != j)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>False
+    </code>
+    </pre>
+
+    <pre>
+    <code>glass1 = 20
+    glass2 = 40
+
+    print(glass1 == glass2)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>False
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(glass2 > glass1)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>True
+    </code>
+    </pre>
+
+    <pre>
+    <code>g3 = 20
+    g4 = 20
+
+    print(g4 == g3)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>True
+    </code>
+    </pre>
+
+    <h3>Not equal</h3>
+
+    <pre>
+    <code>print(g4 != g3)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>False
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(glass2 > glass1)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>True
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(glass2 < glass1)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>False
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(glass2 >= glass1)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>True
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(g3 >= g4)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>True
+    </code>
+    </pre>
+
+    <pre>
+    <code>print(g4 >= g3)
+    </code>
+    </pre>
+
+    <p>This will output:</p>
+
+    <pre>
+    <code>True
+    </code>
+    </pre>
+
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
