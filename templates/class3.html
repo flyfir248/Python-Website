@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+
+    <h1>Agenda</h1>
+    <ul>
+        <li>Recap</li>
+        <li>Strings
+            <ul>
+                <li>Indexing</li>
+                <li>Slicing</li>
+                <li>Negative indexing</li>
+                <li>String functions</li>
+            </ul>
+        </li>
+        <li>Typecasting</li>
+        <li>Lists</li>
+    </ul>
+
+    <h2>Recap</h2>
+    <ul>
+        <li>Assignment operators</li>
+        <li>Logical operators</li>
+        <li>Bitwise operators</li>
+        <li>Membership operators</li>
+        <li>String definition</li>
+        <li>String indexing</li>
+        <li>String slicing</li>
+    </ul>
+
+    <h3>Single and Double Quotes</h3>
+
+    <p>In Python, strings can be defined using single quotes (' ') or double quotes (" ").</p>
+    <p>For example:</p>
+
+    <pre><code>st1 = 'Python is easy to understand'
+    st2 = "Python is 'easy' to understand"
+    </code></pre>
+
+    <p>You can also use escape characters to include quotes within a string. For example:</p>
+
+    <pre><code>st3 = 'In English there is a proverb , "Work is worship".'
+    </code></pre>
+
+    <p>To include double quotes within a double-quoted string, use the escape character \".</p>
+
+    <pre><code>st4 = "In English there is a proverb , \"Work is worship\"."
+    </code></pre>
+
+    <p>To include single quotes within a single-quoted string, use the escape character '.</p>
+
+    <pre><code>st4 = 'In English there is a proverb , \'Work is worship\'.'
+    </code></pre>
+
+    <h3>String Indexing</h3>
+    <p>String indexing in Python starts from 0. You can access individual characters of a string using positive indexing (from the beginning) or negative indexing (from the end).</p>
+
+    <pre><code>st = "Double quotes has a special meaning."
+    character = st[12]
+    print(character)  # Output: 's'
+    </code></pre>
+
+    <p>You can also use negative indexing to access characters from the end of the string.</p>
+
+    <pre><code>st = "Double quotes has a special meaning."
+    character = st[-6]
+    print(character)  # Output: 's'
+    </code></pre>
+
+    <h3>String Slicing</h3>
+    <p>String slicing allows you to extract a portion of a string by specifying a start and end index.</p>
+
+    <pre><code>st = "Double quotes has a special meaning."
+    substring = st[12:-6]
+    print(substring)  # Output: 's has a special meaning.'
+    </code></pre>
+
+    <p>String slicing can also be used to reverse a string:</p>
+
+    <pre><code>st = "Python"
+    reversed_st = st[::-1]
+    print(reversed_st)  # Output: 'nohtyP'
+    </code></pre>
+
+    <h3>String Functions</h3>
+    <p>Python provides various string functions to manipulate strings. For example:</p>
+
+    <pre><code>st = "Python is very simple"
+    index = st.find('is')  # Find the starting index of 'is' in the string
+    print(index)  # Output: 7
+
+    st = "Python is very simple"
+    lowercase_st = st.lower()  # Convert the string to lowercase
+    print(lowercase_st)  # Output: 'python is very simple'
+
+    st1 = 'Hi. '
+    st2 = 'How are you ?'
+    combined_st = st1 + st2  # Concatenate two strings
+    print(combined_st)  # Output: 'Hi. How are you ?'
+    </code></pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+        <li>Write a Python program that takes a string as input and uses slicing to reverse the string.</li>
+        <li>Given a string, create two new strings by slicing the original string. One string should contain characters at even indices, and the other should contain characters at odd indices.</li>
+        <li>Write a Python function that takes a string as input and extracts alternate characters to create a new string.</li>
+        <li>Write a Python program that extracts and prints the domain from an email address.</li>
+        <li>Create a Python program that takes a string as input and swaps the first and last characters.</li>
+        <li>Create a Python program that takes a string as input and reflects it by repeating it backward.</li>
+    </ol>
+
+
+    <h1>Python Practice Questions</h1>
+
+    <h2>1. Reverse a String</h2>
+    <p>To reverse a string using slicing:</p>
+    <pre><code>
+      input_string = "Hello, World!"
+      reversed_string = input_string[::-1]
+      print(reversed_string)
+          </code></pre>
+          <p>Output:</p>
+          <pre><code>
+      !dlroW ,olleH
+          </code></pre>
+
+          <h2>2. Create Two New Strings with Even and Odd Indices</h2>
+          <p>To create two new strings with even and odd indices:</p>
+          <pre><code>
+      input_string = "Python"
+      even_indices_string = input_string[::2]
+      odd_indices_string = input_string[1::2]
+      print(even_indices_string)
+      print(odd_indices_string)
+          </code></pre>
+          <p>Output:</p>
+          <pre><code>
+      Pto
+      yhn
+          </code></pre>
+
+          <h2>3. Extract Alternate Characters</h2>
+          <p>To extract alternate characters from a string:</p>
+          <pre><code>
+      input_string = "Python"
+      alternate_characters = input_string[::2]
+      print(alternate_characters)
+          </code></pre>
+          <p>Output:</p>
+          <pre><code>
+      Pto
+          </code></pre>
+
+          <h2>4. Extract Domain from Email Address</h2>
+          <p>To extract the domain from an email address:</p>
+          <pre><code>
+      email = "user@example.com"
+      domain = email.split('@')[1]
+      print(domain)
+          </code></pre>
+          <p>Output:</p>
+          <pre><code>
+      example.com
+          </code></pre>
+
+          <h2>5. Swap First and Last Characters</h2>
+          <p>To swap the first and last characters of a string:</p>
+          <pre><code>
+      input_string = "Python"
+      swapped_string = input_string[-1] + input_string[1:-1] + input_string[0]
+      print(swapped_string)
+          </code></pre>
+          <p>Output:</p>
+          <pre><code>
+      nythoP
+          </code></pre>
+
+          <h2>6. Reflect and Repeat a String</h2>
+          <p>To reflect and repeat a string:</p>
+          <pre><code>
+      input_string = "Python"
+      reflected_string = input_string + input_string[::-1]
+      print(reflected_string)
+          </code></pre>
+          <p>Output:</p>
+          <pre><code>
+      PythonnohtyP
+          </code></pre>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

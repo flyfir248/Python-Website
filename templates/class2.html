@@ -425,6 +425,571 @@
     substring = text[7:9]   # "is"
     </pre>
 
+    <div>
+        <hr></hr>
+    </div>>
+
+    <h1>Agenda</h1>
+    <ol>
+        <li>Recap</li>
+        <li>Datatypes</li>
+        <li>Operators</li>
+        <li>Conditional statements</li>
+    </ol>
+
+    <h2>Recap</h2>
+    <ul>
+        <li>Components of Spyder
+            <ul>
+                <li>Editor</li>
+                <li>Console</li>
+                <li>Variable explorer</li>
+            </ul>
+        </li>
+        <li>Working with Jupyter
+            <ul>
+                <li>How to launch Jupyter</li>
+                <li>How to create a folder</li>
+                <li>How to create an ipynb file</li>
+                <li>How to create a new cell in Jupyter notebook</li>
+                <li>How to execute?
+                    <ul>
+                        <li>Run current cell and create a new cell - Shift+Enter</li>
+                        <li>Only run the current cell - Ctrl+Enter</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Basics of Python
+            <ul>
+                <li>How to create a variable?
+                    <ul>
+                        <li>variable_name, assignment operator, constant/literal</li>
+                    </ul>
+                </li>
+                <li>How to comment a single line and multiline</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Creating a markdown cell</h2>
+    <ul>
+        <li>Esc+m</li>
+        <li>Select markdown from the task bar, visible on top of the notebook</li>
+    </ul>
+
+    <h2>Creating bullets</h2>
+    <ul>
+        <li>Use (-) hyphen and space</li>
+        <li>Nested bullets, use tab and then use hyphen and space</li>
+    </ul>
+
+    <p>After creating the markdown and adding the text, run the cell to see the result using Shift+Enter or Ctrl+Enter.</p>
+
+    <h2>Elements of variables</h2>
+    <ul>
+        <li>Data type</li>
+        <li>Value</li>
+    </ul>
+
+    <pre><code>a = 23</code></pre>
+
+    <h3>Data type</h3>
+    <p>The type of value the variable contains is called datatype.</p>
+    <p>Different datatypes available in Python:</p>
+    <ul>
+        <li>integer</li>
+        <li>float</li>
+        <li>complex</li>
+        <li>string</li>
+        <li>boolean</li>
+        <li>list</li>
+        <li>tuple</li>
+        <li>dictionary</li>
+        <li>set</li>
+    </ul>
+
+    <pre><code>a = 1
+    b = 2
+    c = 23
+
+    print(a)
+    print(b)
+    print(c)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>1
+    2
+    23</code>
+    </pre>
+
+    <h3>Float</h3>
+    <pre><code>c = 1.2
+    d = 3.4
+
+    print(c)
+    print(d)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>1.2
+    3.4</code>
+    </pre>
+
+    <pre><code>c</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>1.2</code>
+    </pre>
+
+    <pre><code>d</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>3.4</code>
+    </pre>
+
+    <pre><code>c
+    d</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>3.4</code>
+    </pre>
+
+    <p>Finding data type</p>
+
+    <pre><code>type(c)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>float</code>
+    </pre>
+
+    <pre><code>type(d)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>float</code>
+    </pre>
+
+    <h3>Complex</h3>
+    <pre><code>p = 1+3j
+
+    p</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>(1+3j)</code>
+    </pre>
+
+    <p>Rules for creating a variable name</p>
+    <ul>
+        <li>Start with an alphabet or underscore (_)</li>
+        <li>Can contain alphabets, underscore, or number. Special characters are not allowed (including space)</li>
+        <li>Case sensitive</li>
+    </ul>
+
+    <p>Valid variable names:</p>
+    <pre><code>a = 12
+    _a = 123.4
+    b34 = 2354
+
+    print(a)
+    print(_a)
+    print(b34)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>12
+    123.4
+    2354</code>
+    </pre>
+
+    <p>Invalid variable names:</p>
+
+    <pre><code>1a = 23  # Invalid variable name results in an error</code></pre>
+
+    <h3>Basic operations with integers and float</h3>
+    <h4>Arithmetic operators</h4>
+    <ul>
+        <li>+</li>
+        <li>-</li>
+        <li>*</li>
+        <li>/</li>
+        <li>//</li>
+        <li>%</li>
+        <li>**</li>
+    </ul>
+
+    <pre><code># Addition
+    add = 2 + 3
+    print(add)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>5</code>
+    </pre>
+
+    <pre><code>print('Addition of the given numbers is ', add)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>Addition of the given numbers is 5</code>
+    </pre>
+
+    <pre><code># Subtraction
+    a = 23
+    b = 3
+    diff_1 = a - b
+    bus = b - a  # Any valid variable name can be given
+    print(diff_1)
+    print(bus)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>20
+    -20</code>
+    </pre>
+
+    <pre><code># To get the value of a, use print
+    print(a)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>23</code>
+    </pre>
+
+    <pre><code># Multiplication
+    z = a * 2
+    print(z)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>46</code>
+    </pre>
+
+    <pre><code># Division
+    a = 5
+    b = 2
+    quo = a / b
+    print(quo)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>2.5</code>
+    </pre>
+
+    <pre><code>print(a)
+    print(b)
+    print(quo)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>5
+    6
+    2.5</code>
+    </pre>
+
+    <pre><code>print(type(a))
+    print(type(b))
+    print(type(quo))</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>&lt;class 'int'&gt;
+    &lt;class 'int'&gt;
+    &lt;class 'float'&gt;</code>
+    </pre>
+
+    <h4>Multiple assignments</h4>
+    <pre><code>a, b = 5, 6
+    print(a)
+    print(b)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>5
+    6</code>
+    </pre>
+
+    <h4>Three different ways of converting a floating value to an integer</h4>
+    <ol>
+        <li>Round
+            <ul>
+                <li>Nearest integer</li>
+                <li>3.7 -&gt; 4</li>
+                <li>3.2 -&gt; 3</li>
+            </ul>
+        </li>
+        <li>Ceil
+            <ul>
+                <li>Nearest integer greater than the given floating value</li>
+                <li>3.7 -&gt; 4</li>
+                <li>3.2 -&gt; 4</li>
+            </ul>
+        </li>
+        <li>Floor
+            <ul>
+                <li>Nearest integer smaller than the given floating value</li>
+                <li>3.7 -&gt; 3</li>
+                <li>3.2 -&gt; 3</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p>Importing libraries</p>
+    <p>Whenever a functionality is not available in Python by default, we will import external libraries.</p>
+    <p>In the example below, we are importing the math library because ceil and floor are not available in Python by default.</p>
+    <p>Import will include all the functions available in the external library to the current executing Jupyter notebook.</p>
+    <p>One of the simple syntaxes to import a library is:</p>
+    <pre><code>import library_name
+    # Example: import math</code></pre>
+    <p>Only after importing a library can we use its functions.</p>
+    <p>Use functions with a library by using the library name followed by a dot (.), then the function name.</p>
+    <p>For one Jupyter notebook execution, importing a library once is sufficient.</p>
+
+    <pre><code>import math
+
+    print(round(3.2))
+    print(math.ceil(3.2))
+    print(math.floor(3.7))</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>3
+    4
+    3</code>
+    </pre>
+
+    <pre><code>print(math.floor(123.784))</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>123</code>
+    </pre>
+
+    <h4>Floor division or Floored quotient</h4>
+    <pre><code>c, d = 11, 3
+    fl_quo = c // d
+    # Above code is equivalent to
+    print(math.floor(c / d))
+    print(fl_quo)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>3
+    3</code>
+    </pre>
+
+    <pre><code>print(11 / 3)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>3.6666666666666665</code>
+    </pre>
+
+    <pre><code>print(math.ceil(11 / 3))</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>4</code>
+    </pre>
+
+    <h4>Modulo operator or Remainder</h4>
+    <pre><code>x54545, jhjhjhjhjh = 13, 4
+    zdkfghdk7673567 = x54545 % jhjhjhjhjh
+    print(zdkfghdk7673567)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>1</code>
+    </pre>
+
+    <h4>Power operator</h4>
+    <pre><code>num1, num2 = 2, 6
+    power_of_two_num1 = num1 ** num2
+    print(power_of_two_num1)
+    print(power_of_two_num1)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>64
+    64</code>
+    </pre>
+
+    <h3>Boolean constants</h3>
+    <ul>
+        <li>True</li>
+        <li>False</li>
+    </ul>
+
+    <p>Invalid boolean values</p>
+    <ul>
+        <li>flase</li>
+        <li>true</li>
+        <li>FALSE</li>
+        <li>TRUE</li>
+    </ul>
+
+    <h3>Fundamental operation in mathematics</h3>
+    <ul>
+        <li>Addition</li>
+        <li>Comparison
+            <ul>
+                <li>True</li>
+                <li>False</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>What a CPU contains</p>
+    <ul>
+        <li>Arithmetic and Logical unit (ALU)</li>
+    </ul>
+
+    <h4>Comparison operators</h4>
+    <p>Only two possible results</p>
+    <ul>
+        <li>True</li>
+        <li>False</li>
+    </ul>
+
+    <p>Different comparison operators</p>
+    <ul>
+        <li>== Equal</li>
+        <li>!= Not equal</li>
+        <li>&gt; Greater than</li>
+        <li>&lt; Less than</li>
+        <li>&gt;= Greater than or equal</li>
+        <li>&lt;= Less than or equal</li>
+    </ul>
+
+    <h5>Equal operator</h5>
+    <pre><code>i = 4
+    j = 8
+    print(i == j)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>False</code>
+    </pre>
+
+    <pre><code>i = 4
+    j = 4
+    print(i == j)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>True</code>
+    </pre>
+
+    <pre><code>i = 4.6
+    j = 4.6
+    print(i == j)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>True</code>
+    </pre>
+
+    <h5>Common error while declaring and printing the variables</h5>
+
+    <pre><code>power_of_two_num = 1
+    print(power_of _two _num)  # Please verify if you are using the same name as you declared, character by character</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>  Input In [136]
+        print(power_of _two _num)
+                       ^
+    SyntaxError: invalid syntax</code>
+    </pre>
+
+    <h5>Not equal operator</h5>
+    <pre><code>i = 4.6
+    j = 4.6
+    print(i != j)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>False</code>
+    </pre>
+
+    <pre><code>glass1 = 20
+    glass2 = 40
+
+    print(glass1 == glass2)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>False</code>
+    </pre>
+
+    <pre><code>print(glass2 > glass1)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>True</code>
+    </pre>
+
+    <pre><code>g3 = 20
+    g4 = 20
+
+    print(g4 == g3)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>True</code>
+    </pre>
+
+    <h5>Not equal</h5>
+    <pre><code>print(g4 != g3)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>False</code>
+    </pre>
+
+    <pre><code>print(glass2 > glass1)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>True</code>
+    </pre>
+
+    <pre><code>print(glass2 < glass1)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>False</code>
+    </pre>
+
+    <pre><code>print(glass2 >= glass1)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>True</code>
+    </pre>
+
+    <pre><code>print(g3 >= g4)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>True</code>
+    </pre>
+
+    <pre><code>print(g4 >= g3)</code></pre>
+
+    <p>Output:</p>
+    <pre>
+    <code>True</code>
+    </pre>
+
+
+
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
         <p></p><br>
