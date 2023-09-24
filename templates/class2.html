@@ -265,6 +265,166 @@
     x = 5  # Assign 5 to variable x
     </pre>
 
+    <!-- Data Types -->
+    <h2>Data Types</h2>
+    <p>Data types in Python specify what kind of values a variable can hold. Here are some common data types:</p>
+    <ul>
+        <li><strong>int:</strong> Represents integers (whole numbers).</li>
+        <li><strong>float:</strong> Represents floating-point numbers (decimal numbers).</li>
+        <li><strong>str:</strong> Represents strings (sequences of characters).</li>
+        <li><strong>bool:</strong> Represents Boolean values (True or False).</li>
+        <li><strong>complex:</strong> Represents complex numbers (real and imaginary parts).</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+    age = 25          # int
+    price = 19.99     # float
+    name = "John"     # str
+    is_student = True # bool
+    z = 2 + 3j        # complex
+    </pre>
+
+    <!-- Arithmetic Operators -->
+    <h2>Arithmetic Operators</h2>
+    <p>Arithmetic operators perform mathematical operations on numeric values. Common arithmetic operators include:</p>
+    <ul>
+        <li><strong>+</strong> (Addition)</li>
+        <li><strong>-</strong> (Subtraction)</li>
+        <li><strong>*</strong> (Multiplication)</li>
+        <li><strong>/</strong> (Division)</li>
+        <li><strong>%</strong> (Modulus, returns the remainder)</li>
+        <li><strong>**</strong> (Exponentiation)</li>
+        <li><strong>//</strong> (Floor Division, rounds down to the nearest integer)</li>
+    </ul>
+    <p>Examples:</p>
+    <pre>
+    x = 10
+    y = 3
+    addition = x + y      # 13
+    subtraction = x - y   # 7
+    multiplication = x * y # 30
+    division = x / y       # 3.333...
+    remainder = x % y      # 1
+    exponentiation = x ** y # 1000
+    floor_division = x // y # 3
+    </pre>
+
+    <!-- Comparison Operators -->
+    <h2>Comparison Operators</h2>
+    <p>Comparison operators are used to compare two values. They return either True or False. Common comparison operators include:</p>
+    <ul>
+        <li><strong>==</strong> (Equal to)</li>
+        <li><strong>!=</strong> (Not equal to)</li>
+        <li><strong>&lt;</strong> (Less than)</li>
+        <li><strong>&gt;</strong> (Greater than)</li>
+        <li><strong>&lt;=</strong> (Less than or equal to)</li>
+        <li><strong>&gt;=</strong> (Greater than or equal to)</li>
+    </ul>
+    <p>Examples:</p>
+    <pre>
+    a = 5
+    b = 10
+    equal = (a == b)         # False
+    not_equal = (a != b)     # True
+    less_than = (a < b)      # True
+    greater_than = (a > b)   # False
+    less_equal = (a <= b)    # True
+    greater_equal = (a >= b) # False
+    </pre>
+
+    <!-- Math Functions: floor, ceil, round -->
+    <h2>Math Functions: floor, ceil, round</h2>
+    <p>Python provides several math functions for numeric operations:</p>
+    <ul>
+        <li><strong>math.floor(x):</strong> Returns the largest integer less than or equal to x.</li>
+        <li><strong>math.ceil(x):</strong> Returns the smallest integer greater than or equal to x.</li>
+        <li><strong>round(x):</strong> Rounds x to the nearest integer.</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+    import math
+    value = 3.6
+    floor_value = math.floor(value) # 3
+    ceil_value = math.ceil(value)   # 4
+    rounded_value = round(value)   # 4
+    </pre>
+
+
+    <!-- Logical Operators -->
+    <h2>Logical Operators</h2>
+    <p>Logical operators are used to combine and manipulate Boolean values. Common logical operators include:</p>
+    <ul>
+        <li><strong>and:</strong> Returns True if both operands are True.</li>
+        <li><strong>or:</strong> Returns True if at least one operand is True.</li>
+        <li><strong>not:</strong> Returns the opposite of the operand's value (True becomes False and vice versa).</li>
+    </ul>
+    <p>Examples:</p>
+    <pre>
+    x = True
+    y = False
+    result_and = x and y  # False
+    result_or = x or y    # True
+    result_not = not x    # False
+    </pre>
+
+    <!-- Conditional Logic -->
+    <h2>Conditional Logic</h2>
+    <p>Conditional statements allow you to execute different code blocks based on certain conditions. In Python, the primary conditional statement is the "if" statement.</p>
+    <p>Example:</p>
+    <pre>
+    age = 20
+    if age >= 18:
+        print("You are an adult.")
+    else:
+        print("You are a minor.")
+    </pre>
+
+    <!-- String Basics -->
+    <h2>String Basics</h2>
+    <p>Strings are sequences of characters, and they can be represented using single quotes ('') or double quotes ("").</p>
+    <p>Example:</p>
+    <pre>
+    name = 'Alice'
+    message = "Hello, World!"
+    </pre>
+
+    <!-- String Functions -->
+    <h2>String Functions</h2>
+    <p>Python provides many built-in functions for working with strings. Common string functions include:</p>
+    <ul>
+        <li><strong>len(string):</strong> Returns the length of the string.</li>
+        <li><strong>string.upper():</strong> Converts the string to uppercase.</li>
+        <li><strong>string.lower():</strong> Converts the string to lowercase.</li>
+        <li><strong>string.strip():</strong> Removes leading and trailing whitespace.</li>
+    </ul>
+    <p>Examples:</p>
+    <pre>
+    text = "Python is fun"
+    length = len(text)        # 13
+    uppercase_text = text.upper()   # "PYTHON IS FUN"
+    lowercase_text = text.lower()   # "python is fun"
+    stripped_text = text.strip()     # "Python is fun" (no leading/trailing whitespace)
+    </pre>
+
+    <!-- String Indexing -->
+    <h2>String Indexing</h2>
+    <p>Strings in Python are indexed, and you can access individual characters by their index (position) within the string. Indexing starts at 0.</p>
+    <p>Example:</p>
+    <pre>
+    text = "Python"
+    first_char = text[0]   # "P"
+    second_char = text[1]  # "y"
+    </pre>
+
+    <!-- String Slicing -->
+    <h2>String Slicing</h2>
+    <p>String slicing allows you to extract a portion of a string. The syntax is <code>string[start:end]</code>. It includes the character at the start index but excludes the character at the end index.</p>
+    <p>Example:</p>
+    <pre>
+    text = "Python is easy"
+    substring = text[7:9]   # "is"
+    </pre>
+
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
         <p></p><br>
