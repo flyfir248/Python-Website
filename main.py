@@ -56,5 +56,18 @@ def class3():
 def class4():
     return render_template('class4.html')
 
+@app.route('/class5')
+def class5():
+    return render_template('class5.html')
+
+@app.route('/class6')
+def class6():
+    return render_template('class6.html')
+
+@app.route('/class7')
+def class7():
+    return render_template('class7.html')
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

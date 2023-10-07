@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+    <h1>Python Concepts</h1>
+
+    <h2>Agenda:</h2>
+    <ul>
+        <li><strong>Recap</strong></li>
+        <li><strong>Strings</strong>
+            <ul>
+                <li><strong>Indexing</strong>: Accessing individual characters in a string.</li>
+                <li><strong>Slicing</strong>: Extracting substrings from a string.</li>
+                <li><strong>Negative Indexing</strong>: Indexing characters from the end of the string.</li>
+                <li><strong>String Functions</strong>: Built-in functions to manipulate strings.</li>
+            </ul>
+        </li>
+        <li><strong>Typecasting</strong>: Converting one data type to another.</li>
+        <li><strong>Lists</strong>: Ordered collection of items.</li>
+        <li><strong>Conditional Statements</strong>: Control the flow of execution based on conditions.</li>
+        <li><strong>For Loop</strong>: Iterate over a sequence (list, tuple, string, etc.).</li>
+        <li><strong>Nested For Loops</strong>: Using one or more loops inside another loop.</li>
+        <li><strong>While Loop</strong>: Execute a block of code as long as the condition is true.</li>
+        <li><strong>String Manipulation</strong>:
+            <ul>
+                <li><strong>Assignment Operators</strong>: Assign values to variables.</li>
+                <li><strong>String Slicing</strong>: Extracting specific parts of a string.</li>
+                <li><strong>Negative Indexing</strong>: Indexing from the end of the string.</li>
+                <li><strong>len</strong>: Get the length of a string.</li>
+                <li><strong>String Functions</strong>:
+                    <ul>
+                        <li><strong>find</strong>: Find the first occurrence of a substring.</li>
+                        <li><strong>index</strong>: Find the index of a substring.</li>
+                        <li><strong>upper</strong>: Convert the string to uppercase.</li>
+                        <li><strong>lower</strong>: Convert the string to lowercase.</li>
+                        <li><strong>Palindrome Check</strong>: Check if a string is a palindrome.</li>
+                        <li><strong>isalpha</strong>: Check if all characters in a string are alphabetic.</li>
+                        <li><strong>isalnum</strong>: Check if all characters in a string are alphanumeric.</li>
+                        <li><strong>isdigit</strong>: Check if all characters in a string are digits.</li>
+                        <li><strong>isdecimal</strong>: Check if all characters in a string are decimals.</li>
+                        <li><strong>isnumeric</strong>: Check if all characters in a string are numeric.</li>
+                        <li><strong>endswith</strong>: Check if a string ends with a specified suffix.</li>
+                        <li><strong>String Concatenation</strong>: Concatenate multiple strings.</li>
+                        <li><strong>String Multiplication</strong>: Repeat a string multiple times.</li>
+                        <li><strong>capitalize</strong>: Capitalize the first character of a string.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Additional Concepts</strong>:
+            <ul>
+                <li><strong>Escape Characters</strong>: Characters like '\n' and '\t' used in strings.</li>
+                <li><strong>Raw Strings</strong>: Strings prefixed with 'r', used to treat backslashes as literal characters.</li>
+                <li><strong>Path Manipulation</strong>: Handling file paths in Python.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Python Strings</h2>
+    <p>Strings are sequences of characters, and in Python, they are represented with single quotes (<code>'</code>) or double quotes (<code>"</code>).</p>
+
+    <h3>Indexing and Slicing:</h3>
+    <p>Characters in a string can be accessed using <strong>indexing</strong>. Python uses <strong>zero-based indexing</strong>, meaning the first character is at index 0. Negative indexing starts from the end of the string (-1 for the last character).</p>
+    <code>text = "Python"
+    print(text[0])  # Output: P
+    print(text[-1])  # Output: n</code>
+
+    <p><strong>Slicing</strong> allows you to extract a portion of the string. Syntax: <code>text[start:stop:step]</code>. If <code>start</code> or <code>stop</code> is not specified, it defaults to the beginning/end of the string. <code>step</code> specifies the interval between characters.</p>
+    <code>text = "Python Programming"
+    print(text[7:18])  # Output: Programming
+    print(text[::-1])  # Output: gnimmargorP  (reverses the string)</code>
+
+    <h3>String Functions:</h3>
+    <p>Python provides various string functions for manipulation:</p>
+    <code>text = "python is easy"
+    print(text.upper())  # Output: PYTHON IS EASY
+    print(text.find("easy"))  # Output: 10 (index where "easy" starts)
+    print(text.replace("easy", "simple"))  # Output: python is simple</code>
+
+    <h3>Escape Characters:</h3>
+    <p>Escape characters are used to represent special characters in strings. For example, <code>'\\n'</code> represents a newline character and <code>'\\t'</code> represents a tab character.</p>
+    <code>print('Hello\\nWorld')</code>  # Output: Hello\nWorld
+
+    <h3>Raw Strings:</h3>
+    <p>Raw strings, denoted with 'r' before the string, treat backslashes as literal characters, useful for file paths.</p>
+    <code>path = r'C:\\Users\\username\\Documents\\file.txt'
+    print(path)</code>  # Output: C:\\Users\\username\\Documents\\file.txt
+
+    <h2>Conditional Statements</h2>
+    <p><strong>Conditional statements</strong> allow you to make decisions in your code. The <code>if</code> statement checks a condition, and if it's true, executes a block of code.</p>
+    <code>a = 5
+    if a > 0:
+        print("a is positive")  # Output: a is positive</code>
+
+    <h2>Loops</h2>
+    <p><strong>For Loop</strong> is used for iterating over a sequence (list, tuple, string, etc.).</p>
+    <code>numbers = [1, 2, 3, 4, 5]
+    for num in numbers:
+        print(num)  # Output: 1 2 3 4 5</code>
+
+    <p><strong>While Loop</strong> is used for repeated execution as long as an expression is true.</p>
+    <code>count = 0
+    while count < 5:
+        print(count)
+        count += 1  # Output: 0 1 2 3 4</code>
+
+    <h2>Typecasting</h2>
+    <p><strong>Typecasting</strong> is the process of converting one data type into another.</p>
+    <code>num_str = "42"
+    num = int(num_str)  # Converts string to integer
+    print(num)  # Output: 42</code>
+
+    <h2>Additional Notes</h2>
+    <ul>
+        <li><strong>Escape Characters</strong>: Special characters like <code>'\\n'</code> and <code>'\\t'</code> used in strings.</li>
+        <li><strong>Unicode</strong>: A standardized character encoding used for text.</li>
+        <li><strong>ASCII</strong>: A character encoding standard for electronic communication.</li>
+    </ul>
+
+    <h1>Important Observations</h1>
+    <ol>
+        <li>How to use split to get file names, given a path</li>
+        <li>How negative indexing is advantageous over positive indexing</li>
+    </ol>
+
+        <h2>Using <code>split()</code> with Paths</h2>
+        <pre>
+    path3 = r'C:\\Users\\adarsha\\OneDrive\\0_MIT_Sept2023_Python\\Day2_23_09_2023.ipynb'
+    print(path3.split(r'\\'))
+    # Output: ['C:', 'Users', 'adarsha', 'OneDrive', '0_MIT_Sept2023_Python', 'Day2_23_09_2023.ipynb']
+
+    path3 = 'C:/Users/adarsha/OneDrive/0_MIT_Sept2023_Python/Day2_23_09_2023.ipynb'
+    print(path3.split(r'\\'))
+    # Output: ['C:/Users/adarsha/OneDrive/0_MIT_Sept2023_Python/Day2_23_09_2023.ipynb']
+        </pre>
+
+        <p><strong>Note:</strong> Always use <code>r</code> while working with paths or use <code>os.path</code>.</p>
+
+        <h2>Special Characters and Escape Sequences</h2>
+        <pre>
+    print(r'Hi\nHello\nHow\nru')  # \ is giving the following letter 'n' a special meaning - That special meaning is newline.
+    # Output: Hi\nHello\nHow\nru
+
+    print(r'Hi\tHellhowru')  # \t is giving the following letters 'Hellhowru' a special meaning - That special meaning is tab.
+    # Output: Hi\tHellhowru
+
+    print(r'C:\tables\customer\admin')  # \t is giving the following letters 'tables\customer\admin' a special meaning - That special meaning is tab.
+    # Output: C:\tables\customer\admin
+        </pre>
+
+        <h2>String Manipulation</h2>
+        <pre>
+    st = 'ababab'
+    print(st.replace('b', '-'))
+    # Output: 'a-a-a-'
+
+    st = 'ababab'
+    print(st.replace('b', '-'))
+    # Output: 'a-a-a-'
+
+    path3 = r'C:\\Users\\adarsha\\OneDrive\\0_MIT_Sept2023_Python\\Day2_23_09_2023.ipynb'
+    print(path3.replace(r'\\', '/'))
+    # Output: 'C:/Users/adarsha/OneDrive/0_MIT_Sept2023_Python/Day2_23_09_2023.ipynb'
+        </pre>
+
+        <h2>Character Encoding and Replacement</h2>
+        <pre>
+    print('hj')
+    # Output: hj
+
+    st = 'Python is easy to understand'
+    print(st.rfind('t'))
+    # Output: 24
+
+    print(st.find('t'))
+    # Output: 2
+        </pre>
+
+        <h2>String Stripping</h2>
+        <pre>
+    print(' python '.strip())
+    # Output: 'python'
+
+    print('--python--'.strip('-'))
+    # Output: 'python'
+
+    print('ghh python is easy gh'.strip('gh'))
+    # Output: ' python is easy '
+        </pre>
+
+        <h2>Conditional Statements</h2>
+        <pre>
+    a, b, c = 1, 2, 3
+    print(a)
+    if b > a:  # Condition will result in True
+        print('Inside if')
+        print(b)
+        print(a)
+        print('Inside if : 3rd line')
+
+    print(c)  # Not a part of the body of if because it's of different indentation
+
+    a, b, c = 1, 2, 3
+    print(a)
+    if a > b:  # Condition will result in False
+        print('Inside if : 1st line')
+        print(b)
+        print(a)
+        print('Inside if : 3rd line')
+
+    print(c)
+    # Output:
+    # 1
+    # Inside if
+    # 2
+    # 1
+    # Inside if : 3rd line
+    # 3
+        </pre>
+
+        <h2>User Input and File Checking</h2>
+        <pre>
+    # User input
+    a = input('Please enter the input:\n')
+    print(a)
+
+    # File checking
+    file_name = input('Please enter a file name:\n')
+    if file_name.endswith('.xlsx') or file_name.endswith('.csv'):
+        print('Given file is an excel or csv file')
+    else:
+        print('Given file is not an excel or csv file')
+
+    # Number checking
+    a = input('Please enter a number:\n')
+    a = int(a)
+    if a % 2 == 0:
+        print('Given number is even')
+    else:
+        print('Given number is odd')
+        </pre>
+
+    <h1>Type Casting / Type Conversion in Python</h1>
+
+    <h2>Converting String to Integer</h2>
+    <pre>
+    # Converting string to int
+    st = '34'
+    print(st)
+    print(type(st))
+    a = int(st)  # Type casting is happening here
+    print(a)
+    print(type(a))
+    # Output:
+    # 34
+    # &lt;class 'str'&gt;
+    # 34
+    # &lt;class 'int'&gt;
+        </pre>
+
+        <h2>Converting String with Float to Int (Error Example)</h2>
+        <pre>
+    # Converting string having float to int --- Result in error
+    st = '34.5'
+    print(st)
+    print(type(st))
+    try:
+        a = int(st)  # Gives error because string does not contain an integer, it contains float
+    except ValueError as e:
+        print("Error:", e)
+    # Output:
+    # 34.5
+    # &lt;class 'str'&gt;
+    # Error: invalid literal for int() with base 10: '34.5'
+        </pre>
+
+        <h2>Converting String with Float to Float</h2>
+        <pre>
+    # Converting string having float to float will work
+    st = '34.5'
+    print(st)
+    print(type(st))
+    a = float(st)  # Type casting is happening here
+    print(a)
+    print(type(a))
+    # Output:
+    # 34.5
+    # &lt;class 'str'&gt;
+    # 34.5
+    # &lt;class 'float'&gt;
+        </pre>
+
+        <h2>Converting String with Float to Int (Two-Step Conversion)</h2>
+        <pre>
+    # If you want to convert a string having float to int.
+    # First convert to float, then convert to int
+    st = '34.5'
+    print(st)
+    print(type(st))
+    a = int(float(st))  # Type casting is happening here. First convert to float, then convert to int
+    print(a)
+    print(type(a))
+    # Output:
+    # 34.5
+    # &lt;class 'str'&gt;
+    # 34
+    # &lt;class 'int'&gt;
+        </pre>
+
+        <h2>Converting Int or Float to String</h2>
+        <pre>
+    # Convert int or float to string
+    a_int = 23
+    print(type(a_int))
+    print(a_int)
+    a_str = str(a_int)
+    print(type(a_str))
+    print(a_str)
+    # Output:
+    # &lt;class 'int'&gt;
+    # 23
+    # &lt;class 'str'&gt;
+    # 23
+        </pre>
+
+        <h2>String Concatenation and Type Conversion</h2>
+        <pre>
+    a, b = 25, 5
+    res = a % b
+    st_to_print = str(a) + ' divided by ' + str(b) + ' results in a remainder of ' + str(res)
+    print(st_to_print)
+    # Output:
+    # 25 divided by 5 results in a remainder of 0
+
+    '5' + 'a' + '6'  # Output: '5a6'
+    str(5) + 'a' + str(6)  # Output: '5a6'
+        </pre>
+
+        <h2>Special Character in Python</h2>
+        <pre>
+    ord('\a')  # Output: 7
+        </pre>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
