@@ -67,6 +67,9 @@ def class6():
 @app.route('/class7')
 def class7():
     return render_template('class7.html')
+@app.route('/Exercise')
+def Exercise():
+    return render_template('Exercise.html')
 
 
 if __name__ == '__main__':

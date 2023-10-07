@@ -21,75 +21,109 @@
         </a>
     </div>
 
-    <h1>Lists and Related Concepts in Python</h1>
 
-    <h2>Splitting Strings</h2>
+    <h1>String Manipulation Problems</h1>
+
+    <h2>Problem 1: Print Vowels</h2>
     <pre>
-    st = 'Python is easy to learn'
-    res = st.split()
-    print(res)
-    # Output: ['Python', 'is', 'easy', 'to', 'learn']
+    def print_vowels(input_string):
+        vowels = "aeiou"
+        input_string = input_string.lower()
+        result = "".join(char for char in input_string if char in vowels)
+        return result
 
-    st = 'Python is easy to learn and is easy to code'
-    res = st.split('is', 1)
-    print(res)
-    # Output: ['Python ', ' easy to learn and is easy to code']
+    input_string = "Hello, World!"
+    print(print_vowels(input_string))
+    # Output: eoo
         </pre>
 
-        <h2>Using Negative Indexing</h2>
+        <h2>Problem 2: Word Count</h2>
         <pre>
-    li = [1, 2, 3, 4, 5]
-    print(li[0])  # Output: 1
-    print(li[-1])  # Output: 5
+    def word_count(sentence):
+        words = sentence.split()
+        return len(words)
+
+    sentence = "This is a sample sentence."
+    print(word_count(sentence))
+    # Output: 5
         </pre>
 
-        <h2>Appending Elements to Lists</h2>
+        <h2>Problem 3: Remove Duplicates</h2>
         <pre>
-    li1 = ['Python', 1, 2, True, 'Hello', 2.3]
-    print(li1)
-    li1.append('Java')
-    print(li1)
-    # Output: ['Python', 1, 2, True, 'Hello', 2.3, 'Java']
+    def remove_duplicates(input_string):
+        result = ""
+        for char in input_string:
+            if char not in result:
+                result += char
+        return result
 
-    li2 = ['Some string', ['Python', 6], ['Java', 4], ['C++', 3], ['C'], 25, 'a']
-    print(li2[0])  # Output: Some string
-    print(li2[1])  # Output: ['Python', 6]
-    print(li2[1][0])  # Output: Python
-    print(li2[1][0][4:])  # Output: on
-
-    li2[1].append('yyyyyyyyyyyyyyyyyy')
-    print(li2)
-    # Output: ['Some string', ['Python', 6, 'yyyyyyyyyyyyyyyyyy'], ['Java', 4], ['C++', 3], ['C'], 25, 'a']
+    input_string = "programming"
+    print(remove_duplicates(input_string))
+    # Output: progamin
         </pre>
 
-        <h2>Working with Nested Lists</h2>
+        <h2>Problem 4: Title Case</h2>
         <pre>
-    list_of_fruits = ['Mango', 'Apple', 'Banana', ['PA', 'LI', 'GU'], 25.32]
-    list_of_fruits.append('Jackfruit')
-    print(list_of_fruits)
-    # Output: ['Mango', 'Apple', 'Banana', ['PA', 'LI', 'GU'], 25.32, 'Jackfruit']
+    def title_case(input_string):
+        return input_string.title()
 
-    list_of_fruits.append([1, 'Hi', 3.4])
-    print(list_of_fruits)
-    # Output: ['Mango', 'Apple', 'Banana', ['PA', 'LI', 'GU'], 25.32, 'Jackfruit', [1, 'Hi', 3.4]]
+    input_string = "hello world"
+    print(title_case(input_string))
+    # Output: Hello World
         </pre>
 
-        <h2>Working with Empty Lists</h2>
+        <h2>Problem 5: String Rotation</h2>
         <pre>
-    li = []
-    li.append(1)
-    print(li)  # Output: [1]
+    def is_rotation(str1, str2):
+        return len(str1) == len(str2) and str1 in str2 + str2
 
-    li.pop()  # Removes the last element from the list
-    print(li)  # Output: []
+    str1 = "waterbottle"
+    str2 = "erbottlewat"
+    print(is_rotation(str1, str2))
+    # Output: True
         </pre>
 
-        <h2>List Indexing and Splitting</h2>
+        <h2>Problem 6: Replace Substring</h2>
         <pre>
-    li = [1, 2, 3, 4, 5]
-    print(li)
-    # Output: [1, 2, 3, 4, 5]
-    print(li[0])  # Output: 1
+    def replace_substring(input_string, target, replacement):
+        return input_string.replace(target, replacement)
+
+    input_string = "Hello, World!"
+    target = "World"
+    replacement = "Universe"
+    print(replace_substring(input_string, target, replacement))
+    # Output: Hello, Universe!
+        </pre>
+
+        <h2>Problem 7: Acronym Generator</h2>
+        <pre>
+    def acronym_generator(input_string):
+        words = input_string.split()
+        acronym = "".join(word[0].upper() for word in words)
+        return acronym
+
+    input_string = "National Aeronautics and Space Administration"
+    print(acronym_generator(input_string))
+    # Output: NASA
+        </pre>
+
+        <h2>Problem 8: Longest Substring</h2>
+        <pre>
+    def longest_substring(input_string):
+        current_char = input_string[0]
+        longest_substring = input_string[0]
+        for char in input_string[1:]:
+            if char == current_char[-1]:
+                current_char += char
+            else:
+                current_char = char
+            if len(current_char) > len(longest_substring):
+                longest_substring = current_char
+        return longest_substring
+
+    input_string = "aabbaaaaabb"
+    print(longest_substring(input_string))
+    # Output: aaaaa
         </pre>
 
     <!-- You can continue to add more sections as needed -->
