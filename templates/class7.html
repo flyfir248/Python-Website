@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+
+    <h1>Python Agenda</h1>
+
+    <h2>Recap</h2>
+    <ul>
+        <li>List functions</li>
+            <ul>
+                <li>Difference between append and extend</li>
+                <li>Difference between pop and remove</li>
+            </ul>
+        <li>count</li>
+        <li>reverse</li>
+        <li>Difference between reversing using slicing and using reverse</li>
+        <li>Difference between inplace and non-inplace functions</li>
+        <li>Sorting list having strings</li>
+        <li>Difference between sort and sorted</li>
+        <li>Nested lists/Multidimensional lists</li>
+            <ul>
+                <li>insert into one dimensional list</li>
+                <li>insert into multidimensional list</li>
+            </ul>
+        <li>Examples on how to use for loop and if else</li>
+            <ul>
+                <li>Strings</li>
+                <li>Lists</li>
+            </ul>
+    </ul>
+
+    <h2>Upcoming Sessions</h2>
+    <ul>
+        <li>Sets</li>
+        <li>Using For, While, If Else for Dictionary and Set</li>
+        <li>List comprehensions</li>
+        <li>Functions</li>
+        <li>File handling</li>
+        <li>Exception handling</li>
+        <li>Modules</li>
+        <li>Introduction to OOP</li>
+        <li>Numpy and Pandas</li>
+    </ul>
+
+    <h2>For Loop and While Loop</h2>
+    <pre>
+    # For Loop Syntax:
+    # for variable in iterable:
+    #     body of the loop
+
+    # When to use for loop ?
+    # - When the number of iterations/elements is known
+    # - Stops when all the elements are iterated
+
+    # While Loop Syntax:
+    # while condition: # Till the condition is true, body of the loop will be executing
+    #     body of while loop
+
+    # When to use while loop ?
+    # - When the number of elements/iterations is unknown
+
+    # Example: Printing numbers from 0 to 2 using while loop
+    i = 0
+    while i < 3:
+        print(i)
+        i = i + 1
+
+    # Output:
+    # 0
+    # 1
+    # 2
+
+    # Problem statement:
+    # Take numbers as input from the user continuously.
+    # Print if the number is divisible by 3 or not.
+    # Stop when user types 'stop', 'STOP', or 'Stop'
+    ip = ''
+    while ip.lower() != 'stop':
+        ip = input('Please enter a number:')
+        if ip.isdigit() and int(ip) % 3 == 0:
+            print('Number is divisible by 3')
+        elif ip.isdigit():
+            print('Number is not divisible by 3')
+
+    # Problem statement:
+    # Take numbers as input from the user continuously.
+    # Print if the number is even or not.
+    # Stop when user types 'stop', 'STOP', or 'Stop'
+    ip = ''
+    while ip.lower() != 'stop':
+        ip = input('Please enter a number:')
+        if ip.isdigit() and int(ip) % 2 == 0:
+            print('Number is even')
+        elif ip.isdigit():
+            print('Number is odd')
+        elif ip.lower() != 'stop':
+            print('Invalid input')
+
+    # Filter all the strings and retain only integers
+    ip_li = [1, 2, 3, 54, 5, 'python', 'hello', 'java']
+    op_li = []
+    for ele in ip_li:
+        if type(ele) == int:
+            op_li.append(ele)
+    print(op_li)
+
+    # List flattening using nested for loop
+    list_2D = [[1, 2], [2, 4, 5, 6], [4, 3, 2]]
+    list_flat = []
+    for i in list_2D:
+        for j in i:
+            list_flat.append(j)
+    print(list_flat)
+
+    # List flattening with mixed data types
+    list_2D = [1, 3, 4, [1, 2], 5, [2, 4, 5, 6], [4, 3, 2]]
+    op = []
+    for i in list_2D:
+        if type(i) == list:
+            for j in i:
+                op.append(j)
+        else:
+            op.append(i)
+    print(op)
+
+    # Range function
+    li = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    for i in li:
+        print(i)
+
+    # Using range function to print numbers from 0 to 999
+    for i in range(0, 1000):
+        print(i)
+        </pre>
+
+
+    <h1>Python Code Examples</h1>
+
+    <h2>Lists and Ranges</h2>
+    <pre>
+    # Creating a list from 0 to 14
+    li = list(range(0, 15))
+    print(li)
+
+    # Output: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+    # Finding even numbers between 5 to 20
+    for i in range(5, 20):
+        if i % 2 == 0:
+            print(i)
+
+    # Output: 6, 8, 10, 12, 14, 16, 18
+
+    # Creating a list in reverse order from 56 to 52
+    print(list(range(56, 52, -1)))
+
+    # Output: [56, 55, 54, 53]
+
+    # Printing numbers from 3 to 15 with a step of 3
+    for i in range(3, 15, 3):
+        print(i)
+
+    # Output: 3, 6, 9, 12
+
+    # Printing numbers from 21 to -9 with a step of -3
+    for i in range(21, -9, -3):
+        print(i)
+
+    # Output: 21, 18, 15, 12, 9, 6, 3, 0, -3, -6
+
+    # Creating a list with the cubes of even numbers from 4 to 15
+    op = []
+    for i in range(4, 15, 2):
+        op.append(i ** 3)
+    print(op)
+
+    # Output: [64, 216, 512, 1000, 1728, 2744]
+
+    # Creating a list with the cubes of even numbers from 4 to 15
+    op = []
+    for i in range(4, 15):
+        if i % 2 == 0:
+            op.append(i * i * i)
+    print(op)
+
+    # Output: [64, 216, 512, 1000, 1728, 2744]
+        </pre>
+
+        <h2>Converting List to String</h2>
+        <pre>
+    # Converting a string to a list of words
+    sentence = 'Python is easy to understand'
+    words = sentence.split()
+    print(words)
+
+    # Output: ['Python', 'is', 'easy', 'to', 'understand']
+
+    # Joining list elements with a comma and splitting back to list
+    capital_list = ['Banglore', 'Hyderabad', 'Chennai']
+    joined_str = ','.join(capital_list)
+    abc = joined_str.split(',')
+    print(abc)
+
+    # Output: ['Banglore', 'Hyderabad', 'Chennai']
+
+    # Joining list elements with a hyphen
+    hyphen_joined = '-'.join(capital_list)
+    print(hyphen_joined)
+
+    # Output: 'Banglore-Hyderabad-Chennai'
+
+    # Joining list elements with a comma
+    comma_joined = ','.join(capital_list)
+    print(comma_joined)
+
+    # Output: 'Banglore,Hyderabad,Chennai'
+
+    # Joining list elements with a backslash
+    backslash_joined = '\\'.join(capital_list)
+    print(backslash_joined)
+
+    # Output: 'Banglore\\Hyderabad\\Chennai'
+
+    # Joining list elements with a space
+    space_joined = ' '.join(capital_list)
+    print(space_joined)
+
+    # Output: 'Banglore Hyderabad Chennai'
+
+    # Joining a list of integers (TypeError example)
+    try:
+        space_joined_integers = ' '.join([1, 2, 3, 4, 5, 6])
+    except TypeError as e:
+        print(f'Error: {e}')
+
+    # Output: TypeError: sequence item 0: expected str instance, int found
+
+    # Joining a string with repeating pattern using join
+    repeating_pattern = "|This is python , it's is easy to understand"
+    joined_pattern = repeating_pattern.join('|||||||')
+    print(joined_pattern)
+
+    # Output: '|This is python , it's is easy to understand|This is python , it's is easy to understand|This is python , it's is easy to understand|This is python , it's is easy to understand|This is python , it's is easy to understand|This is python , it's is easy to understand|'
+        </pre>
+
+        <h2>Tuples</h2>
+        <pre>
+    # Creating tuples
+    tu1 = ()
+    tu = (1, 2, 3, 4, 5, 6, 3, 7, 8, 8, 9, 0, 10, 11)
+
+    # Tuple methods
+    print(tu.count(2))  # Output: 1
+    print(tu.index(2))  # Output: 1
+
+    # Tuple size comparison with list
+    import sys
+    print(sys.getsizeof(tu))  # Output: 152
+    print(sys.getsizeof(li))  # Output: 184
+        </pre>
+
+        <h2>Dictionaries</h2>
+        <pre>
+    # Creating a dictionary
+    contacts = {'Adarsh': 73457365693, 'Shweta': 87658346583, 'Nikhil': 7364534347}
+    print(contacts)
+    # Output: {'Adarsh': 73457365693, 'Shweta': 87658346583, 'Nikhil': 7364534347}
+        </pre>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+
+    <h1>Agenda Recap</h1>
+
+    <h2>Recap:</h2>
+    <pre>
+    if else
+    single line if else
+    lists
+    multiple if
+    list function
+    pop
+    and and or usage in if - using multiple conditions in if
+    multi-dimensional list
+    append
+    how to access list elements / list indexing
+        1D list
+        Multi-dimensional list (nested list)
+    split
+    raw string
+    How to append a list to an existing list
+    find
+    escape sequences
+    count
+    using len for list
+    creating empty list
+    creating list with elements
+    replace for strings
+    Using for loop with a string
+    if elif else
+    rfind strip
+        </pre>
+
+        <h2>List:</h2>
+        <pre>
+    Heterogeneous
+    Ordered
+    Mutable / Changable
+    Duplicate values are allowed
+    Square bracket is used to represent a list
+    Positive indexing starts with 0
+    Don't use the keyword 'list' as a variable name
+        </pre>
+
+        <h2>Important Points:</h2>
+        <pre>
+    Don't use any keywords as variable names. If accidentally done, restart the kernel.
+
+    # Examples of variable name conflicts:
+    # round = 23
+    # str = 'Hello'
+    # list = [1,2,3,4]
+        </pre>
+
+        <h2>Difference between extend and append - Important for interviews:</h2>
+        <pre>
+    capital_cities_li = ['Bangalore', 'Hyderabad', 'Chennai', 'Mumbai', 'Delhi', 'Kolkata']
+
+    print(capital_cities_li)
+    # Output: ['Bangalore', 'Hyderabad', 'Chennai', 'Mumbai', 'Delhi', 'Kolkata']
+
+    capital_cities_li.append('Ahmedabad')
+    print(capital_cities_li)
+    # Output: ['Bangalore', 'Hyderabad', 'Chennai', 'Mumbai', 'Delhi', 'Kolkata', 'Ahmedabad']
+
+    new_list_of_capitals = ['Jaipur', 'Imphal', 'Bhopal']
+
+    # Using append:
+    # capital_cities_li.append(new_list_of_capitals)  # This will add the list as an element in the list.
+
+    # Using extend:
+    capital_cities_li.extend(new_list_of_capitals)  # This will add elements of the list to the original list.
+
+    print(capital_cities_li)
+    # Output: ['Bangalore', 'Hyderabad', 'Chennai', 'Mumbai', 'Delhi', 'Kolkata', 'Ahmedabad', 'Jaipur', 'Imphal', 'Bhopal']
+
+    print(capital_cities_li[0])
+    # Output: 'Bangalore'
+
+    # Inserting into a multidimensional list:
+    li = [1, 'Python', 22.6, 'Hello', 4]
+    print(li)
+    # Output: [1, 'Python', 22.6, 'Hello', 4]
+
+    li.insert(2, 'Java')
+    print(li)
+    # Output: [1, 'Python', 'Java', 22.6, 'Hello', 4]
+
+    li.insert(3, [6, 7, 8])
+    print(li)
+    # Output: [1, 'Python', 'Java', [6, 7, 8], 22.6, 'Hello', 4]
+
+    # Pop and insert in a multidimensional list:
+    li[3].insert(2, 'iiiiiiiiiiii')
+    print(li)
+    # Output: [1, 'Python', 'Java', [6, 7, 'iiiiiiiiiiii', 8], 22.6, 'Hello', 4]
+
+    li.pop()
+    print(li)
+    # Output: [1, 'Python', 'Java', [6, 7, 'iiiiiiiiiiii', 8], 22.6, 'Hello']
+
+    li.pop(2)
+    print(li)
+    # Output: [1, 'Python', [6, 7, 'iiiiiiiiiiii', 8], 22.6, 'Hello']
+
+    # Common error: Do not use reserved keywords as variable names.
+    # Examples:
+    # li = 1  # Assigned integer
+    # li.append(34)  # Calling list function results in an error.
+        </pre>
+
+        <h2>Different Datatypes:</h2>
+        <pre>
+    a = int(2.45)
+    b = 2.45
+    c = '2.45'
+    d = [2.45]
+
+    print(type(d))
+    # Output: &lt;class 'list'&gt;
+    print(d)
+    # Output: [2.45]
+
+    print(type(c))
+    # Output: &lt;class 'str'&gt;
+    print(c)
+    # Output: 2.45
+
+    print(type(a))
+    # Output: &lt;class 'int'&gt;
+    print(a)
+    # Output: 2
+
+    print(type(b))
+    # Output: &lt;class 'float'&gt;
+    print(b)
+    # Output: 2.45
+        </pre>
+
+    <h1>Python Operations</h1>
+
+    <h2>List and String Operations:</h2>
+    <pre>
+      # Not allowed because list does not have the function split
+      # d.split()
+
+      # Split is allowed on c because its datatype is string.
+      c.split('.')
+      # Output: ['2', '45']
+
+      # Remove function removes the first occurrence of the value.
+      li.remove(1)
+      # Output: ['Python', 22.6, 'Hello', 4]
+
+      # Count function returns the number of occurrences of a value in the list.
+      print(li.count(6))
+      # Output: 7
+      print(li.count(4))
+      # Output: 2
+
+      # Reverse function reverses the list in place.
+      li1.reverse()
+      # Output: [6, 5, 4, 3, 2, 1]
+      li2 = li2[::-1]
+      # Output: [6, 5, 4, 3, 2, 1]
+
+      # Sort function sorts the list in ascending order.
+      li.sort()
+      # Output: [1, 3, 4, 5, 22, 45, 76]
+
+      # Sort function can also sort the list in descending order.
+      li.sort(reverse=True)
+      # Output: [76, 45, 22, 5, 4, 3, 1]
+
+      # Sorted function does not modify the original list and returns a sorted list.
+      sorted_st_marks = sorted(st_marks)
+      # Output: [1, 4, 5, 12, 18, 19, 20, 21]
+
+      # Sort in descending order using sorted function.
+      st_marks.sort()
+      # Output: [21, 20, 19, 18, 12, 5, 4, 1]
+
+      # Sorting strings in a list.
+      li = ['Python','Java','C++','c','c++','c--']
+      li.sort()
+      # Output: ['C++', 'Java', 'Python', 'c', 'c++', 'c--']
+
+      # Extract even numbers from a list.
+      li = [1, 4, 5, 99, 3, 2]
+      op = []
+      for num in li:
+          if num % 2 == 0:
+              op.append(num)
+      # Output: [4, 2]
+
+      # Count the number of times each character is present in a string.
+      ip_st = 'programming'
+      char_li = []
+      for i in ip_st:
+          if i not in char_li:
+              print(i, ip_st.count(i))
+              char_li.append(i)
+          </pre>
+
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
