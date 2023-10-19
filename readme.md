@@ -12,6 +12,7 @@ Welcome to the Python Studies website! This platform is designed to help you lea
 
 ## Getting Started
 
+
 To get started with this Python Studies website, follow these steps:
 
 1. Clone the repository to your local machine:
