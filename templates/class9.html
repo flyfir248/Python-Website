@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+
+
+      <h1>Agenda</h1>
+      <ul>
+          <li>Recap</li>
+          <li>Continue with functions</li>
+          <li>Comprehensions
+              <ul>
+                  <li>List</li>
+                  <li>Dictionary</li>
+                  <li>Set</li>
+              </ul>
+          </li>
+          <li>Modules</li>
+      </ul>
+
+      <h2>Recap</h2>
+      <h3>Functions</h3>
+      <ul>
+          <li><strong>What?</strong> Functions in Python allow you to encapsulate a set of instructions into a reusable block of code.</li>
+          <li><strong>Why?</strong> Functions promote reusability, modularity, and readability of the code.</li>
+          <li><strong>How?</strong> Functions have a specific syntax for definition and calling.
+              <ul>
+                  <li><strong>Syntax:</strong>
+                      <ul>
+                          <li><em>Function Definition:</em><br><code>def fun_name(arguements-optional):<br>    body of the function<br>    return - optional</code></li>
+                          <li><em>Function Call:</em><br><code>var = fun_name(arguements)</code></li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+
+      <h3>Definition</h3>
+      <h3>Arguments</h3>
+      <h3>Different types of arguments</h3>
+      <ul>
+          <li><strong>Positional:</strong> Value assigned according to the position of arguments during function call. Mandatory.</li>
+          <li><strong>Default:</strong> Arguments with default values set during function definition. Optional.</li>
+          <li><strong>Keyword:</strong> Arguments passed with their corresponding parameter names.</li>
+          <li><strong>Variable length:</strong> Accepts any number of positional arguments. Collected into a tuple.</li>
+          <li><strong>Variable length keyword arguments:</strong> Accepts any number of keyword arguments. Collected into a dictionary.</li>
+      </ul>
+
+      <h3>Examples:</h3>
+
+      <pre><code>def add(x, y):  # x and y are parameters
+      res = x + y
+      return res
+
+  r = add(4, 5)  # 4 and 5 are arguments
+
+  x = 1
+  y = 5
+  r = add(x, y)  # x and y are arguments
+
+  print(None)  # Output: None
+
+  # Positional, value assigned according to the position of arguments during function call
+  # Positional arguments are mandatory
+  def f1(a, b):
+      print(a)
+      print(b)
+
+  f1(1, 2)
+
+  # Default argument, will have a default value assigned during function definition
+  # Default arguments are optional
+  def f2(a, b=8):
+      print(a)
+      print(b)
+
+  f2(3, b=23)  # b is default argument
+  f2(3)
+  f2(3, b=68)
+  f2(7)
+
+  f2(b=8, a=45)  # Keyword arguments
+  c = {'b': 8, 'a': 45}
+  f2(**c)  # Entire dictionary passed is assigned to a and b is assigned with default value
+
+  c = 45
+  f2(c)
+  def f3(*zzzzz):  # Convention used for variable length keyword argument is **args
+      print(zzzzz)
+
+  f3(1, 22, 45, 2, 3, 4, 5, 5, 6, 7, 8, 9)
+  f3(1, 22, 45, 2, 7, 8, 9)
+  f3('Python is easy')
+  f3(*'Python is easy')
+  f3([1, 2, 3, 4])
+  f3(*[1, 2, 3, 4])
+
+  def f4(**ttt):  # Convention used for variable length keyword argument is **kwargs
+      print(ttt)
+
+  f4(u=23, b=89, z=90)
+  f4(**{'u': 23, 'b': 89, 'z': 90})
+  </code></pre>
+
+      <h2>Examples:</h2>
+
+      <pre><code># Example 1: Calculate the order cost with no discount
+  order_cost = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20})
+  print("Total cost:", order_cost)  # Output: Total cost: 30
+
+  # Example 2: Calculate the order cost with no discount
+  order_cost = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30})
+  print("Total cost:", order_cost)  # Output: Total cost: 60
+
+  # Example 3: Calculate the order cost with a fixed discount of $5
+  order_cost = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30}, discount=5)
+  print("Total cost:", order_cost)  # Output: Total cost: 55
+
+  # Example 4: Calculate the order cost with a 10% discount
+  order_cost = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20}, discount=10, discount_type='percentage')
+  print("Total cost:", order_cost)  # Output: Total cost: 27.0
+  </code></pre>
+
+      <h2>Function Implementation:</h2>
+
+      <pre><code>def calculate_order_cost(*products_list, discount=0, discount_type=''):
+      total_price = 0
+      for item_dictionary in products_list:
+          total_price += item_dictionary['price']
+      if discount_type == 'percentage':
+          discount_price = (total_price * discount) / 100
+          total_price -= discount_price
+      else:
+          total_price -= discount
+      return total_price
+  </code></pre>
+
+      <h2>Additional Examples:</h2>
+
+      <pre><code># Calculate order cost without discount
+  order_price = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name':'Book','price':50})
+  print(order_price)  # Output: 80
+
+  # Calculate order cost with fixed discount
+  order_price = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30})
+  print(order_price)  # Output: 60
+
+  # Calculate order cost with a fixed discount of $5
+  order_price = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30}, discount=5)
+  print(order_price)  # Output: 55
+
+  # Calculate order cost with a 10% discount
+  order_price = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20}, discount=10, discount_type='percentage')
+  print(order_price)  # Output: 27.0
+
+  # Order of argument passing
+  def f1(a, b, c=4, *args, l=78, **kwargs):
+      print(a)
+      print(b)
+      print(c)
+      print(args)
+      print(l)
+      print(kwargs)
+
+  f1(1, 2, 3, 4, 5, 6, 7, l=90, p=45, m=97, j='Hi')
+  </code></pre>
+
+      <h1>Modules</h1>
+
+      <ul>
+          <li>Any Python file (.py file is a module)</li>
+          <li>Why modules?
+              <ul>
+                  <li>Code reusability</li>
+                  <li>Code management and modularity</li>
+              </ul>
+          </li>
+      </ul>
+
+      <h2>Example 1: Using Modules</h2>
+
+      <pre><code>import simplemath as sm  <!-- Aliasing -->
+  res = sm.areaOfCircle(3)
+  print(res)  <!-- Output: 28.259999999999998 -->
+  sm.areaOfRectangle(3, 5)  <!-- Output: 15 -->
+  </code></pre>
+
+      <h2>Example 2: Working with External Modules</h2>
+
+      <pre><code>import sys
+  sys.path.append(r'D:/Desktop_2/PythonMIT_Batch4/UnderstandingModules')
+  import SimpleAlgebra as sa
+  sa.is_prime(7)  <!-- Output: True -->
+  </code></pre>
+
+      <h2>Steps to Import Modules from a Custom Folder</h2>
+
+      <ol>
+          <li>Create a folder</li>
+          <li>Save SimpleAlgebra given in the chat in the folder created</li>
+          <li>Copy the folder path</li>
+          <li>Come back to Jupyter Notebook</li>
+          <li>Import sys</li>
+          <li>Append the folder path to sys.path</li>
+          <li>Replace backslash with forward slash</li>
+          <li>Import SimpleAlgebra as sa</li>
+          <li>Use the functions from the module</li>
+      </ol>
+
+     <h1>Calculate Order Cost Function</h1>
+
+    <p>You are tasked with implementing a flexible and user-friendly function in Python to calculate the total cost of a customer's order from an online store. The order consists of various items, each with a different price, and the customer may have discount coupons to apply. The function should make use of variable-length arguments and keyword arguments to accommodate different order configurations and apply discounts accordingly.</p>
+
+    <h2>Requirements:</h2>
+    <ul>
+        <li>Create a Python function called <code>calculate_order_cost</code> that accepts variable-length arguments for the items in the order.</li>
+        <li>Each item is represented as a dictionary with keys <code>'item_name'</code> and <code>'price'</code>. The function should allow the user to pass any number of items in the order.</li>
+        <li>Implement a keyword argument <code>'discount'</code> which allows the user to specify a discount to be applied to the order.</li>
+        <li>The discount can be a fixed amount or a percentage.</li>
+        <li>The function should calculate the total cost of the order, considering the prices of the items and applying the specified discount, if provided.</li>
+        <li>If a discount is specified as a fixed amount, it should be subtracted from the total cost.</li>
+        <li>If it's specified as a percentage, it should be applied as a percentage reduction to the total cost.</li>
+        <li>The function should return the final total cost after applying the discount.</li>
+    </ul>
+
+    <h2>Python Function:</h2>
+    <pre><code>
+def calculate_order_cost(*items, discount=0, discount_type='percentage'):
+    total_cost = sum(item['price'] for item in items)
+
+    if discount_type == 'percentage':
+        discount_amount = (total_cost * discount) / 100
+        total_cost -= discount_amount
+    else:
+        total_cost -= discount
+
+    return total_cost
+    </code></pre>
+
+  <h1>Simple Math Module</h1>
+
+      <h2>Functions:</h2>
+
+      <h3>1. Add Two Numbers:</h3>
+      <pre><code>def add_numbers(a, b):
+      return a + b;</code></pre>
+
+      <h3>2. Square of a Number:</h3>
+      <pre><code>def square(number):
+      return number ** 2;</code></pre>
+
+      <h3>3. Factorial using Recursion:</h3>
+      <pre><code>def factorial_recursive(number):
+      if number == 1:
+          return 1
+      else:
+          return number * factorial_recursive(number - 1);</code></pre>
+
+      <h3>4. Generate Random Number and Guessing Game:</h3>
+      <pre><code>import random
+
+  def guess_number():
+      random_number = random.randint(1, 100)
+      user_guess = int(input("Guess the number between 1 and 100: "))
+      if user_guess == random_number:
+          return "Congratulations! You guessed the correct number."
+      else:
+          return f"Wrong guess. The correct number was {random_number}";</code></pre>
+
+      <h3>5. Calculate Circle Area:</h3>
+      <pre><code>import math
+
+  def calculate_circle_area(radius):
+      return math.pi * radius ** 2;</code></pre>
+
+      <h3>6. Check Prime Number:</h3>
+      <pre><code>def is_prime(number):
+      if number <= 1:
+          return False
+      for i in range(2, int(math.sqrt(number)) + 1):
+          if number % i == 0:
+              return False
+      return True;</code></pre>
+
+      <h3>7. Calculate Greatest Common Divisor (GCD):</h3>
+      <pre><code>def calculate_gcd(a, b):
+      while b != 0:
+          a, b = b, a % b
+      return a;</code></pre>
+
+      <h3>8. Simple Calculator:</h3>
+      <pre><code>def calculator(a, b, operation):
+      if operation == "add":
+          return a + b
+      elif operation == "subtract":
+          return a - b
+      elif operation == "multiply":
+          return a * b
+      elif operation == "divide":
+          if b != 0:
+              return a / b
+          else:
+              return "Cannot divide by zero.";</code></pre>
+
+      <h3>9. Quadratic Equation Roots:</h3>
+      <pre><code>def quadratic_roots(a, b, c):
+      discriminant = b**2 - 4*a*c
+      if discriminant > 0:
+          root1 = (-b + math.sqrt(discriminant)) / (2*a)
+          root2 = (-b - math.sqrt(discriminant)) / (2*a)
+          return root1, root2
+      elif discriminant == 0:
+          root = -b / (2*a)
+          return root
+      else:
+          return "Complex roots";</code></pre>
+
+      <h3>10. Temperature Conversion:</h3>
+      <pre><code>def fahrenheit_to_celsius(fahrenheit):
+      return (fahrenheit - 32) * 5.0/9.0
+
+  def celsius_to_fahrenheit(celsius):
+      return celsius * 9.0/5.0 + 32;</code></pre>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

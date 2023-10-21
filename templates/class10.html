@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+
+      <h1>Python Agenda and Importing Modules</h1>
+
+      <h2>Agenda:</h2>
+      <ul>
+          <li>Recap</li>
+          <li>Continue with importing modules</li>
+          <li>List, Dictionary, and Set comprehensions</li>
+          <li>lambda, map, reduce, filter</li>
+      </ul>
+
+      <h2>Remaining topics:</h2>
+      <ul>
+          <li>Exception handling</li>
+          <li>OOP</li>
+          <li>Numpy</li>
+          <li>Pandas</li>
+      </ul>
+
+      <h2>Recap:</h2>
+      <ul>
+          <li>Functions</li>
+          <li>Case study on functions</li>
+          <li>Order of arguments
+              <ul>
+                  <li>Positional</li>
+                  <li>Default</li>
+                  <li>Variable-length argument</li>
+                  <li>Keyword-only argument</li>
+                  <li>Variable-length keyword argument</li>
+              </ul>
+          </li>
+          <li>Modules
+              <ul>
+                  <li>Writing a module and saving it (.py)</li>
+                  <li>How to import module in another module</li>
+                  <li>How to import module in a Jupyter notebook</li>
+                  <li>How to import module present in another folder
+                      <ol>
+                          <li><code>import sys</code></li>
+                          <li>Append path to <code>sys.path</code> --- <code>sys.path</code> is a list</li>
+                      </ol>
+                  </li>
+              </ul>
+          </li>
+          <li>Different ways of importing functions from a module
+              <ul>
+                  <li><code>import module_name</code>:
+                      <ul>
+                          <li>Entire library functions and variables are loaded but existing functions will not be
+                              overwritten because we need to access them through <code>module_name</code> followed by
+                              dot</li>
+                      </ul>
+                  </li>
+                  <li><code>import module_name as alias</code>:
+                      <ul>
+                          <li>Entire library functions and variables are loaded but existing functions will not be
+                              overwritten because we need to access them through <code>alias</code> followed by dot</li>
+                      </ul>
+                  </li>
+                  <li><code>from module_name import *</code>:
+                      <ul>
+                          <li>Entire library functions and variables are loaded into the current notebook/module as it
+                              is. This may overwrite existing functions/variables. Not recommended.</li>
+                      </ul>
+                  </li>
+                  <li><code>from module_name import function1, function2</code>:
+                      <ul>
+                          <li>Can import only required functions without loading the entire library. This is most
+                              commonly used because it avoids overwriting existing functions/variables.</li>
+                      </ul>
+                  </li>
+                  <li><code>from module_name import function1 as alias</code>:
+                      <ul>
+                          <li>Similar to the above import.</li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>List comprehension:
+              <ul>
+                  <li>Filter numbers divisible by 3 from a list of integers</li>
+                  <pre><code>li = [3, 4, 5, 67, 1, 2, 3, 9, 34]
+  op_li = [i for i in li if i % 3 == 0]
+  print(op_li)  # Output: [3, 3, 9]</code></pre>
+                  <li>For a given list of integers, create an output list of strings indicating if the number is even
+                      or odd</li>
+                  <pre><code>ip_li = [1, 7, 5, 4, 9, 22]
+  op_li = ['even' if z % 2 == 0 else 'odd' for z in ip_li]
+  print(op_li)  # Output: ['odd', 'odd', 'odd', 'even', 'odd', 'even']</code></pre>
+              </ul>
+          </li>
+      </ul>
+
+      <h1>Python List Comprehension Examples</h1>
+
+      <h2>Return even or odd only for numbers greater than 5. Also, return number along with even or odd:</h2>
+      <pre><code>ip_li = [3, 4, 5, 67, 1, 2, 3, 9, 34]
+  op_li = [[z, 'even' if z % 2 == 0 else 'odd'] for z in ip_li if z > 5]
+  console.log(op_li);  // Output: [[67, 'odd'], [9, 'odd'], [34, 'even']]</code></pre>
+
+      <h2>For a given list of numbers return their powers of 3:</h2>
+      <pre><code>ip_li = [3, 4, 5]
+  op_li = [y ** 3 for y in ip_li]
+  console.log(op_li);  // Output: [27, 64, 125]</code></pre>
+
+      <h2>Remove stop words from a list of words using list comprehension:</h2>
+      <pre><code>ip_string = "The control room at the Bruhat Bengaluru Mahanagara Palike headquarters - the nerve centre of disaster management in the event of rain and flooding - appears to be hit by absenteeism."
+  words = ip_string.split()
+  stop_words = ['the', 'of', 'at', 'or', 'in', 'and', 'by', 'to']
+  punctuations = ['-', '.']
+  filtered_words = [w for w in words if w.toLowerCase() not in stop_words.concat(punctuations)]
+  console.log(filtered_words);
+  // Output: ['control', 'room', 'Bruhat', 'Bengaluru', 'Mahanagara', 'Palike', 'headquarters', 'nerve', 'centre', 'disaster', 'management', 'event', 'rain', 'flooding', 'appears', 'be', 'hit', 'absenteeism.']</code></pre>
+
+      <h2>Nested List Comprehension:</h2>
+      <h3>List Flattening:</h3>
+      <pre><code>li = [[1, 2], [87, 5], [77, 7]]
+  op = [].concat.apply([], li);
+  console.log(op);  // Output: [1, 2, 87, 5, 77, 7]</code></pre>
+
+      <h3>Extract words that are not present in other sentences:</h3>
+      <pre><code>list_of_sentences = ["This is a simple example ", "This NLP exercise is fun and simple", "Practice makes perfect"]
+  res = []
+  for (let i = 0; i < list_of_sentences.length; i++) {
+      let other_sent = list_of_sentences.slice(0, i).concat(list_of_sentences.slice(i + 1)).join(' ').split(' ');
+      let sentenceWords = list_of_sentences[i].split(' ');
+      for (let j = 0; j < sentenceWords.length; j++) {
+          if (!other_sent.includes(sentenceWords[j])) {
+              res.push(sentenceWords[j]);
+          }
+      }
+  }
+  console.log(res);
+  // Output: ['a', 'example', 'NLP', 'exercise', 'fun', 'and', 'Practice', 'makes', 'perfect']</code></pre>
+
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

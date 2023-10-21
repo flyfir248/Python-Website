@@ -67,6 +67,19 @@ def class6():
 @app.route('/class7')
 def class7():
     return render_template('class7.html')
+
+@app.route('/class8')
+def class8():
+    return render_template('class8.html')
+
+@app.route('/class9')
+def class9():
+    return render_template('class9.html')
+
+@app.route('/class10')
+def class10():
+    return render_template('class10.html')
+
 @app.route('/Exercise')
 def Exercise():
     return render_template('Exercise.html')
