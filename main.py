@@ -72,6 +72,7 @@ def class7():
 def class8():
     return render_template('class8.html')
 
+
 @app.route('/class9')
 def class9():
     return render_template('class9.html')
