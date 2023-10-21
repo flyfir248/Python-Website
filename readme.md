@@ -12,6 +12,7 @@ Welcome to the Python Studies website! This platform is designed to help you lea
 
 ## Getting Started
 
+
 To get started with this Python Studies website, follow these steps:
 
 1. Clone the repository to your local machine:
@@ -81,6 +82,10 @@ You can customize this README to suit your specific project and website content.
 look up here :https://docs.python.org/3/tutorial/introduction.html
 
 
-### link to that repo
+#### Link to that repo history
 
 https://chat.openai.com/c/c1c09cb5-013b-43c1-9f28-3a8e2e51c89e
+
+
+### More pages will be added weekly (Hopefully!!)
+#### Last push to be on [June/July 2024]
