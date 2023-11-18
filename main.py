@@ -91,6 +91,10 @@ def class11():
 def class12():
     return render_template('class12.html')
 
+@app.route('/class13')
+def class13():
+    return render_template('class13.html')
+
 @app.route('/Exercise')
 def Exercise():
     return render_template('Exercise.html')

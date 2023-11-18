@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+    <h2>16. Different Ways of Importing Functions from a Module</h2>
+
+    <code>
+        <pre>
+    # Importing the entire module
+    import simplemath
+
+    # Using the imported module's function
+    result_circle = simplemath.areaOfCircle(2)
+    print("Area of Circle Result:", result_circle)
+
+    # Importing with aliasing
+    import simplemath as sm
+
+    # Using the alias for the function
+    result_circle_alias = sm.areaOfCircle(3)
+    print("Area of Circle (Aliased) Result:", result_circle_alias)
+
+    # Importing specific functions
+    from simplemath import areaOfCircle, areaOfRectangle
+
+    # Using the directly imported functions
+    result_rectangle = areaOfRectangle(2, 3)
+    print("Area of Rectangle Result:", result_rectangle)
+
+    # Importing all functions (not recommended)
+    from simplemath import *
+
+    # Using the imported functions
+    result_square = areaOfSquare(3)
+    print("Area of Square Result:", result_square)
+        </pre>
+    </code>
+
+    <h2>17. List Comprehension</h2>
+
+    <code>
+        <pre>
+    # List comprehension to filter numbers divisible by 3
+    li = [3, 4, 5, 67, 1, 2, 3, 9, 34]
+    op_li = [i for i in li if i % 3 == 0]
+    print("Filtered List (Divisible by 3):", op_li)
+        </pre>
+    </code>
+
+    <h1>List Comprehension</h1>
+
+    <h2>Syntax:</h2>
+    <pre>
+        [expression for elements in iterator if filtering_condition]
+            expression : data to append when the condition results in true
+            element: item in each index of the iterator
+            iterator : Any datatype that has multiple elements
+            filtering_condition : Condition only when the expression is executed
+    </pre>
+
+    <h2>Example:</h2>
+    <pre>
+    <code>
+    op_li = [i for i in li if i % 3 == 0]
+
+    # expression --- i
+    # element ---- i : Here expression and element are the same. This may not be the same always
+    # iterator ---- li
+    # filtering_condition ---- if i % 3 == 0
+
+    print(op_li)
+    # Output: [3, 3, 9]
+    </code>
+    </pre>
+
+    <h2>For a given list of integers, create an output list of strings indicating whether the number is even or odd:</h2>
+    <pre>
+    <code>
+    ip_li = [1, 7, 5, 4, 9, 22]
+    op_li = ['even' if z % 2 == 0 else 'odd' for z in ip_li]
+
+    print(op_li)
+    # Output: ['odd', 'odd', 'odd', 'even', 'odd', 'even']
+
+    # expression --- 'even' if z % 2 == 0 else 'odd'
+    # element --- z
+    # iterable ---- ip_li
+    # filtering_condition ---- Here condition doesn't exist
+    </code>
+    </pre>
+
+    <h1>List Comprehension</h1>
+
+    <h2>General Syntax:</h2>
+    <pre>
+        [expression for elements in iterator if filtering_condition]
+            expression: data to append when the condition results in true
+            element: item in each index of the iterator
+            iterator: any datatype that has multiple elements
+            filtering_condition: condition only when the expression is executed
+    </pre>
+
+    <h2>Example 1:</h2>
+    <pre>
+    <code>
+    ip_li = [3, 4, 5, 67, 1, 2, 3, 9, 34]
+    op_li = [[z, 'even' if z % 2 == 0 else 'odd'] for z in ip_li if z > 5]
+
+    # expression --- [z, 'even' if z % 2 == 0 else 'odd']
+    # element --- z
+    # iterable ---- ip_li
+    # filtering_condition ---- if z > 5
+
+    print(op_li)
+    # Output: [[67, 'odd'], [9, 'odd'], [34, 'even']]
+    </code>
+    </pre>
+
+    <h2>Example 2:</h2>
+    <pre>
+    <code>
+    ip_li = [3, 4, 5]
+    op_li = [y**3 for y in ip_li]
+
+    # expression --- y**3
+    # element --- y
+    # iterable ---- ip_li
+    # filtering_condition ---- No condition
+
+    print(op_li)
+    # Output: [27, 64, 125]
+    </code>
+    </pre>
+
+    <h2>Example 3:</h2>
+    <pre>
+    <code>
+    ip_string = "The control room at the Bruhat Bengaluru Mahanagara Palike headquarters - the nerve centre of disaster management in the event of rain and flooding - appears to be hit by absenteeism."
+
+    words = ip_string.split()
+    stop_words = ['the', 'of', 'at', 'or', 'in', 'and', 'by', 'to']
+    punctuations = ['-', '.']
+    filtered_words = [w for w in words if w.lower() not in stop_words + punctuations]
+
+    print(filtered_words)
+    # Output: ['control', 'room', 'Bruhat', 'Bengaluru', 'Mahanagara', 'Palike', 'headquarters', 'nerve', 'centre', 'disaster', 'management', 'event', 'rain', 'flooding', 'appears', 'be', 'hit', 'absenteeism.']
+    </code>
+    </pre>
+        <h1>List Comprehension</h1>
+
+    <h2>General Syntax:</h2>
+    <pre>
+        [expression for elements in iterator if filtering_condition]
+            expression: data to append when the condition results in true
+            element: item in each index of the iterator
+            iterator: any datatype that has multiple elements
+            filtering_condition: condition only when the expression is executed
+    </pre>
+
+    <h2>Example 1:</h2>
+    <pre>
+    <code>
+    # List comprehension to filter words not in stop_words and punctuations
+    stop_words = ['the', 'of', 'at', 'or', 'in', 'and', 'by', 'to']
+    punctuations = ['-', '.']
+    filtered_words = [w for w in words if (w.lower() not in stop_words) and (w.lower() not in punctuations)]
+
+    # expression ---- w
+    # element ---- w
+    # iterable ---- words
+    # filtering_condition ---- if w.lower() not in stop_words + punctuations
+
+    print(filtered_words)
+    # Output: ['control', 'room', 'Bruhat', 'Bengaluru', 'Mahanagara', 'Palike', 'headquarters', 'nerve', 'centre', 'disaster', 'management', 'event', 'rain', 'flooding', 'appears', 'be', 'hit', 'absenteeism.']
+    </code>
+    </pre>
+
+    <h2>Example 2:</h2>
+    <pre>
+    <code>
+    # Nested list comprehension for list flattening
+    li = [[1, 2], [87, 5], [77, 7]]
+    op = [j for i in li for j in i]
+
+    # Expression ---- j
+    # Elements ------ i and j
+    # Iterator ------ li and i
+    # Condition ----- No condition
+
+    print(op)
+    # Output: [1, 2, 87, 5, 77, 7]
+    </code>
+    </pre>
+
+    <h2>Example 3:</h2>
+    <pre>
+    <code>
+    # List comprehension to extract words not present in other sentences
+    list_of_sentences = ["This is a simple example ", "This NLP exercise is fun and simple", "Practice makes perfect"]
+    op = [word for sentence in list_of_sentences for word in sentence.split()]
+
+    print(op)
+    # Output: ['This', 'is', 'a', 'simple', 'example', 'This', 'NLP', 'exercise', 'is', 'fun', 'and', 'simple', 'Practice', 'makes', 'perfect']
+    </code>
+    </pre>
+        <h2>Example 3:</h2>
+    <pre>
+    <code>
+    # List comprehension to extract words not present in other sentences
+    list_of_sentences = ["This is a simple example", "This NLP exercise is fun and simple", "Practice makes perfect"]
+    res = []
+
+    for i, sentence in enumerate(list_of_sentences):
+        other_sent = list_of_sentences[:i] + list_of_sentences[i + 1:]
+        word_in_other_sent = ' '.join(other_sent).split()
+
+        for word in sentence.split():
+            if word not in word_in_other_sent:
+                res.append(word)
+
+    print(res)
+    # Output: ['a', 'example', 'NLP', 'exercise', 'fun', 'and', 'Practice', 'makes', 'perfect']
+    </code>
+</pre>
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
