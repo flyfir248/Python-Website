@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+          <h1>Agenda</h1>
+          <ul>
+              <li>Recap</li>
+              <li>Functions</li>
+              <li>List, Dictionary, Set comprehension</li>
+          </ul>
+
+          <h2>Recap</h2>
+          <ul>
+              <li>Dictionary</li>
+              <li>Read text file</li>
+              <li>Case study: Restaurant review analysis</li>
+              <ul>
+                  <li>Strings, string functionality</li>
+                  <li>Lists, list functionality</li>
+                  <li>Dictionary</li>
+                  <li>Conditional statements</li>
+                  <li>For loop</li>
+                  <li>File handling</li>
+                  <ul>
+                      <li>Sets</li>
+                      <li>Set functions</li>
+                      <li>File handling</li>
+                      <li>Opening file</li>
+                      <li>Creating a new file and writing into a new file</li>
+                      <li>Solving problems using sets</li>
+                      <li>Difference between set functions and their update versions</li>
+                  </ul>
+              </ul>
+          </ul>
+
+          <h2>What is a function?</h2>
+          <ul>
+              <li>A function is a reusable code snippet that performs a specific operation.</li>
+              <li>Why do we need functions?</li>
+              <ul>
+                  <li>Code reuse</li>
+                  <li>Better modularity and readability</li>
+              </ul>
+              <li>Components of a function:</li>
+              <ul>
+                  <li>Function definition</li>
+                  <ul>
+                      <li>Function name: Follows variable naming rules</li>
+                      <li>Parameters: Input values (optional)</li>
+                  </ul>
+                  <li>Function call</li>
+              </ul>
+              <li>How do we write a function?</li>
+              <pre><code>def function_name(parameters-optional):
+          body of the function
+          return-optional
+
+      return_value = function_name(arguments)</code></pre>
+          </ul>
+
+          <h2>Problem statement: Perform a mathematical operation on two numbers based on user input</h2>
+          <pre><code>num1 = int(input('Enter an integer number\n'))
+      num2 = int(input('Enter another integer number\n'))
+      math_op = input('Enter the mathematical operation to be performed\n')
+
+      if math_op == 'sum':
+          res = num1 + num2
+      if math_op == 'prod':
+          res = num1 * num2
+      if math_op == 'sub':
+          res = num1 - num2
+      if math_op == 'div':
+          if num2 == 0:
+              res = 'Cannot divide a number by 0'
+          else:
+              res = num1 / num2
+
+      print(res)</code></pre>
+
+          <h2>Function definition</h2>
+          <pre><code>def add(num1, num2):
+          result = num1 + num2
+          return result  # Returning the result
+
+      # Function call
+      result = add(2, 3)  # Output: 5</code></pre>
+
+          <h2>Another function example</h2>
+          <pre><code>def print_greeting():
+          print("Hi, I'm a function")
+
+      print_greeting()  # Output: "Hi, I'm a function"</code></pre>
+
+    <h2>Function Definitions and Calls</h2>
+
+          <pre><code>def f1():
+          print("Hi, I'm a function")
+
+      f1()  # Output: "Hi, I'm a function"</code></pre>
+
+          <pre><code>res = add(6, 7)  ### Function call
+      print(res)  # Output: Im not interested to show you the result</code></pre>
+
+          <pre><code>res = f1()
+      print(res)  # Output: None</code></pre>
+
+          <h2>Function Definitions</h2>
+
+          <pre><code>def add(x, y):
+          return x + y</code></pre>
+
+          <pre><code>def div(num1, num2):
+          if num2 == 0:
+              return 'Cannot divide a number by 0'
+          else:
+              return num1 / num2</code></pre>
+
+          <pre><code>def prod(a, b):
+          return a * b</code></pre>
+
+          <pre><code>def diff(num1, num2):
+          return num1 - num2</code></pre>
+
+          <pre><code>def even_or_not(num):
+          if num % 2 == 0:
+              return 'Given number is even'
+          else:
+              return 'Given number is odd'</code></pre>
+
+          <pre><code>def prime_or_not():
+          pass</code></pre>
+
+          <h2>Math Operation Example</h2>
+          <pre><code>math_op = input('Enter the mathematical operation to be performed\n')
+      num1 = int(input('Enter an integer number\n'))
+
+      if math_op == 'sum' or math_op == 'prod' or math_op == 'div' or math_op == 'sub':
+          num2 = int(input('Enter another integer number\n'))
+
+      res = ''
+
+      if math_op == 'sum':
+          res = add(num1, num2)
+      if math_op == 'prod':
+          res = prod(num1, num2)
+      if math_op == 'sub':
+          res = diff(num1, num2)
+      if math_op == 'div':
+          res = div(num1, num2)
+      if math_op == 'ev':
+          res = even_or_not(num1)
+
+      print(res)</code></pre>
+
+          <h2>Types of Arguments</h2>
+
+          <h3>Positional Arguments</h3>
+
+          <pre><code>def f1(a, b):
+          print(a)
+          print(b)</code></pre>
+
+          <pre><code>f1(89, 1)  # Output:
+      # 89
+      # 1</code></pre>
+
+          <pre><code>f1(1)  # Will result in an error because b is mandatory</code></pre>
+
+          <h3>Default Arguments</h3>
+
+          <p>When the default value is not set, we must pass the value during the function call. When the default value is set, no need to pass the value during the function call. If you pass a value, it will be assigned based on the position.</p>
+
+          <pre><code>def f1(a, b=20):
+          print(a)
+          print(b)</code></pre>
+
+          <pre><code>f1(78)  # If b is not passed, the default value will be assigned</code></pre>
+
+          <pre><code>f1(89, 100)  # If b is passed, the argument passed will be assigned
+      # Output:
+      # 89
+      # 100</code></pre>
+
+          <pre><code>f1(89, 1009898989)  # Output:
+      # 89
+      # 1009898989</code></pre>
+
+          <pre><code>f1(67)  # Output:
+      # 67
+      # 20 (default value for b)</code></pre>
+
+          <h2>Example</h2>
+          <pre><code>help(list.pop)</code></pre>
+
+    <h2>Function f2</h2>
+
+      <pre><code>def f2(a, b, v, kl, u, i):
+          print(a)
+          print(b)
+          print(v)
+          print(kl)
+          print(u)
+          print(i)
+
+      f2(45, 78, 'Hi', [1, 2, 3, 4], 'l', 'p')</code></pre>
+
+      <h2>Keyword Arguments</h2>
+
+      <pre><code>def f3(a, b, c, hello):
+          print(hello)
+          print(a)
+          print(b)
+          print(c)
+
+      f3(1, 2, 3, 4)</code></pre>
+
+      <h2>Keyword Arguments Example</h2>
+
+      <pre><code># Values assigned according to position
+      f3(hello=1, a=2, c=3, b=4)</code></pre>
+
+      <h2>Variable Length Arguments</h2>
+
+      <pre><code>def fun4(*a):
+          print(type(a))
+          print(a)
+          print(a[-2])
+
+      fun4(1, 2, 3, 4, 5, 6, 7, 8, 9)
+      fun4(1, 2, 3)
+      fun4(1, 2, 3, 6, 8, 9)
+
+      li = [1, 2, 3, 99, 67, 0, 54]
+      fun4(*li)
+
+      st = 'Python'
+      fun4(*st)</code></pre>
+
+      <h2>Variable Length Keyword Arguments</h2>
+
+      <pre><code>def fun5(**a):
+          print(type(a))
+          print(a)
+
+      fun5(a=2, c=23, d=56, g=90)
+
+      capitals_map = {'Ka': 'Ba', 'Ta': 'Ch', 'An': 'Vi', 'Te': 'Hy'}
+      fun5(**capitals_map)</code></pre>
+
+    <h2>Assigning a Dictionary to a Variable</h2>
+
+      <pre><code>a = capitals_map</code></pre>
+
+      <h2>Mathematical Operations</h2>
+
+      <pre><code># Take a list of numbers and mathematical operation as input, perform the operation, and return the result
+      def add(x, y):
+          return x + y
+
+      def add(*args):
+          res = 0
+          for i in args:
+              res = res + i
+          return res
+
+      add_result = add(1, 2, 3)
+
+      def mul(*args):
+          res = 1
+          for i in args:
+              res = res * i
+          return res
+
+      mul_result = mul(1, 2, 3, 4, 5)</code></pre>
+
+      <h2>Passing Functions for Sorting</h2>
+
+      <pre><code>indian_cricketers = [
+          ["Virat Kohli", 33, 12169],
+          ["Rohit Sharma", 34, 9115],
+          ["Shikhar Dhawan", 35, 5978],
+          ["Ajinkya Rahane", 33, 5185],
+          ["Cheteshwar Pujara", 34, 6267],
+      ]
+
+      def sort_list(val):
+          return val[1]
+
+      indian_cricketers.sort(key=sort_list)</code></pre>
+
+      <h2>Sorting Result</h2>
+
+      <pre><code>indian_cricketers</code></pre>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

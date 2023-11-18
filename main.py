@@ -60,6 +60,8 @@ def class4():
 def class5():
     return render_template('class5.html')
 
+
+
 @app.route('/class6')
 def class6():
     return render_template('class6.html')
@@ -80,6 +82,10 @@ def class9():
 @app.route('/class10')
 def class10():
     return render_template('class10.html')
+
+@app.route('/class11')
+def class10():
+    return render_template('class11.html')
 
 @app.route('/Exercise')
 def Exercise():
