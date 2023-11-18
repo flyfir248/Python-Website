@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+
+    <h1>Agenda</h1>
+
+    <ul>
+        <li>Pandas</li>
+        <li>Introduction to Numpy</li>
+        <li>String formatting</li>
+        <li>__main__</li>
+    </ul>
+
+    <h2>Data Manipulation using pandas</h2>
+
+    <pre>
+    1
+    import pandas as pd
+
+    1
+    d3 = {'Price':[1.5,1.6,1.7,1.8,45,1],'Sales':[2,3,4,5,67,3],\
+          'Segment':['Office','Home','Office','Office','Office','Home']}
+
+    1
+    df = pd.DataFrame(d3)
+
+    1
+    extract_rows = df['Segment']=='Office'
+
+    1
+    print(extract_rows)
+
+    0     True
+    1    False
+    2     True
+    3     True
+    4     True
+    5    False
+    Name: Segment, dtype: bool
+
+    1
+    df[extract_rows]
+
+        Price  Sales  Segment
+    0  1.5  2  Office
+    2  1.7  4  Office
+    3  1.8  5  Office
+    4  45.0  67  Office
+
+    1
+    df.query("Segment=='Office'")
+
+        Price  Sales  Segment
+    0  1.5  2  Office
+    2  1.7  4  Office
+    3  1.8  5  Office
+
+    1
+    d4 = {'Price':[1.5,1.6,1.7,1.8,45,1],'Sales':[2,3,4,5,67,3],\
+          'Segment':['Office','Home','Office','Office','Office','Home'],\
+          'Region':['South','North','South','North','South','North',]}
+
+    1
+    df4 = pd.DataFrame(d4)
+    </pre>
+
+        <h1>Filter according to values in multiple columns</h1>
+
+    <pre>
+    1
+    df4
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    1  1.6  3  Home  North
+    2  1.7  4  Office  South
+    3  1.8  5  Office  North
+    4  45.0  67  Office  South
+    5  1.0  3  Home  North
+
+    1
+    ind = (df4['Segment']=='Office') & (df4['Region']=='North')
+
+    1
+    ### Extract the idex where the given codition is true
+
+    2
+    ind[ind].index.tolist()
+
+    [3]
+
+    1
+    ind[~ind].index.tolist()
+
+    [0, 1, 2, 4, 5]
+
+    1
+    ind[-ind].index.tolist()
+
+    [0, 1, 2, 4, 5]
+
+    1
+    df4[ind]
+
+        Price  Sales  Segment  Region
+    3  1.8  5  Office  North
+
+    1
+    df4.query("Segment=='Office' & Region=='North'")
+
+        Price  Sales  Segment  Region
+    3  1.8  5  Office  North
+
+    1
+    df4[(df4['Segment']=='Office') & (df4['Region']=='South')]
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    2  1.7  4  Office  South
+    4  45.0  67  Office  South
+
+    1
+    df4[(df4['Segment']=='Office') & (df4['Region']=='South') & (df4['Sales']>5)]
+
+        Price  Sales  Segment  Region
+    4  45.0  67  Office  South
+
+    1
+    df4[(df4['Segment']=='Office') & (df4['Region']=='South') & (df4['Sales']<5)]
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    2  1.7  4  Office  South
+
+    1
+    df4[(df4['Segment']=='Office') & (df4['Region']=='South') & (df4['Sales']<5)]['Sales'].sum()
+
+    6
+
+    1
+    filtered_data = df4[(df4['Segment']=='Office') & (df4['Region']=='South') & (df4['Sales']<5)]
+
+    1
+    filtered_data
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    2  1.7  4  Office  South
+
+    1
+    filtered_data['Sales'].sum()
+
+    6
+
+    1
+    filtered_data.to_csv('filtered_data.csv')
+
+    1
+    filtered_data.to_excel('fildata.xlsx')
+    </pre>
+
+        <h1>Sorting</h1>
+
+    <pre>
+    1
+    d5 = {'Price':[1.5,1.6,1.7,1.8,45,1],'Sales':[2,3,4,5,67,3],\
+          'Segment':['Office','Home','Office','Office','Office','Home'],\
+         'Region':['South','North','South','North','South','North',]}
+
+    2
+    df5 = pd.DataFrame(d5)
+
+    1
+    df5
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    1  1.6  3  Home  North
+    2  1.7  4  Office  South
+    3  1.8  5  Office  North
+    4  45.0  67  Office  South
+    5  1.0  3  Home  North
+
+    1
+    df5.sort_values(['Sales'])
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    1  1.6  3  Home  North
+    5  1.0  3  Home  North
+    2  1.7  4  Office  South
+    3  1.8  5  Office  North
+    4  45.0  67  Office  South
+
+    1
+    df5
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    1  1.6  3  Home  North
+    2  1.7  4  Office  South
+    3  1.8  5  Office  North
+    4  45.0  67  Office  South
+    5  1.0  3  Home  North
+
+    1
+    df5.sort_values(['Sales'], ascending = False)
+
+        Price  Sales  Segment  Region
+    4  45.0  67  Office  South
+    3  1.8  5  Office  North
+    2  1.7  4  Office  South
+    1  1.6  3  Home  North
+    5  1.0  3  Home  North
+    0  1.5  2  Office  South
+
+    1
+    df5.sort_values(['Sales','Price'],ascending=[True,True])
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    5  1.0  3  Home  North
+    1  1.6  3  Home  North
+    2  1.7  4  Office  South
+    3  1.8  5  Office  North
+    4  45.0  67  Office  South
+
+    1
+    df5.sort_values(['Sales','Price'],ascending=[True,False])
+
+        Price  Sales  Segment  Region
+    0  1.5  2  Office  South
+    1  1.6  3  Home  North
+    5  1.0  3  Home  North
+    2  1.7  4  Office  South
+    3  1.8  5  Office  North
+    4  45.0  67  Office  South
+
+    1
+    df5.sort_values(['Region','Sales'],ascending=[True,False])
+
+        Price  Sales  Segment  Region
+    3  1.8  5  Office  North
+    1  1.6  3  Home  North
+    5  1.0  3  Home  North
+    4  45.0  67  Office  South
+    2  1.7  4  Office  South
+    0  1.5  2  Office  South
+    </pre>
+
+
+    <h1>Groupby</h1>
+
+    <pre>
+    1
+    df5.groupby('Region')
+
+    &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x000001F6F8CD22B0&gt;
+
+    1
+    aggregate_d = {'Sales':'sum'}
+
+    1
+    df5.groupby('Region').agg(aggregate_d)
+
+        Sales
+    Region
+    North 	11
+    South 	73
+
+    1
+    df5.groupby('Segment').agg({'Sales':'sum'})
+
+        Sales
+    Segment
+    Home 	6
+    Office 	78
+
+    1
+    df5.groupby('Segment').agg({'Price':'max'})
+
+        Price
+    Segment
+    Home 	1.6
+    Office 	45.0
+
+    1
+    df5.groupby('Segment').agg({'Price':'mean'})
+
+        Price
+    Segment
+    Home 	1.3
+    Office 	12.5
+
+    1
+    df5
+
+        Price 	Sales 	Segment 	Region
+    0 	1.5 	2 	Office 	South
+    1 	1.6 	3 	Home 	North
+    2 	1.7 	4 	Office 	South
+    3 	1.8 	5 	Office 	North
+    4 	45.0 	67 	Office 	South
+    5 	1.0 	3 	Home 	North
+
+    1
+    # df5.insert(2,'New_column',[1,2,3,4,5,6])
+
+    1
+    df5
+
+        Price 	Sales 	New_column 	Segment 	Region
+    0 	1.5 	2 	1 	Office 	South
+    1 	1.6 	3 	2 	Home 	North
+    2 	1.7 	4 	3 	Office 	South
+    3 	1.8 	5 	4 	Office 	North
+    4 	45.0 	67 	5 	Office 	South
+    5 	1.0 	3 	6 	Home 	North
+
+    1
+    ### apply function
+
+    2
+    d5 = {'Price':[1.5,1.6,1.7,1.8,45,1],'Sales':[2,3,4,5,67,3],\
+          'Segment':['Office','Home','Office','Office','Office','Home'],\
+         'Region':['South','North','South','North','South','North',]}
+
+    3
+    df5 = pd.DataFrame(d5)
+
+    1
+    df
+
+        Price 	Sales 	Segment
+    0 	1.5 	2 	Office
+    1 	1.6 	3 	Home
+    2 	1.7 	4 	Office
+    3 	1.8 	5 	Office
+    4 	45.0 	67 	Office
+    5 	1.0 	3 	Home
+    </pre>
+
+        <h1>Apply, Map, Applymap</h1>
+
+    <pre>
+    1
+    df5['Region'].apply(lambda x:x.upper())
+
+    0    SOUTH
+    1    NORTH
+    2    SOUTH
+    3    NORTH
+    4    SOUTH
+    5    NORTH
+    Name: Region, dtype: object
+
+    1
+    df5['Region'] = df5['Region'].apply(lambda x:x.upper())
+
+    1
+    df5
+
+        Price 	Sales 	Segment 	Region
+    0 	1.5 	2 	Office 	SOUTH
+    1 	1.6 	3 	Home 	NORTH
+    2 	1.7 	4 	Office 	SOUTH
+    3 	1.8 	5 	Office 	NORTH
+    4 	45.0 	67 	Office 	SOUTH
+    5 	1.0 	3 	Home 	NORTH
+
+    1
+    ### apply, map, applymap
+
+    1
+    df5['Squared_Sales'] = df5['Sales'].apply(lambda x:x*x)
+
+    1
+    df5
+
+        Price 	Sales 	Segment 	Region 	Squared_Sales
+    0 	1.5 	2 	Office 	SOUTH 	4
+    1 	1.6 	3 	Home 	NORTH 	9
+    2 	1.7 	4 	Office 	SOUTH 	16
+    3 	1.8 	5 	Office 	NORTH 	25
+    4 	45.0 	67 	Office 	SOUTH 	4489
+    5 	1.0 	3 	Home 	NORTH 	9
+
+    1
+    def print_data_passed(x):
+
+    2
+    #     print('***********')
+
+    3
+    #     print(x)
+
+    4
+    #     print('-----------')
+
+    5
+        return  x.sum()
+
+    6
+    ​
+
+    1
+    df5.apply(print_data_passed)
+
+    Price                                        52.6
+    Sales                                          84
+    Segment          OfficeHomeOfficeOfficeOfficeHome
+    Region             SOUTHNORTHSOUTHNORTHSOUTHNORTH
+    Squared_Sales                                4552
+    dtype: object
+
+    1
+    df5['Sales']*df5['Sales']
+
+    0       4
+    1       9
+    2      16
+    3      25
+    4    4489
+    5       9
+    Name: Sales, dtype: int64
+
+    1
+    ### applymap
+
+    1
+    def print_data_passed(x):
+
+    2
+        print('***********')
+
+    3
+        print('x = ',x)
+
+    4
+        print('-----------')
+
+    1
+    df5.applymap(print_data_passed)
+
+    ***********
+    x =  1.5
+    -----------
+    ***********
+    x =  1.6
+    -----------
+    ***********
+    x =  1.7
+    -----------
+    ***********
+    x =  1.8
+    -----------
+    ***********
+    x =  45.0
+    -----------
+    ***********
+    x =  1.0
+    -----------
+    ***********
+    x =  2
+    -----------
+    ***********
+    x =  3
+    -----------
+    ***********
+    x =  4
+    -----------
+    ***********
+    x =  5
+    -----------
+    ***********
+    x =  67
+    -----------
+    ***********........
+    </pre>
+
+
+        <h1>Merging and Concatenation</h1>
+
+    <pre>
+    1
+        Price 	Sales 	Segment 	Region 	Squared_Sales
+    0 	None 	None 	None 	None 	None
+    1 	None 	None 	None 	None 	None
+    2 	None 	None 	None 	None 	None
+    3 	None 	None 	None 	None 	None
+    4 	None 	None 	None 	None 	None
+    5 	None 	None 	None 	None 	None
+
+    1
+    df5.apply(print_data_passed)
+
+    ***********
+    x =  0     1.5
+    1     1.6
+    2     1.7
+    3     1.8
+    4    45.0
+    5     1.0
+    Name: Price, dtype: float64
+    -----------
+    ***********
+    x =  0     2
+    1     3
+    2     4
+    3     5
+    4    67
+    5     3
+    Name: Sales, dtype: int64
+    -----------
+    ***********
+    x =  0    Office
+    1      Home
+    2    Office
+    3    Office
+    4    Office
+    5      Home
+    Name: Segment, dtype: object
+    -----------
+    ***********
+    x =  0    SOUTH
+    1    NORTH
+    2    SOUTH
+    3    NORTH
+    4    SOUTH
+    5    NORTH
+    Name: Region, dtype: object
+    -----------
+    ***********
+    x =  0       4
+    1       9
+    2      16
+    3      25
+    4    4489
+    5       9
+    Name: Squared_Sales, dtype: int64
+    -----------
+
+    Price            None
+    Sales            None
+    Segment          None
+    Region           None
+    Squared_Sales    None
+    dtype: object
+
+    1
+    df5[['Segment','Region']].applymap(lambda x:x.upper()) # x is a series . i.e every column passed as series
+
+    2
+    # So use only functions supported by series
+
+        Segment 	Region
+    0 	OFFICE 	SOUTH
+    1 	HOME 	NORTH
+    2 	OFFICE 	SOUTH
+    3 	OFFICE 	NORTH
+    4 	OFFICE 	SOUTH
+    5 	HOME 	NORTH
+    1
+    df5[['Segment','Region']].apply(lambda x:x.upper())# x is a series . i.e every column passed as series
+
+    2
+    # So use only functions not supported by series like upper() will give error
+
+    ---------------------------------------------------------------------------
+    AttributeError                            Traceback (most recent call last)
+    ~\AppData\Local\Temp\ipykernel_112144\140620554.py in ?()
+    ----> 1 df5[['Segment','Region']].apply(lambda x:x.upper())# x is a series . i.e every column passed as series
+          2 # So use only functions not supported by series like upper() will give error.....1
+
+    df5['Segment'].apply(print_data_passed)# x is a series . i.e every column passed as series
+
+    ***********
+    x =  Office
+    -----------
+    ***********
+    x =  Home
+    -----------
+    ***********
+    x =  Office
+    -----------
+    ***********
+    x =  Office
+    -----------
+    ***********
+    x =  Office
+    -----------
+    ***********
+    x =  Home
+    -----------
+
+    0    None
+    1    None
+    2    None
+    3    None
+    4    None
+    5    None
+    Name: Segment, dtype: object
+
+    1
+    ### Summary
+
+    2
+    ###              apply           applymap      map
+
+    3
+    ### Series       element/cell    Notdefined    element/cell
+
+    4
+    ### DataFrame    series         element/cell   Notdefined
+
+    1
+    ### Merging
+
+    1
+    d1 = {'CustomerID':[1,2,4,5,6],\
+
+    2
+          'Segment':['Office','Home','Office','Office','Home']
+
+    3
+         }
+
+    4
+    df1 = pd.DataFrame(d1)
+
+    1
+    d2 = {'CustomerID':[2,3,4],\
+
+    2
+         'Region':['South','North','South',]}
+
+    3
+    df2 = pd.DataFrame(d2)
+
+    1
+    df1
+
+        CustomerID 	Segment
+    0 	1 	Office
+    1 	2 	Home
+    2 	4 	Office
+    3 	5 	Office
+    4 	6 	Home
+
+    1
+    pd.merge(df1,df2,on='CustomerID',how='inner')
+
+        CustomerID 	Segment 	Region
+    0 	2 	Home 	South
+    1 	4 	Office 	South
+
+    1
+    pd.merge(df1,df2,on='CustomerID',how='outer')
+
+        CustomerID 	Segment 	Region
+    0 	1 	Office 	NaN
+    1 	2 	Home 	South
+    2 	4 	Office 	South
+    3 	5 	Office 	NaN
+    4 	6 	Home 	NaN
+    5 	3 	NaN 	North
+
+    1
+    pd.merge(df1,df2,on='CustomerID',how='left')
+
+        CustomerID 	Segment 	Region
+    0 	1 	Office 	NaN
+    1 	2 	Home 	South
+    2 	4 	Office 	South
+    3 	5 	Office 	NaN
+    4 	6 	Home 	NaN
+
+    1
+    pd.merge(df1,df2,on='CustomerID',how='right')
+
+        CustomerID 	Segment 	Region
+    0 	2 	Home 	South
+    1 	3 	NaN 	North
+    2 	4 	Office 	South
+
+    1
+    ### Concat
+
+    2
+    pd.concat([df1,df2])
+
+        CustomerID 	Segment 	Region
+    0 	1 	Office 	NaN
+    1 	2 	Home 	NaN
+    2 	4 	Office 	NaN
+    3 	5 	Office 	NaN
+    4 	6 	Home 	NaN
+    0 	2 	NaN 	South
+    1 	3 	NaN 	North
+    2 	4 	NaN 	South
+
+    1
+    pd.concat([df1,df2],axis=0,ignore_index=True)
+
+        CustomerID 	Segment 	Region
+    0 	1 	Office 	NaN
+    1 	2 	Home 	NaN
+    2 	4 	Office 	NaN
+    3 	5 	Office 	NaN
+    4 	6 	Home 	NaN
+    5 	2 	NaN 	South
+    6 	3 	NaN 	North
+    7 	4 	NaN 	South
+
+    1
+    pd.concat([df1,df2],axis=1)
+
+        CustomerID 	Segment 	CustomerID 	Region
+    0 	1 	Office 	2.0 	South
+    1 	2 	Home 	3.0 	North
+    2 	4 	Office 	4.0 	South
+    3 	5 	Office 	NaN 	NaN
+    4 	6 	Home 	NaN 	NaN
+    </pre>
+
+
+    <h1>Numpy Operations</h1>
+
+    <pre>
+    1
+
+    ### all any
+
+    1
+
+    ​
+
+    2
+
+    d1 = {'CustomerID':['','dfhdfh','','dfgdfh','fgdsfg'],\
+
+    3
+
+          'Segment':['Office','Home','Office','Office','Home']
+
+    4
+
+         }
+
+    1
+
+    df7= pd.DataFrame(d1)
+
+    1
+
+    df7['CustomerID'].any()
+
+    True
+
+    1
+
+    df7['CustomerID'].all()
+
+    False
+
+    1
+
+    df7[df7.applymap(lambda x: False if x else True)['CustomerID']].index.tolist()
+
+    [0, 2]
+
+    Numpy
+
+        Numpy stands for numerical python
+        Provides functions to handle large multidimensional data
+        Highly efficient interms of memeory and time
+        Built using C
+        Numpy operations are much faster compared to lists, tuples, and sets
+
+    1
+
+    import numpy as np
+
+    Type 	bytes 	range
+    np.int8 	1 	-128 to 127
+    np.int16 	2 	-32768 to 32767
+    np.int32 	4 	-2147483648 to 2147483647
+
+    1
+
+    arr = np.array([1,2,3,4,5,6,7])
+
+    1
+
+    arr
+
+    array([1, 2, 3, 4, 5, 6, 7])
+
+    1
+
+    type(arr)
+
+    numpy.ndarray
+
+    1
+
+    arr1 = np.zeros([3,5],dtype='int16')
+
+    1
+
+    arr1
+
+    array([[0, 0, 0, 0, 0],
+           [0, 0, 0, 0, 0],
+           [0, 0, 0, 0, 0]], dtype=int16)
+
+    1
+
+    arr1 = np.ones([3,5])
+
+    1
+
+    arr1
+
+    array([[1., 1., 1., 1., 1.],
+           [1., 1., 1., 1., 1.],
+           [1., 1., 1., 1., 1.]])
+
+    1
+
+    np.arange(2,40,5)
+
+    array([ 2,  7, 12, 17, 22, 27, 32, 37])
+
+    1
+
+    arr1.ndim
+
+    2
+
+    1
+
+    arr.ndim
+
+    1
+
+    1
+
+    arr3d = np.array([[[1,2,3,4,5,6,7],[1,3,5,7,8,9,9]],[[12,34,67,78,89,34,76],[0,0,0,0,0,0,0]]])
+
+    1
+
+    arr3d
+
+    array([[[ 1,  2,  3,  4,  5,  6,  7],
+            [ 1,  3,  5,  7,  8,  9,  9]],
+
+           [[12, 34, 67, 78, 89, 34, 76],
+            [ 0,  0,  0,  0,  0,  0,  0]]])
+
+    1
+
+    arr3d.ndim
+
+    3
+
+    1
+
+    arr.shape
+
+    (7,)
+
+    1
+
+    arr1.shape
+
+    (3, 5)
+
+    1
+
+    arr3d.shape
+
+    (2, 2, 7)
+
+    1
+
+    np.argsort([1,2,33,44,56,8,9])
+
+    array([0, 1, 5, 6, 2, 3, 4], dtype=int64)
+
+    1
+
+    ar= np.array([[1,2,3,4,5,6],[3,4,5,6,7,8]])
+
+    1
+
+    ar
+
+    array([[1, 2, 3, 4, 5, 6],
+           [3, 4, 5, 6, 7, 8]])
+
+    1
+
+    ar.flatten()
+
+    array([1, 2, 3, 4, 5, 6, 3, 4, 5, 6, 7, 8])
+
+    1
+
+    ar.flatten(order = 'C')  ## ---- C Format
+
+    array([1, 2, 3, 4, 5, 6, 3, 4, 5, 6, 7, 8])
+
+    1
+
+    ar.flatten(order = 'F')  ## ---- F Format
+
+    array([1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8])
+    </pre>
+
+        <h1>String Formatting</h1>
+
+    <pre>
+    1
+
+    np.argsort([1,2,33,44,56,8,9])
+
+    array([4, 3, 2, 6, 5, 1, 0], dtype=int64)
+
+    1
+
+    # String formatting
+
+    1
+
+    price = 34.5678
+
+    2
+
+    c_id = 4567
+
+    3
+
+    item = 'Apple'
+
+    1
+
+    print(f'Customer {c_id} purchased {item} and its price is : {price}')
+
+    Customer 4567 purchased Apple and its price is : 34.5678
+
+    1
+
+    print(f'Price is {price}')
+
+    Price is 34.5678
+
+    1
+
+    print(f'Price is {price:.2f}')
+
+    Price is  34.57
+
+    1
+
+    print(f'Price is {price:9.2f}')
+
+    Price is     34.57
+
+    1
+
+    print(f'Price is {price:09.2f}')
+
+    Price is 000034.57
+
+    1
+
+    print(f'{c_id:09.2g}') # ---- 4.6 * 10^3
+
+    004.6e+03
+
+    Syntax for float
+
+        f'{var_name:fill|width|grouping|.|precision|format}'
+
+    1
+
+    print(f'{c_id:09.2g}') # ---- 4.6 * 10^3
+
+    004.6e+03
+
+    1
+
+    print(f'{c_id:09.3g}') # ---- 4.6 * 10^3
+
+    04.57e+03
+
+    1
+
+    p = .23
+
+    2
+
+    print(f'{p:.2%}') # ---- 4.6 * 10^3
+
+    23.00%
+
+    1
+
+    l = 1245678
+
+    2
+
+    print(f'{l:,.2f}') # ---- 4.6 * 10^3
+
+    1,245,678.00
+
+    1
+
+    print(f'{l:,d}')
+
+    1,245,678
+
+    Syntax for string
+
+        f'{var_name:fill|alignment|width}'
+
+    1
+
+    item = 'Apple'
+
+    2
+
+    print(f'{item:*>15}')
+
+    **********Apple
+
+    1
+
+    item = 'Apple'
+
+    2
+
+    print(f'{item:$^15}')
+
+    $$$$$Apple$$$$$
+
+    1
+
+    item = 'Apple'
+
+    2
+
+    print(f'{item:$<6}')
+
+    Apple$
+
+    1
+
+    hr = '1'
+
+    2
+
+    mi = '43'
+
+    3
+
+    ​
+
+    4
+
+    print(f'{hr:0>2}:{mi:0>2}')
+
+    01:43
+
+    1
+
+    hr = '12'
+
+    2
+
+    mi = '43'
+
+    3
+
+    ​
+
+    4
+
+    print(f'{hr:0>2}:{mi:0>2}')
+
+    12:43
+    </pre>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
