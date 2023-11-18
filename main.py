@@ -84,8 +84,12 @@ def class10():
     return render_template('class10.html')
 
 @app.route('/class11')
-def class10():
+def class11():
     return render_template('class11.html')
+
+@app.route('/class12')
+def class12():
+    return render_template('class12.html')
 
 @app.route('/Exercise')
 def Exercise():

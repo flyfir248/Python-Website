@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+    <h1>Agenda</h1>
+
+        <ul>
+            <li>Recap</li>
+            <li>Continue with functions</li>
+            <li>Comprehensions
+                <ul>
+                    <li>List</li>
+                    <li>Dictionary</li>
+                    <li>Set</li>
+                </ul>
+            </li>
+            <li>Modules</li>
+        </ul>
+
+        <h2>Recap</h2>
+
+        <h3>Functions</h3>
+
+        <p><strong>What?</strong><br>Functions are blocks of reusable code.</p>
+        <p><strong>Why?</strong><br>They help in modularizing code, making it more readable and maintainable.</p>
+        <p><strong>How?</strong><br>Function Syntax:
+            <code>
+                <pre>
+        def function_name(arguments_optional):
+            # body of the function
+            return result_optional
+                </pre>
+            </code>
+            Function Call:
+            <code>
+                <pre>
+        variable = function_name(arguments)
+                </pre>
+            </code>
+        </p>
+
+        <h4>Definition</h4>
+
+        <code>
+            <pre>
+        def add(x, y):  # x and y are parameters
+            res = x + y
+            return res
+            </pre>
+        </code>
+
+        <code>
+            <pre>
+        r = add(4, 5)  # 4 and 5 are arguments
+            </pre>
+        </code>
+
+        <code>
+            <pre>
+        x = 1
+        y = 5
+        r = add(x, y)  # x and y are arguments
+            </pre>
+        </code>
+
+        <h4>Positional Arguments</h4>
+
+        <code>
+            <pre>
+        def f1(a, b):
+            print(a)
+            print(b)
+
+        f1(1, 2)
+            </pre>
+        </code>
+
+        Output:
+        <code>
+            <pre>
+        1
+        2
+            </pre>
+        </code>
+
+        <h4>Default Arguments</h4>
+
+        <code>
+            <pre>
+        def f2(a, b=8):
+            print(a)
+            print(b)
+
+        f2(3, b=23)  # b is a default argument
+        f2(3)
+        f2(3, b=68)
+        f2(7)
+            </pre>
+        </code>
+
+        Output:
+        <code>
+            <pre>
+        3
+        23
+        3
+        8
+        3
+        68
+        7
+        8
+            </pre>
+        </code>
+
+        <code>
+            <pre>
+        f2(b=8, a=45)  # keyword arguments
+            </pre>
+        </code>
+
+        Output:
+        <code>
+            <pre>
+        45
+        8
+            </pre>
+        </code>
+
+        <code>
+            <pre>
+        c = {'b': 8, 'a': 45}
+        f2(c)  # entire dictionary is passed and assigned to a, b is assigned with the default value
+            </pre>
+        </code>
+
+        Output:
+        <code>
+            <pre>
+        {'b': 8, 'a': 45}
+        8
+            </pre>
+        </code>
+
+        <code>
+            <pre>
+        c = 45
+        f2(c)
+            </pre>
+        </code>
+
+        Output:
+        <code>
+            <pre>
+        45
+        8
+            </pre>
+        </code>
+
+        <h4>Variable Length Arguments</h4>
+
+        <code>
+            <pre>
+        def f3(*zzzzz):  # variable length arguments convention is *args
+            print(zzzzz)
+
+        f3(1, 22, 45, 2, 3, 4, 5, 5, 6, 7, 8, 9)
+        f3(1, 22, 45, 2, 7, 8, 9)
+        f3('Python is easy')
+        f3(*'Python is easy')
+        f3([1, 2, 3, 4])
+        f3(*[1, 2, 3, 4])
+            </pre>
+        </code>
+
+        Output:
+        <code>
+            <pre>
+        (1, 22, 45, 2, 3, 4, 5, 5, 6, 7, 8, 9)
+        (1, 22, 45, 2, 7, 8, 9)
+        ('Python is easy',)
+        ('P', 'y', 't', 'h', 'o', 'n', ' ', 'i', 's', ' ', 'e', 'a', 's', 'y')
+        ([1, 2, 3, 4],)
+        (1, 2, 3, 4)
+            </pre>
+        </code>
+
+        <h4>Variable Length Keyword Arguments</h4>
+
+        <code>
+            <pre>
+        def f4(**ttt):  # variable length keyword arguments convention is **kwargs
+            print(ttt)
+
+        f4(u=23, b=89, z=90)
+        f4(**{'u': 23, 'b': 89, 'z': 90})
+            </pre>
+        </code>
+
+        Output:
+        <code>
+            <pre>
+        {'u': 23, 'b': 89, 'z': 90}
+        {'u': 23, 'b': 89, 'z': 90}
+            </pre>
+        </code>
+
+    <h1>Order Cost Calculation</h1>
+
+    <h2>Problem Statement</h2>
+
+    <p>You are tasked with implementing a flexible and user-friendly function in Python to calculate the total cost of a customer's order from an online store. The order consists of various items, each with a different price, and the customer may have discount coupons to apply. The function should make use of variable-length arguments and keyword arguments to accommodate different order configurations and apply discounts accordingly.</p>
+
+    <h2>Requirements</h2>
+
+    <ul>
+        <li>Create a Python function called <code>calculate_order_cost</code> that accepts variable-length arguments for the items in the order.</li>
+        <li>Each item is represented as a dictionary with keys 'item_name' and 'price'. The function should allow the user to pass any number of items in the order.</li>
+        <li>Implement a keyword argument 'discount' which allows the user to specify a discount to be applied to the order.</li>
+        <li>The discount can be a fixed amount or a percentage.</li>
+        <li>The function should calculate the total cost of the order, considering the prices of the items and applying the specified discount, if provided.</li>
+        <li>If a discount is specified as a fixed amount, it should be subtracted from the total cost.</li>
+        <li>If it's specified as a percentage, it should be applied as a percentage reduction to the total cost.</li>
+        <li>The function should return the final total cost after applying the discount.</li>
+    </ul>
+
+    <h2>Examples</h2>
+
+    <code>
+        <pre>
+    # Example 1: Calculate the order cost with no discount
+    order_cost = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20})
+    print("Total cost:", order_cost)  # Output: Total cost: 30
+
+    # Example 2: Calculate the order cost with no discount
+    order_cost = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30})
+    print("Total cost:", order_cost)  # Output: Total cost: 60
+
+    # Example 3: Calculate the order cost with a fixed discount of $5
+    order_cost = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30}, discount=5)
+    print("Total cost:", order_cost)  # Output: Total cost: 55
+
+    # Example 4: Calculate the order cost with a 10% discount
+    order_cost = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20}, discount=10, discount_type='percentage')
+    print("Total cost:", order_cost)  # Output: Total cost: 27
+        </pre>
+    </code>
+
+    <code>
+        <pre>
+    # Bill - Discount 5Rs
+    # Widget -- 10Rs
+    # Gadget -- 20Rs
+    # Mobile -- 30Rs
+    products = [{'item_name': 'Widget', 'price': 10},{'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30}]
+
+    def calculate_order_cost(*products_list, discount=0, discount_type=''):
+        total_price = 0
+        for item_dictionary in products_list:
+            total_price += item_dictionary['price']
+
+        if discount_type == 'percentage':
+            discount_price = (total_price * discount) / 100
+            total_price -= discount_price
+        else:
+            total_price -= discount
+
+        return total_price
+        </pre>
+    </code>
+
+    <code>
+        <pre>
+    order_price = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name':'Book','price':50})
+    print(order_price)  # Output: 80
+
+    order_price = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30})
+    print(order_price)  # Output: 60
+
+    order_price = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20},{'item_name': 'Mobile', 'price': 30}, discount=5)
+    print(order_price)  # Output: 55
+
+    order_price = calculate_order_cost({'item_name': 'Widget', 'price': 10}, {'item_name': 'Gadget', 'price': 20}, discount=10, discount_type='percentage')
+    print(order_price)  # Output: 27.0
+
+    order_price = calculate_order_cost(discount=10, discount_type='percentage', *products)
+    print(order_price)  # Output: 54.0
+        </pre>
+    </code>
+
+    <h2>Order of Argument Passing</h2>
+
+    <code>
+        <pre>
+    def f1(a, b, c=4, *args, l=78, **kwargs):
+        print(a)
+        print(b)
+        print(c)
+        print(args)
+        print(l)
+        print(kwargs)
+        </pre>
+    </code>
+
+    <h1>Order Cost Calculation and Argument Passing</h1>
+
+    <h2>Order of Argument Passing</h2>
+
+    <code>
+        <pre>
+    # Non-default arguments: a, b
+    # Default argument: c
+    # Variable-length arguments: args
+    # Keyword-only argument: l
+    # Variable-length keyword arguments: kwargs
+    f1(1, 2, 3, 4, 5, 6, 7, l=90, p=45, m=97, j='Hi')
+    # Output:
+    # 1
+    # 2
+    # 3
+    # (4, 5, 6, 7)
+    # 90
+    # {'p': 45, 'm': 97, 'j': 'Hi'}
+        </pre>
+    </code>
+
+    <h2>Modules</h2>
+
+    <code>
+        <pre>
+    # Importing simplemath module as sm with aliasing
+    import simplemath as sm
+
+    # Calculating the area of a circle using the areaOfCircle function from the simplemath module
+    res = sm.areaOfCircle(3)
+
+    print(res)  # Output: 28.259999999999998
+
+    # Calculating the area of a rectangle using the areaOfRectangle function from the simplemath module
+    sm.areaOfRectangle(3, 5)  # Output: 15
+
+    # Importing sys module for manipulating the module search path
+    import sys
+
+    # Adding the path to the SimpleAlgebra module to sys.path
+    sys.path.append(r'D:/Desktop_2/PythonMIT_Batch4/UnderstandingModules')
+
+    # Importing SimpleAlgebra module as sa
+    import SimpleAlgebra as sa
+
+    # Checking if 7 is a prime number using the is_prime function from the SimpleAlgebra module
+    sa.is_prime(7)  # Output: True
+
+    # Instructions to import SimpleAlgebra module from a custom folder
+    # 1. Create a folder
+    # 2. Save SimpleAlgebra given in the chat in the folder created
+    # 3. Copy the folder path
+    # 4. Come back to Jupyter
+    # 5. import sys
+    # 6. sys.path.append(r'folderpath')
+    # 7. Replace backslashes with forward slashes
+    # 8. import SimpleAlgebra as sa
+    # 9. sa.is_prime(7)
+        </pre>
+    </code>
+
+
+    <h2>3. Factorial of a Number using Recursion</h2>
+
+    <code>
+        <pre>
+    # Function to find the factorial of a number using recursion
+    def factorial_recursive(n):
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * factorial_recursive(n - 1)
+
+    # Example usage:
+    result_factorial = factorial_recursive(5)
+    print("Factorial Result:", result_factorial)
+        </pre>
+    </code>
+
+    <h2>4. Guess the Random Number</h2>
+
+    <code>
+        <pre>
+    import random
+
+    # Function to generate a random number and ask the user to guess it
+    def guess_random_number():
+        target_number = random.randint(1, 100)
+        user_guess = int(input("Guess the number between 1 and 100: "))
+        return user_guess == target_number
+
+    # Example usage:
+    result_guess = guess_random_number()
+    print("Guess Result:", result_guess)
+        </pre>
+    </code>
+
+    <h2>5. Area of a Circle</h2>
+
+    <code>
+        <pre>
+    import math
+
+    # Function to calculate the area of a circle given its radius
+    def area_of_circle(radius):
+        return math.pi * (radius ** 2)
+
+    # Example usage:
+    result_circle_area = area_of_circle(3)
+    print("Circle Area Result:", result_circle_area)
+        </pre>
+    </code>
+
+    <h2>6. Check if a Number is Prime</h2>
+
+    <code>
+        <pre>
+    # Function to check if a given number is prime
+    def is_prime(number):
+        if number < 2:
+            return False
+        for i in range(2, int(number**0.5) + 1):
+            if number % i == 0:
+                return False
+        return True
+
+    # Example usage:
+    result_prime = is_prime(7)
+    print("Is Prime Result:", result_prime)
+        </pre>
+    </code>
+
+    <h2>7. Greatest Common Divisor (GCD) of Two Numbers</h2>
+
+    <code>
+        <pre>
+    # Function to compute the greatest common divisor (GCD) of two numbers
+    def gcd(num1, num2):
+        while num2:
+            num1, num2 = num2, num1 % num2
+        return num1
+
+    # Example usage:
+    result_gcd = gcd(48, 18)
+    print("GCD Result:", result_gcd)
+        </pre>
+    </code>
+
+    <h2>8. Simple Calculator</h2>
+
+    <code>
+        <pre>
+    # Function for a simple calculator with addition, subtraction, multiplication, and division
+    def simple_calculator(operator, num1, num2):
+        if operator == 'add':
+            return num1 + num2
+        elif operator == 'subtract':
+            return num1 - num2
+        elif operator == 'multiply':
+            return num1 * num2
+        elif operator == 'divide':
+            if num2 == 0:
+                return "Cannot divide by zero"
+            return num1 / num2
+        else:
+            return "Invalid operator"
+
+    # Example usage:
+    result_calculator = simple_calculator('add', 5, 3)
+    print("Calculator Result:", result_calculator)
+        </pre>
+    </code>
+
+    <h2>9. Quadratic Equation Roots</h2>
+
+    <code>
+        <pre>
+    # Function to find the roots of a quadratic equation ax^2 + bx + c = 0
+    def quadratic_roots(a, b, c):
+        discriminant = b**2 - 4*a*c
+        if discriminant > 0:
+            root1 = (-b + (discriminant)**0.5) / (2*a)
+            root2 = (-b - (discriminant)**0.5) / (2*a)
+            return root1, root2
+        elif discriminant == 0:
+            root = -b / (2*a)
+            return root,
+        else:
+            return "Complex roots"
+
+    # Example usage:
+    result_quadratic = quadratic_roots(1, -3, 2)
+    print("Quadratic Roots Result:", result_quadratic)
+        </pre>
+    </code>
+
+    <h2>10. Temperature Converter</h2>
+
+    <code>
+        <pre>
+    # Function to convert temperatures between Fahrenheit and Celsius using user input
+    def temperature_converter():
+        temperature = float(input("Enter the temperature: "))
+        unit = input("Enter the unit (F for Fahrenheit, C for Celsius): ").upper()
+        if unit == 'F':
+            converted_temperature = (temperature - 32) * 5/9
+            return converted_temperature, 'C'
+        elif unit == 'C':
+            converted_temperature = (temperature * 9/5) + 32
+            return converted_temperature, 'F'
+        else:
+            return "Invalid unit"
+
+    # Example usage:
+    result_temperature = temperature_converter()
+    print("Temperature Conversion Result:", result_temperature)
+        </pre>
+    </code>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
