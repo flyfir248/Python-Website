@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+
+    <h2>Agenda</h2>
+
+    <ul>
+        <li>Recap</li>
+        <li>Continue with exception handling</li>
+        <li>OOPS
+            <ul>
+                <li>Class</li>
+                <li>Object</li>
+                <li>Constructor</li>
+                <li>Encapsulation
+                    <ul>
+                        <li>Access modifiers</li>
+                    </ul>
+                </li>
+                <li>Inheritance</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Recap</h2>
+
+    <ul>
+        <li>List comprehension</li>
+        <li>Dictionary comprehension
+            <ul>
+                <li>How is it different from list comprehension?</li>
+                <li>Use {}</li>
+                <li>Expression must contain key: value pair</li>
+                <li>Returns a dictionary</li>
+            </ul>
+        </li>
+        <li>Set comprehension
+            <ul>
+                <li>How is it different from list comprehension and dictionary comprehension?</li>
+                <li>Almost exactly like list comprehension</li>
+                <li>Use {}</li>
+                <li>Expression will not have key-value pair</li>
+                <li>Returned set doesn't have repeated values</li>
+            </ul>
+        </li>
+        <li>Enumerate
+            <ul>
+                <li>When to use</li>
+                <li>How to use</li>
+                <li>Iterable</li>
+            </ul>
+        </li>
+        <li>lambda
+            <ul>
+                <li>Anonymous function - It doesn't have any name</li>
+                <li>Mainly used as a disposable function</li>
+                <li>Used mainly with functional programming</li>
+                <li>More beneficial when used with very large data in distributed computing</li>
+            </ul>
+        </li>
+        <li>Higher-order functions
+            <ul>
+                <li>A function that takes other functions as input</li>
+                <li>map
+                    <ul>
+                        <li>To apply any function to data</li>
+                    </ul>
+                </li>
+                <li>filter
+                    <ul>
+                        <li>Filters data based on the return value of a function. The function can contain a
+                            condition</li>
+                    </ul>
+                </li>
+                <li>reduce
+                    <ul>
+                        <li>Cumulatively apply a function to data, by consuming two elements at a time</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>zip
+            <ul>
+                <li>Zips corresponding elements from multiple iterables</li>
+            </ul>
+        </li>
+        <li>Exception handling
+            <ul>
+                <li>Difference between errors and exceptions
+                    <ul>
+                        <li>Error: Errors that can be identified even before execution (compile time)</li>
+                        <li>Exception: Errors that can only be identified during execution (runtime)</li>
+                    </ul>
+                </li>
+                <li>How to capture an exception using try-except</li>
+                <li>Using multiple except</li>
+            </ul>
+        </li>
+        <li>Finally
+            <ul>
+                <li>try:
+                    <ul>
+                        <li>body (Always execute till the line that raises an exception)</li>
+                    </ul>
+                </li>
+                <li>except:
+                    <ul>
+                        <li>body (Execute only if an exception is raised)</li>
+                    </ul>
+                </li>
+                <li>finally:
+                    <ul>
+                        <li>body (Always execute irrespective of whether an exception is raised or not)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Code Examples</h2>
+
+    <pre>
+        <code>
+1. try:
+2.     fi = open('Review.txt','w')
+3.     fi.write('hi')
+4.     print('Write successful')
+5. except:
+6.     print('File not opened in write mode')
+7. finally:
+8.     print('Closing file')
+9.     fi.close()
+
+Write successful
+Closing file
+
+1. fi = open('Review.txt')
+2. fi.read()
+
+'hi'
+        </code>
+    </pre>
+
+    <h1>Object Oriented Programming</h1>
+
+    <p>Object-oriented programming (OOP) is a programming paradigm that uses objects, which are instances of classes, to represent and manipulate data and functionality.</p>
+
+    <p>OOP is based on several key principles:</p>
+
+    <ul>
+        <li><strong>Classes:</strong> Classes are templates or blueprints that define the structure and behavior of objects. They encapsulate data (attributes) and methods (functions) that operate on the data. Classes serve as a blueprint for creating objects.</li>
+        <li><strong>Objects:</strong> Objects are instances of classes. They are actual data structures created based on a class definition. Objects contain both data (attributes or properties) and methods (functions) that can interact with and manipulate that data.</li>
+        <li><strong>Encapsulation:</strong> Encapsulation is the principle of bundling data and the methods that operate on that data within a single unit, which is the class. It helps hide the internal details of an object and only exposes a well-defined interface. This provides data protection and ensures that the object's internal state cannot be easily modified from outside the object.</li>
+        <li><strong>Inheritance:</strong> Inheritance allows one class (the subclass or derived class) to inherit properties and methods from another class (the superclass or base class). This promotes code reusability and the creation of hierarchical relationships between classes.</li>
+        <li><strong>Polymorphism:</strong> Polymorphism means that objects of different classes can be treated as objects of a common base class. This allows for more flexible and generic code, as different objects can respond to the same method calls in a way that is appropriate for their specific class.</li>
+        <li><strong>Abstraction:</strong> Abstraction involves simplifying complex reality by modeling classes based on the essential properties and behaviors, while ignoring or hiding the unimportant details. It allows programmers to work with high-level, understandable concepts rather than low-level implementation details.</li>
+    </ul>
+
+    <p>OOP promotes modularity, code reusability, and a more intuitive representation of real-world objects and their interactions, making it a popular choice for software development in various domains. Common object-oriented programming languages include Java, C++, Python, and C#.</p>
+
+    <h2>Defining Classes</h2>
+
+    <h3>RoundContainer Class</h3>
+
+    <pre>
+        <code>
+        class RoundContainer:
+            def __init__(self):
+                print('Running __init__')
+                self.height = '7cm'
+                self.dia    = '5cm'
+                self.vol    = '10l'
+
+            def paint(self, clr):
+                print('Running paint')
+                self.color = clr
+                </code>
+            </pre>
+
+            <h3>VshapedContainer Class</h3>
+
+            <pre>
+                <code>
+        class VshapedContainer:
+            def __init__(self):
+                self.height = '8cm'
+                self.dia1   = '6cm'
+                self.dia2   = '3cm'
+                self.vol    = '15l'
+
+            def paint(self, clr):
+                self.color = clr
+                </code>
+            </pre>
+
+            <h2>Object Instantiation</h2>
+
+            <pre>
+                <code>
+        # Instantiation or object creation or object construction
+        r_ob1 = RoundContainer()
+        r_ob2 = RoundContainer()
+        r_ob3 = RoundContainer()
+        r_ob4 = RoundContainer()
+        r_ob5 = RoundContainer()
+        r_ob6 = RoundContainer()
+
+        v_ob1 = VshapedContainer()
+        v_ob2 = VshapedContainer()
+        v_ob3 = VshapedContainer()
+                </code>
+            </pre>
+
+            <h2>Calling Functions on Different Objects</h2>
+
+            <pre>
+                <code>
+        r_ob1.paint('blue')
+        r_ob2.paint('green')
+        r_ob3.paint('red')
+        r_ob4.paint('purple')
+        r_ob5.paint('pink')
+        r_ob6.paint('brown')
+                </code>
+            </pre>
+
+            <h2>Accessing Instance Variables of Different Instances</h2>
+
+            <pre>
+                <code>
+        print(r_ob1.color)
+        print(r_ob2.color)
+        print(r_ob3.color)
+        print(r_ob4.color)
+        print(r_ob5.color)
+        print(r_ob6.color)
+                </code>
+            </pre>
+
+            <h2>What is a Class?</h2>
+        <p>Template/Blueprint/Mould of any object, which may contain some initial state (value/variables) and behaviors/actions (functions).</p>
+
+        <h2>What is an Object?</h2>
+        <p>An instance/object of a class.</p>
+
+        <h2>What is Instantiation?</h2>
+        <p>Process of creating an object.</p>
+
+        <h2>How do we do Instantiation?</h2>
+        <p><code>object_name = ClassName()</code></p>
+
+        <h2>What is a Constructor?</h2>
+        <p>It's a function that is executed during the creation of an object. It is written as <code>def __init__(self):</code></p>
+
+        <h2>Steps for Creating an Object:</h2>
+        <ol>
+            <li>Define the class syntax:</li>
+            <pre>
+                <code>
+        class ClassName:
+            def __init__(self):
+                # body of __init__
+
+            def function1(self):
+                # body of function (optional)
+                </code>
+            </pre>
+            <li>Execute the class.</li>
+            <li>Instantiate objects.</li>
+            <li>Call functions or access variables.</li>
+        </ol>
+
+        <h2>Steps of Execution Happening at Execution:</h2>
+        <ol>
+            <li>Execute the class: Class will be loaded into memory. No object is created, but the class/instantiate will be available to create objects. Without executing the class, we cannot instantiate the object.</li>
+            <li>Instantiate:
+                <ul>
+                    <li><code>__init__</code> is executed.</li>
+                    <li>All the instance variables defined in <code>__init__</code> are created.</li>
+                </ul>
+            </li>
+            <li>Calling function:
+                <ul>
+                    <li>Instance variables inside the function are created or modified.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Example:</h2>
+        <pre>
+            <code>
+        r_ob1 = RoundContainer()
+        # Output: Running __init__
+
+        r_ob1.paint('yellow')
+        # Output: Running paint
+
+        r_ob1.color
+        # Output: 'yellow'
+            </code>
+        </pre>
+
+            <h1>Inheritance</h1>
+
+        <!-- Defined the class -->
+        <pre>
+        # Defined the class
+        class Vehicle:
+            def __init__(self, br, mdl, yr, veh_num, pr, eng_cap=None):
+                self.brand = br
+                self.model = mdl
+                self.eng_cap = eng_cap
+                self.year = yr
+                self.veh_num = veh_num
+                self.price = pr
+                self.owner_number = 1
+
+            def sell(self, dep_val):
+                self.owner_number = self.owner_number + 1
+                self.price = self.price - self.price * dep_val
+        </pre>
+
+        <!-- Instantiate the first object -->
+        <pre>
+        veh1 = Vehicle('Hundai', 'verna', '2021', 'hg-19-2107', 1500000, '1400cc')
+
+        print(veh1.brand)
+        print(veh1.eng_cap)
+        print(veh1.model)
+        print(veh1.owner_number)
+        print(veh1.price)
+        print(veh1.veh_num)
+        </pre>
+        Result:
+        <pre>
+        Hundai
+        1400cc
+        verna
+        1
+        1500000
+        hg-19-2107
+        </pre>
+
+        <!-- Instantiate the second object -->
+        <pre>
+        veh2 = Vehicle('Kia', 'Seltos', '2015', 'ka-11-3456', 2200000, '2000cc')
+
+        print(veh2.brand)
+        print(veh2.eng_cap)
+        print(veh2.model)
+        print(veh2.owner_number)
+        print(veh2.price)
+        print(veh2.veh_num)
+        </pre>
+        Result:
+        <pre>
+        Kia
+        2000cc
+        Seltos
+        1
+        2200000
+        ka-11-3456
+        </pre>
+        <h1>Inheritance Example with Electric Vehicle</h1>
+
+        <!-- Selling vehicles and printing details -->
+        <pre>
+        <!-- Selling vehicles and printing details -->
+        veh1.sell(0.2)
+        veh2.sell(0.1)
+
+        print(veh1.owner_number)
+        print(veh2.owner_number)
+
+        print(veh1.price)
+        print(veh2.price)
+        </pre>
+        Results:
+        <pre>
+        2
+        2
+        1200000.0
+        1980000.0
+        </pre>
+
+        <!-- Additional selling and printing details -->
+        <pre>
+        veh1.sell(0.2)
+
+        print(veh1.price)
+        print(veh1.owner_number)
+
+        print(veh2.owner_number)
+        </pre>
+        Results:
+        <pre>
+        960000.0
+        3
+        2
+        </pre>
+
+        <!-- Defined the class -->
+        <pre>
+        # Defined the class
+        class Vehicle:
+            def __init__(self, br, mdl, yr, veh_num, pr, eng_cap=None):
+                self.brand = br
+                self.model = mdl
+                self.eng_cap = eng_cap
+                self.year = yr
+                self.veh_num = veh_num
+                self.price = pr
+                self.owner_number = 1
+
+            def sell(self, dep_val):
+                self.owner_number = self.owner_number + 1
+                self.price = self.price - self.price * dep_val
+        </pre>
+
+        <!-- Inherited class Electric -->
+        <pre>
+        class Electric(Vehicle):   # ----- Electric is child class Vehicle is Parent class
+            def __init__(self, br, mdl, yr, veh_num, pr, kpc):
+                self.vehicle_type = 'Electric'
+                self.km_per_charge = kpc
+                super().__init__(br, mdl, yr, veh_num, pr)
+
+            def sell(self, dep_val=0.3):
+                self.owner_number = self.owner_number + 1
+                self.price = self.price - self.price * dep_val
+                print('Electric vehicle sold')
+        </pre>
+
+        <!-- Creating an instance of Electric class -->
+        <pre>
+        veh3 = Electric('Tata', 'Nexon', '2022', 'ka-78-9075', 1500000, 400)
+
+        print(veh3.brand)
+        print(veh3.eng_cap)
+        print(veh3.model)
+        print(veh3.owner_number)
+        print(veh3.price)
+        print(veh3.veh_num)
+        print(veh3.vehicle_type)
+        print(veh3.km_per_charge)
+        </pre>
+        Results:
+        <pre>
+        Tata
+        None
+        Nexon
+        1
+        1500000
+        ka-78-9075
+        Electric
+        400
+        </pre>
+
+        <!-- Selling Electric vehicle and printing details -->
+        <pre>
+        veh3.sell()
+
+        print(veh3.price)
+        </pre>
+        Results:
+        <pre>
+        Electric vehicle sold
+        1050000.0
+        </pre>
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
