@@ -12,7 +12,6 @@ Your provided text goes here. You can replace this placeholder with your actual 
 def python_intro():
     return render_template('python_intro.html', sample_text=sample_text_content)
 
-
 # Route for the home page
 @app.route('/')
 def home():
@@ -60,8 +59,6 @@ def class4():
 def class5():
     return render_template('class5.html')
 
-
-
 @app.route('/class6')
 def class6():
     return render_template('class6.html')
@@ -73,7 +70,6 @@ def class7():
 @app.route('/class8')
 def class8():
     return render_template('class8.html')
-
 
 @app.route('/class9')
 def class9():
@@ -115,10 +111,13 @@ def class17():
 def class18():
     return render_template('class18.html')
 
+@app.route('/1_Introduction_to_Statistics')
+def Introduction_to_Statistics():
+    return render_template('1_Introduction_to_Statistics.html')
+
 @app.route('/Exercise')
 def Exercise():
     return render_template('Exercise.html')
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

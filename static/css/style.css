@@ -64,11 +64,26 @@ pre {
    overflow-x: auto;
 }
 
-code {
+.code {
    font-family: 'Courier New', monospace;
    font-size: 14px;
    color: #333;
+   background-color: #f4f4f4;
+   padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
 }
+
+        .ad-container {
+            float: right; /* Adjust this based on your layout */
+            margin-left: 20px;
+            width: 300px; /* Adjust the width of the ad container */
+            height: 250px; /* Adjust the height of the ad container */
+            background-color: #f4f4f4; /* Optional: Add background color for better visibility */
+            border: 1px solid #ccc; /* Optional: Add border for better visibility */
+            padding: 10px; /* Optional: Add padding for better spacing */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
 
 body {
    display: flex;
@@ -175,6 +190,25 @@ body {
    background-color: #ffffff !important;
    color: #111112 !important;
    transition: background-color 0.5s, color 0.5s; /* Smooth transition effect */
+}
+
+.thick-line {
+    border: 3px solid black; /* You can adjust the thickness as needed */
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.formula {
+            font-style: italic;
+            color: blue;
+        }
+
+.section {
+             margin-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
 }
 
 /* Styling for the toggle button */
