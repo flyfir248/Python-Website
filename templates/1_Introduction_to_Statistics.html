@@ -225,6 +225,157 @@
             <li>Define sample size.</li>
         </ul>
     </div>
+
+        <h2>Estimates and Intervals</h2>
+    <p>From the sampling distribution, use a sample to estimate a population parameter.</p>
+    <table>
+        <tr>
+            <th>Point estimate</th>
+            <th>Interval estimate</th>
+        </tr>
+        <tr>
+            <td>Is a single number</td>
+            <td>Gives a measure</td>
+        </tr>
+        <tr>
+            <td>Does not give the uncertainty of the estimate</td>
+            <td>Defines bounds of the confidence area</td>
+        </tr>
+    </table>
+
+    <h3>Estimates and Intervals: Example</h3>
+    <p>Example to calculate interval using R codes</p>
+    <p>Calculate point estimate (mean) of age of students on a campus. This will be used to form a confidence interval.</p>
+    <pre><code>&gt; library(mass)
+&gt; head(survey)
+sex wr.Hnd Nw.Hnd w.Hnd Fold pulse Clap exer smoke Height M.I Age
+1 Female 18.5 18.0 Right Ron L 92 Left Some Never 173.00 Metric 18.250
+2 male 19.5 20.5 Left RonL 104 Left None Regul 177.80 Imperial 17.583
+3 male 18.0 13.3 Right L onR 87 Neither None occas NA &lt;NA&gt; 16.917
+4 male 18.8 18.9 Right Ron L NA Neither None Never 160.00 Metric 20.333
+5 male 20.0 20.0 Right Neither 35 Right some Never 165.00 Metric 23.667
+6 Female 18.0 17.7 Right L on R 64 Right Some Never 172.72 Imperial 21.000
+&gt; mean(survey$age)
+[1] 20.37451
+</code></pre>
+    <p>Characteristics of interval estimations</p>
+    <p>95% Interval = Point estimate + 1.96 (SE)</p>
+    <p>Range of values for a population parameter are:</p>
+    <ul>
+        <li>Estimate mean, variance known</li>
+        <li>Estimate mean, variance unknown</li>
+    </ul>
+
+        <h2>Confidence Interval (CI) Calculation for Mean Age of Students on Campus</h2>
+    <p><strong>Given data:</strong></p>
+    <ul>
+        <li>Population variance = 6.25</li>
+        <li>Sample size (n) = 237</li>
+        <li>95% confidence level</li>
+    </ul>
+
+    <h3>Calculations:</h3>
+    <p>1. Calculate the standard deviation of the sample:</p>
+    <pre>Standard deviation (sd) = √6.25 = 2.5</pre>
+
+    <p>2. Calculate the standard error:</p>
+    <pre>Standard error (se) = sd / √n = 2.5 / √237 ≈ 0.1624</pre>
+
+    <p>3. Find the critical value (97.5th percentile) from the normal distribution:</p>
+    <pre>Critical value ≈ qnorm(0.975) ≈ 1.959964</pre>
+
+    <p>4. Calculate the lower limit of the confidence interval:</p>
+    <pre>Lower limit = Mean - (Critical value × se)</pre>
+
+    <p>5. Calculate the upper limit of the confidence interval:</p>
+    <pre>Upper limit = Mean + (Critical value × se)</pre>
+
+    <p>6. Calculate the margin of error:</p>
+    <pre>Margin of error = Critical value × se</pre>
+
+    <h3>Results:</h3>
+    <p>The confidence interval for the mean age of students on campus at the 95% confidence level is:</p>
+    <pre>Lower limit ≈ 20.05623</pre>
+    <pre>Upper limit ≈ 20.6928</pre>
+    <pre>Margin of error ≈ 0.3183</pre>
+
+
+        <h2>Explanation of Confidence Interval Calculation</h2>
+
+    <h3>Given Data:</h3>
+    <p>This section provides the initial data that will be used in the confidence interval calculation:</p>
+    <ul>
+        <li><strong>Population variance:</strong> The variance of the entire population.</li>
+        <li><strong>Sample size (n):</strong> The number of observations or data points in the sample.</li>
+        <li><strong>Confidence level:</strong> The level of confidence associated with the interval estimate, typically expressed as a percentage (e.g., 95% confidence level).</li>
+    </ul>
+
+    <h3>Calculations:</h3>
+    <p>This section outlines the steps involved in computing the confidence interval:</p>
+    <ol>
+        <li><strong>Calculate the Standard Deviation (sd):</strong> The square root of the population variance represents the standard deviation, a measure of the dispersion of data points around the mean.</li>
+        <li><strong>Calculate the Standard Error (se):</strong> The standard error measures the variability of the sample mean. It is obtained by dividing the standard deviation by the square root of the sample size.</li>
+        <li><strong>Find the Critical Value:</strong> This involves determining the critical value from the standard normal distribution corresponding to the desired confidence level. For a 95% confidence level, the critical value is approximately 1.96.</li>
+        <li><strong>Calculate the Confidence Interval:</strong> The confidence interval is computed using the formula:
+            <br>
+            <pre>
+                Lower limit = Mean - (Critical value × se)
+                Upper limit = Mean + (Critical value × se)
+            </pre>
+            where "Mean" represents the sample mean.
+        </li>
+        <li><strong>Calculate the Margin of Error:</strong> The margin of error quantifies the accuracy of the estimate and is calculated as the product of the critical value and the standard error.</li>
+    </ol>
+
+    <h3>Results:</h3>
+    <p>This section presents the outcomes of the calculations:</p>
+    <ul>
+        <li><strong>Confidence Interval:</strong> The interval within which we are confident the true population mean lies. It consists of a lower limit and an upper limit.</li>
+        <li><strong>Margin of Error:</strong> Represents the degree of uncertainty associated with the estimate. It indicates the maximum likely difference between the sample mean and the true population mean.</li>
+        <li><strong>Interpretation:</strong> A brief statement explaining the significance of the confidence interval. It emphasizes that we are 95% confident that the true mean age of students on campus falls within the provided interval.</li>
+    </ul>
+
+        <h2>Sample Size</h2>
+    <p>What is the appropriate size of a sample?</p>
+    <ul>
+        <li><strong>It varies according to the shape of the population.</strong></li>
+        <li><strong>n &gt;= 30 is a good consensus size.</strong></li>
+    </ul>
+
+    <h3>Sample Size Vs. Margin of Error</h3>
+    <p>As the level of confidence increases, the margin of error decreases. Similarly, as the sample size increases, the margin of error decreases.</p>
+
+    <h2>Estimate Sample Size: Example</h2>
+    <p>Assuming the following:</p>
+    <ul>
+        <li><strong>Campus population SD age = 6.4 years</strong></li>
+        <li><strong>Confidence = 95%</strong></li>
+    </ul>
+    <p>What is the sample size needed to have 1.2 years as the margin of error?</p>
+
+    <p>Formula: \( n = \left( \frac{{Z_{\alpha/2} \cdot SD}}{{\text{margin of error}}} \right)^2 \)</p>
+    <pre>
+        <code>
+            &gt; zint = gnorm(0.975); zint
+            [1] 1.959964
+            &gt; sd = 6.4
+            &gt; error = 1.2
+            &gt; SampleSize = ((zint^2) * (sd^2)) / error^2
+            &gt; round(SampleSize, 0)
+            [1] 109
+        </code>
+    </pre>
+
+    <h2>Summary</h2>
+    <p>In this unit, you learned that:</p>
+    <ul>
+        <li><strong>Inferential statistics</strong> make inferences about populations using part of the population.</li>
+        <li>The probability distribution of a statistic is called <strong>sampling distribution.</strong></li>
+        <li>The <strong>standard error</strong> of the sampling distribution is determined by the standard deviation of the population and the sample size.</li>
+        <li><strong>Point estimates and interval estimates</strong> are used to estimate a population parameter.</li>
+        <li>Sample size of a population varies according to the shape of the population.</li>
+    </ul>
+
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
         <p></p><br>
