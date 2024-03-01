@@ -123,6 +123,17 @@ def Probability():
 def Conditional_Probability():
     return render_template('3_Conditional_Probability.html')
 
+@app.route('/4_Bayes_Theorem')
+def Bayes_Theorem():
+    return render_template('4_Bayes_Theorem.html')
+@app.route('/5_Probability_Distributions')
+def Probability_Distributions():
+    return render_template('5_Probability_Distributions.html')
+
+@app.route('/6_Normal_Distribution')
+def Normal_Distribution():
+    return render_template('6_Normal_Distribution.html')
+
 @app.route('/Exercise')
 def Exercise():
     return render_template('Exercise.html')

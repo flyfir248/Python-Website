@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+        <h2>Probability Distributions Tutorial</h2>
+    <p>Welcome to our video on probability distributions! In this tutorial, you will learn about some important probability distributions, examples of each, and how to compute them using R.</p>
+
+    <h3>1. Uniform Distribution</h3>
+    <p>The uniform distribution is characterized by a rectangular shape. The probability density function (PDF) for a continuous uniform distribution between two numbers α and β is:</p>
+    <p style="font-style: italic;">f(x) = 1 / (β - α), for α ≤ x ≤ β</p>
+    <p>The mean (μ), median, and variance (σ<sup>2</sup>) of a continuous uniform distribution between α and β are calculated as:</p>
+    <ul>
+        <li>Mean (μ) = (α + β) / 2</li>
+        <li>Variance (σ<sup>2</sup>) = (β - α)<sup>2</sup> / 12</li>
+    </ul>
+    <p><strong>Example:</strong> Suppose we have a uniform distribution between 1 and 10. We want to calculate the probability of selecting a value between 4 and 7.</p>
+    <p>Probability (4 ≤ x ≤ 7) = 1 / (10 - 1) = 1 / 9 ≈ 0.1111</p>
+
+    <h3>2. Normal Distribution</h3>
+    <p>The normal distribution, also known as the Gaussian distribution, follows a bell-shaped curve. The probability density function (PDF) for a normal distribution with mean (μ) and standard deviation (σ) is:</p>
+    <p style="font-style: italic;">f(x) = (1 / (σ * √(2π))) * exp(-(x - μ)^2 / (2σ^2)), for -∞ < x < ∞</p>
+    <p><strong>Example:</strong> Suppose we have a normal distribution with mean 100 and standard deviation 15. We want to calculate the probability of selecting a value between 90 and 110.</p>
+    <p>Probability (90 ≤ x ≤ 110) can be computed using R.</p>
+
+    <h3>3. Binomial Distribution</h3>
+    <p>In a binomial distribution, the probability of obtaining exactly k successes in n independent Bernoulli trials with probability p of success on each trial is given by the probability mass function (PMF):</p>
+    <p style="font-style: italic;">P(X = k) = (n choose k) * p<sup>k</sup> * (1 - p)<sup>(n-k)</sup>, for k = 0, 1, ..., n</p>
+    <p><strong>Example:</strong> Suppose we have 20 people at a party, each with a 50% chance of preferring red wine. We want to calculate the probability that exactly 8 people prefer red wine.</p>
+    <p>Probability (X = 8) can be computed using R.</p>
+
+    <h3>4. Poisson Distribution</h3>
+    <p>The Poisson distribution models the number of events occurring in a fixed interval of time or space. The probability mass function (PMF) for a Poisson distribution with rate parameter λ is:</p>
+    <p style="font-style: italic;">P(X = k) = (e<sup>-λ</sup> * λ<sup>k</sup>) / k!, for k = 0, 1, 2, ...</p>
+    <p><strong>Example:</strong> Suppose a penmaker makes an average of four fountain pens per day. We want to calculate the probability that he makes exactly three pens on a particular day.</p>
+    <p>Probability (X = 3) can be computed using R.</p>
+
+    <h3>5. Exponential Distribution</h3>
+    <p>The exponential distribution models the time until an event occurs. The probability density function (PDF) for an exponential distribution with rate parameter λ is:</p>
+    <p style="font-style: italic;">f(x) = λ * e<sup>-λx</sup>, for x ≥ 0</p>
+    <p><strong>Example:</strong> Suppose a laptop battery lasts about 1000 charge-discharge cycles. We want to calculate the probability that it will survive through a one-year trip, during which it is expected to go through 180 charge-discharge cycles.</p>
+    <p>Probability of reliability can be computed using R.</p>
+
+    <h3>Summary</h3>
+    <p>In summary, this tutorial covers the concepts and computations of various probability distributions, including uniform, normal, binomial, Poisson, and exponential distributions. You have also learned how to perform these calculations using R.</p>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
