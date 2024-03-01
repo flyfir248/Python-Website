@@ -134,6 +134,15 @@ def Probability_Distributions():
 def Normal_Distribution():
     return render_template('6_Normal_Distribution.html')
 
+@app.route('/7_Uniform_Distribution')
+def Uniform_Distribution():
+    return render_template('7_Uniform_Distribution.html')
+
+@app.route('/8_Binomial_Distribution')
+def Binomial_Distribution():
+    return render_template('8_Binomial_Distribution.html')
+
+
 @app.route('/Exercise')
 def Exercise():
     return render_template('Exercise.html')

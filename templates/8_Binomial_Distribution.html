@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+        <h2>Binomial Distribution Tutorial</h2>
+    <p>Welcome to our video on binomial distribution! In this tutorial, you will learn about the definition of binomial distribution, see an example illustrating binomial distribution, and understand how to transform binomial distribution to a standard normal distribution.</p>
+
+    <h3>1. Definition of Binomial Distribution</h3>
+    <p>The binomial distribution arises from a random experiment with two possible outcomes, success (denoted by \( p \)) and failure (denoted by \( q \)). If \( x \) represents the number of successes in \( n \) independent trials, then the probability mass function of the binomial distribution is given by:</p>
+    <p style="font-style: italic;">\[ P(X = x) = \binom{n}{x} \cdot p^x \cdot q^{n-x} \]</p>
+    <p>where \( \binom{n}{x} \) represents the number of ways \( x \) successes can occur in \( n \) trials.</p>
+
+    <h3>2. Example of Binomial Distribution</h3>
+    <p>Consider a situation where the chance of winning an election in a constituency by an independent candidate is 0.31. In a by-election to an assembly constituency in Karnataka, if five independent candidates have contested, we can use binomial distribution to find the probability of an independent candidate winning the election.</p>
+
+    <h3>3. Transformation to Standard Normal Distribution</h3>
+    <p>To transform a binomial distribution to a standard normal distribution, we define the random variable \( Z \) as:</p>
+    <p style="font-style: italic;">\[ Z = \frac{X - \mu}{\sigma} \]</p>
+    <p>where \( X \) is the number of successes, \( \mu \) is the mean of the binomial distribution, and \( \sigma \) is the standard deviation. This transformation allows us to work with the standard normal distribution, which has a mean of zero and a variance of one.</p>
+
+    <h3>Summary</h3>
+    <p>In this video, you learned about the concept of binomial distribution, saw an example illustrating its application, and understood how to transform it into a standard normal distribution for easier analysis.</p>
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
