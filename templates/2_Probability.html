@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+    <h1>Probability Concepts</h1>
+
+    <h2>Probability Basics</h2>
+    <p>Probability is a measure of the likelihood of an event occurring. It is defined on a sample space, which is the set of all possible outcomes of an experiment.</p>
+
+    <h2>Events and Their Types</h2>
+    <p>An event is a subset of the sample space, representing a specific outcome or set of outcomes. Events can be categorized based on their properties:</p>
+    <ul>
+        <li><strong>Mutually Exclusive Events:</strong> These are events that cannot occur simultaneously. The probability of the union of mutually exclusive events is equal to the sum of their individual probabilities.</li>
+        <li><strong>Complementary Events:</strong> Complementary events cover all possible outcomes not included in the original event. For example, if event A represents getting a 1 on a die roll, its complementary event includes all other outcomes (2, 3, 4, 5, 6).</li>
+        <li><strong>Independent Events:</strong> Events are independent if the occurrence of one event does not affect the occurrence of another. The probability of independent events A and B both occurring is the product of their individual probabilities: P(A and B) = P(A) * P(B).</li>
+        <li><strong>Dependent Events:</strong> Events are dependent if the outcome of one event influences the outcome of another. Conditional probability measures the likelihood of an event B occurring given that event A has already occurred: P(B|A) = P(A and B) / P(A).</li>
+    </ul>
+
+    <h2>Classical Probability</h2>
+    <p>Classical probability, also known as theoretical probability, calculates the likelihood of an event based on theoretical considerations. It is suitable for symmetric situations and is defined by the formula:</p>
+    <p>P(A) = (Number of favorable outcomes) / (Total number of possible outcomes)</p>
+
+    <h2>Empirical Probability</h2>
+    <p>Empirical probability, also called frequentist probability, is based on observed data. It converges to the true probability as the number of trials approaches infinity. The empirical probability of an event A is given by:</p>
+    <p>P(A) = (Number of times event A occurs) / (Total number of trials)</p>
+
+    <h2>Subjective Probability</h2>
+    <p>Subjective probability represents an individual's intuitive belief about the likelihood of an event. It can be influenced by personal experiences, opinions, and biases. Subjective probability lacks formal mathematical rules and is often used in decision-making processes.</p>
+
+    <h2>Probability Axioms</h2>
+    <ol>
+        <li><strong>Axiom 1:</strong> A certain event has a probability of 1, and an impossible event has a probability of 0.</li>
+        <li><strong>Axiom 2:</strong> The probability of the union of mutually exclusive events is equal to the sum of their individual probabilities.</li>
+    </ol>
+
+    <h2>Bayesian Interpretation</h2>
+    <p>Bayesian interpretation applies conditional probabilities to update beliefs based on new evidence. It involves considering a sample space with mutually exclusive events and updating probabilities based on observed outcomes.</p>
+
+    <!-- You can continue to add more sections as needed -->
+
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

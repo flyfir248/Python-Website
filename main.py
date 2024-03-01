@@ -115,6 +115,14 @@ def class18():
 def Introduction_to_Statistics():
     return render_template('1_Introduction_to_Statistics.html')
 
+@app.route('/2_Probability')
+def Probability():
+    return render_template('2_Probability.html')
+
+@app.route('/3_Conditional_Probability')
+def Conditional_Probability():
+    return render_template('3_Conditional_Probability.html')
+
 @app.route('/Exercise')
 def Exercise():
     return render_template('Exercise.html')
