@@ -376,6 +376,71 @@ sex wr.Hnd Nw.Hnd w.Hnd Fold pulse Clap exer smoke Height M.I Age
         <li>Sample size of a population varies according to the shape of the population.</li>
     </ul>
 
+        <h2>Confidence Interval (CI) Mean, Variance Known: Example</h2>
+    <p>Calculate the interval estimate of the age of students on campus using the following data:</p>
+    <ul>
+        <li><strong>Population variance = 6.25</strong></li>
+        <li><strong>95% confidence level is 97.5th percentile of the normal distribution at the upper tail</strong></li>
+    </ul>
+
+    <h3>Characteristics of Interval Estimations</h3>
+    <p>95% Interval = Point estimate + 1.96 (SE)</p>
+    <p>Range of values for a population parameter:</p>
+    <ul>
+        <li>Estimate mean, variance known</li>
+        <li>Estimate mean, variance unknown</li>
+    </ul>
+
+    <h2>Calculation with Known Variance</h2>
+    <p>Assuming:</p>
+    <ul>
+        <li><strong>n = length(survey$Age) = 237</strong></li>
+        <li><strong>sd = 6.474335</strong></li>
+        <li><strong>se = 0.4205532</strong></li>
+        <li><strong>qt(0.975, df = n-1) = 1.97</strong></li>
+    </ul>
+    <p>Lower Limit: \( \text{Tlowelimt} = \text{mean(survey\$Age)} - \text{qt(0.975, df = n-1)} \times \text{se} = 19.546 \)</p>
+    <p>Upper Limit: \( \text{upprlimt} = \text{mean(survey\$Age)} + \text{qt(0.975, df = n-1)} \times \text{se} = 21.20303 \)</p>
+    <p>Error: \( \text{qt(0.975, df = n-1)} \times \text{se} = 0.828518 \)</p>
+
+        <h2>Sample Size</h2>
+    <p><strong>Q: What is the appropriate size of a sample?</strong></p>
+    <ul>
+        <li>It varies according to the shape of the population.</li>
+        <li>n &gt;= 30 is a good consensus size.</li>
+    </ul>
+
+    <h3>Sample Size Vs. Margin of Error</h3>
+    <ul>
+        <li>As the level of confidence increases, the margin of error decreases.</li>
+        <li>As the sample size increases, the margin of error decreases.</li>
+    </ul>
+
+    <h2>Estimate Sample Size: Example</h2>
+    <p>Assume the following:</p>
+    <ul>
+        <li><strong>Campus population SD age = 6.4 years</strong></li>
+        <li><strong>Confidence = 95%</strong></li>
+    </ul>
+    <p>What is the sample size needed to have a 1.2 years margin of error?</p>
+    <p>Formula: \( n = \frac{{(Z_{\alpha/2} \times SD)^2}}{{\text{Margin of Error}^2}} \)</p>
+    <ul>
+        <li>Given \( Z_{\alpha/2} = 1.959964 \)</li>
+        <li>Given \( SD = 6.4 \)</li>
+        <li>Given Margin of Error = 1.2</li>
+    </ul>
+    <p>Sample Size = \( \frac{{(1.959964 \times 6.4)^2}}{{1.2^2}} \)</p>
+    <p>Sample Size ≈ 109</p>
+
+    <h3>In this unit, you learned that:</h3>
+    <ul>
+        <li>Inferential statistics make inferences about populations using part of the population.</li>
+        <li>The probability distribution of a statistic is called the sampling distribution.</li>
+        <li>The standard error of the sampling distribution is determined by the standard deviation of the population and the sample size.</li>
+        <li>Point estimates and interval estimates are used to estimate a population parameter.</li>
+        <li>Sample size of a population varies according to the shape of the population.</li>
+    </ul>
+
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
         <p></p><br>
