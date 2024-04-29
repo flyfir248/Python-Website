@@ -271,3 +271,23 @@ body {
     max-width: 100%;
     height: auto;
 }
+
+.image {
+      max-width: 300px; /* Standard size for the images */
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
+    .image:hover {
+      transform: scale(1.2); /* Zoom effect on hover */
+    }
+    .caption {
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+ hr {
+            border: none;
+            height: 3px; /* Adjust thickness as needed */
+            background-color: black; /* Color of the line */
+        }

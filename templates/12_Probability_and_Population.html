@@ -1,10 +1,430 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <style>
+    .container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .image {
+      max-width: 300px; /* Standard size for the images */
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
+    .image:hover {
+      transform: scale(1.2); /* Zoom effect on hover */
+    }
+    .caption {
+      margin-top: 10px;
+      font-style: italic;
+    }
+    /* Style for the thick black line */
+        hr {
+            border: none;
+            height: 3px; /* Adjust thickness as needed */
+            background-color: black; /* Color of the line */
+        }
+  </style>
+
 </head>
 <body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
 
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+      <h1>Population and Sample Overview</h1>
+
+  <h2>Sample:</h2>
+  <p>A sample includes one or more observations drawn from the population, and the measurable characteristic of a sample is a statistic.</p>
+  <p>Sampling is the process of selecting the sample from the population. For example, some people living in India form a sample of the population.</p>
+  <ul>
+    <li>There are 2 types of sampling:</li>
+    <ul>
+      <li>Probability sampling</li>
+      <li>Non-probability sampling</li>
+    </ul>
+  </ul>
+
+  <h2>Population:</h2>
+  <p>A population includes all the elements from the dataset, and measurable characteristics of the population such as mean and standard deviation are referred to as parameters.</p>
+  <p>For example, all people living in India indicate the population of India.</p>
+  <ul>
+    <li>There are different types of populations:</li>
+    <ul>
+      <li>Finite Population</li>
+      <li>Infinite Population</li>
+      <li>Existent Population</li>
+      <li>Hypothetical Population</li>
+    </ul>
+  </ul>
+
+    <h1>Comparison: Population vs Sample</h1>
+
+  <table border="1">
+    <tr>
+      <th>Aspect</th>
+      <th>Population</th>
+      <th>Sample</th>
+    </tr>
+    <tr>
+      <td>Meaning</td>
+      <td>Collection of all the units or elements that possess common characteristics</td>
+      <td>A subgroup of the members of the population</td>
+    </tr>
+    <tr>
+      <td>Includes</td>
+      <td>Each and every element of a group</td>
+      <td>Only includes a handful of units of population</td>
+    </tr>
+    <tr>
+      <td>Characteristics</td>
+      <td>Parameter</td>
+      <td>Statistic</td>
+    </tr>
+    <tr>
+      <td>Data Collection</td>
+      <td>Complete enumeration or census</td>
+      <td>Sampling or sample survey</td>
+    </tr>
+    <tr>
+      <td>Focus on</td>
+      <td>Identification of the characteristics</td>
+      <td>Making inferences about the population</td>
+    </tr>
+  </table>
+
+      <h1>Formulas for Mean Absolute Deviation, Variance, and Standard Deviation</h1>
+
+  <h2>Population Formulas:</h2>
+  <ul>
+    <li>Mean Absolute Deviation (MAD) based on population:</li>
+    <p>MAD = (Σ |x - μ|) / n</p>
+    <li>Variance based on population:</li>
+    <p>Variance = Σ (x - μ)² / n</p>
+    <li>Standard Deviation based on population:</li>
+    <p>Standard Deviation = √(Σ (x - μ)² / n)</p>
+  </ul>
+
+  <h2>Sample Formulas:</h2>
+  <ul>
+    <li>Mean Absolute Deviation (MAD) based on sample:</li>
+    <p>MAD = (Σ |x - x̄|) / (n - 1)</p>
+    <li>Variance based on sample:</li>
+    <p>Variance = Σ (x - x̄)² / (n - 1)</p>
+    <li>Standard Deviation based on sample:</li>
+    <p>Standard Deviation = √(Σ (x - x̄)² / (n - 1))</p>
+  </ul>
+
+  <h1>Images with Captions</h1>
+  <div class="container">
+    <img src="static/Misc/1.png" alt="Formulas for MAD, Variance, and Standard Deviation" class="image">
+    <p class="caption">The formulas for mean absolute deviation (MAD), variance, and standard deviation based on population and given sample.</p>
+  </div>
+  <div class="container">
+    <img src="static/Misc/2.png" alt="Population and Sample" class="image">
+    <p class="caption">An image of population and sample as reference.</p>
+  </div>
+
+       <h1>Probability Theory</h1>
+    <p>
+        <strong>Probability Theory</strong> is very important to understand statistical inference, which is the foundation of analytical methods. In order to infer from sample data to the population (which is not known), we need to understand probability theory and its application. Since it's not feasible to truly know a population due to its large size and the difficulty in collecting data, we work with samples of data.
+    </p>
+    <h2>Probability — The Basics</h2>
+    <p>
+        The probability of an event (denoted by 𝑃(𝐴)) happening is calculated as the number of outcomes where event A occurs divided by the total number of possible outcomes.
+    </p>
+    <ul>
+        <li>Probability of drawing a blue ball = 𝑃(A) = 6/10 = 0.6</li>
+        <li>Probability of drawing a red dotted ball = 𝑃(AB) = 1/10 = 0.1</li>
+        <li>Probability of drawing a red ball = 𝑃(A) = 4/10 = 0.4</li>
+        <li>Probability of drawing a dotted ball = 𝑃(B) = 3/10 = 0.3</li>
+    </ul>
+
+    <div class="container">
+    <img src="static/Misc/3.png" alt="Balls in a Container" class="image">
+    <p class="caption">A visual representation of 4 red balls and 6 blue balls.</p>
+  </div>
+
+    <h2>Conditional Probability</h2>
+    <p>
+        Conditional probability is the probability of an event occurring given that another event has already occurred. It is calculated using the formula:
+    </p>
+    <p>
+        Probability of event B given event A (𝑃(B|A)) = (Probability of both events A and B occurring) / (Probability of event A)
+    </p>
+    <p>
+        For example:
+    </p>
+    <ul>
+        <li>Probability of a ball being dotted given that it is red: 𝑃(B|A) = 𝑃(AB) / 𝑃(A) = 0.1 / 0.4 = 0.25</li>
+        <li>Probability of a ball not being dotted given that it's red: 1 - 𝑃(B|A) = 1 - (𝑃(AB) / 𝑃(A)) = 1 - (0.1 / 0.4) = 0.75</li>
+    </ul>
+
+        <h1>Simple Probability Problem</h1>
+    <p>Suppose we toss a coin 3 times. What is the probability that we will see more than 1 heads?</p>
+
+    <h2>Standard Approach:</h2>
+    <ol>
+        <li>List all possible outcomes (Sample Space) - B</li>
+        <li>List the number of outcomes of interest — A</li>
+        <li>Divide A/B — probability of outcome</li>
+    </ol>
+
+    <h2>Solution:</h2>
+    <p>1. List all possible outcomes (Sample Space) - B</p>
+    <p>Since we are tossing a coin 3 times, there are 2<sup>3</sup> = 8 possible outcomes.</p>
+    <p>Sample Space (B) = {HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}</p>
+
+    <p>2. List the number of outcomes of interest — A</p>
+    <p>We are interested in the outcomes where we see more than 1 heads.</p>
+    <p>Outcomes of Interest (A) = {HHH, HHT, HTH, THH} (4 outcomes)</p>
+
+    <p>3. Divide A/B — probability of outcome</p>
+    <p>Probability of getting more than 1 heads = P(A) / P(B)</p>
+    <p>P(A) = 4 (number of outcomes of interest)</p>
+    <p>P(B) = 8 (total possible outcomes)</p>
+    <p>Probability = 4 / 8 = 0.5</p>
+
+    <p>So, the probability that we will see more than 1 heads when tossing a coin 3 times is 0.5, or 50%.</p>
+
+    <h1>Simple Probability Problem</h1>
+    <p>Suppose we toss a coin 3 times. What is the probability that we will see more than 1 heads?</p>
+
+    <h2>Solution:</h2>
+    <p>All possible outcomes:</p>
+    <p>HHH, HHT, HTH, THH, HTT, THT, TTH, TTT - 8 possible outcomes (2<sup>3</sup>)</p>
+
+    <p>Outcomes we are interested in (more than 1 head): HHH, HHT, HTH, THH - 4 outcomes</p>
+
+    <p>Probability of more than 1 head in 3 throws of a coin: 4/8 = 1/2</p>
+
+    <p>Similarly, probability of exactly 1 head in 3 throws of a coin:</p>
+    <p>All possible outcomes:</p>
+    <p>HHH, TTT, HHT, HTT, HTH, THH, TTH, THT - 8 possible outcomes (2<sup>3</sup>)</p>
+    <p>Outcomes with exactly 1 head: HHT, HTH, THH - 3 outcomes</p>
+    <p>Probability of exactly 1 head in 3 throws of a coin: 3/8</p>
+
+    <p>For the mathematically inclined: 2<sup>3</sup> = 8</p>
+
+        <h1>Probability Problem: Drawing Cards from a Deck</h1>
+
+    <h2>Solution:</h2>
+    <p>Suppose we are drawing one card from a well-shuffled deck of playing cards.</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h3>Probability that it will be a black card:</h3>
+    <p>Since there are 26 black cards in a standard deck of 52 cards, the probability of drawing a black card is:</p>
+    <p>Probability = 26/52 = 1/2</p>
+
+    <h3>Probability that it will be a heart:</h3>
+    <p>Since there are 13 hearts in a standard deck of 52 cards, the probability of drawing a heart card is:</p>
+    <p>Probability = 13/52 = 1/4</p>
+
+    <h3>Probability that it will be a queen of hearts:</h3>
+    <p>Since there is 1 queen of hearts in a standard deck of 52 cards, the probability of drawing the queen of hearts is:</p>
+    <p>Probability = 1/52</p>
+
+    <h1>Probability Problem: Drawing Two Cards from a Deck</h1>
+
+    <h2>Solution:</h2>
+    <p>Suppose we take two cards from a well-shuffled deck of playing cards, one after the other.</p>
+
+    <h3>Without Replacement:</h3>
+    <p>What will be the probability that we will see two red cards?</p>
+    <!-- Use MathJax to display the mathematical formula -->
+    <p>Probability = \( \frac{26}{52} \times \frac{25}{51} \)</p>
+
+    <h3>With Replacement:</h3>
+    <p>What will be the probability that we will see two red cards?</p>
+    <!-- Use MathJax to display the mathematical formula -->
+    <p>Probability = \( \frac{26}{52} \times \frac{26}{52} \)</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h3>Change in Probability with Replacement:</h3>
+    <p>When we repeat the experiment with replacement, the probability of seeing two reds remains the same for each draw. This is because each draw is independent of the previous one, and replacing the card does not change the composition of the deck.</p>
+    <!-- Use MathJax to display the mathematical formula -->
+    <p>Therefore, the probability of seeing two reds in successive draws with replacement remains \( \left(\frac{26}{52}\right)^2 \), or \( \left(\frac{1}{2}\right)^2 \).</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h1>Probability Concepts: Independent Events and Mutually Exclusive Events</h1>
+
+    <h2>Independent Events:</h2>
+    <p>In independent events, the probability of event B does not depend at all on event A occurring.</p>
+    <p>Example:</p>
+    <p>Customer A files an insurance claim today. What is the probability of Customer B filing a claim tomorrow?</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h2>Mutually Exclusive Events:</h2>
+    <p>In mutually exclusive events, if event A happens, event B cannot happen.</p>
+    <p>Example:</p>
+    <p>Customer A files an insurance claim today. What is the likelihood of receiving a no-claim bonus on renewal?</p>
+
+
+        <h1>Case Study: Airline X</h1>
+
+    <h2>You are GM Sales for Airline X.</h2>
+
+    <p>Let's assume for simplicity's sake that there are always 100 seats for any flight, hence you could always sell exactly 100 tickets. However, you know that in most flights, some people will not show up, so you could maximize sales by reselling that ticket.</p>
+
+    <h2>How do you decide how many tickets you should oversell for each flight?</h2>
+
+    <p>If you oversell by more than the number of people who don't show, you will lose money in terms of putting those people on other flights, plus some compensation!</p>
+
+    <h3>Steps to Decide on Ticket Overselling:</h3>
+
+    <ol>
+        <li><strong>Data Collection:</strong> Refer to past history data on no-shows. Use similar flights for comparison. Example: Collect 100 data points: day 1 no-shows, Day 2 no-shows, etc. Calculate the average of all no-shows — 5%.</li>
+        <li><strong>Calculate No-Show Rate:</strong> Determine the average no-show rate based on historical data. For example, if the average no-show rate is 5%, this means that on average, 5 out of 100 passengers do not show up for a flight.</li>
+        <li><strong>Determine Target Overbooking Rate:</strong> Decide on a target overbooking rate based on the historical no-show rate and the airline's risk tolerance.</li>
+        <li><strong>Adjust for Factors:</strong> Consider factors that may affect no-show rates and adjust the target overbooking rate accordingly.</li>
+        <li><strong>Monitor and Adjust:</strong> Continuously monitor actual no-show rates and adjust the overbooking strategy as needed.</li>
+        <li><strong>Implement Controls:</strong> Implement controls to mitigate the risk of denied boarding situations.</li>
+        <li><strong>Regular Review:</strong> Regularly review and update the overbooking strategy based on changing market conditions and regulatory requirements.</li>
+    </ol>
+
+    <hr> <!-- Thick black line -->
+
+    <h1>Probability Concepts: Independent Events and Mutually Exclusive Events</h1>
+
+    <h2>Independent Events:</h2>
+    <p>In independent events, the probability of event B does not depend at all on event A occurring.</p>
+    <p>Example:</p>
+    <p>Customer A files an insurance claim today. What is the probability of Customer B filing a claim tomorrow?</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h2>Mutually Exclusive Events:</h2>
+    <p>In mutually exclusive events, if event A happens, event B cannot happen.</p>
+    <p>Example:</p>
+    <p>Customer A files an insurance claim today. What is the likelihood of receiving a no-claim bonus on renewal?</p>
+
+
+    <h1>Understanding Random Variables</h1>
+
+    <p>A random variable, or stochastic variable, is a variable whose value is subject to variations due to chance, often referred to as randomness in a mathematical sense.</p>
+
+    <h2>In Probability and Statistics:</h2>
+
+    <p><strong>Random Variable:</strong> A random variable can take on a set of possible different values, similar to other mathematical variables. However, unlike deterministic variables, each value of a random variable is associated with a probability of occurrence. This distinguishes random variables from other mathematical variables.</p>
+
+    <p>Random variables are fundamental concepts in probability theory and statistics, allowing us to model and analyze uncertain phenomena.</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h1>Probability Concepts: Independent Events and Mutually Exclusive Events</h1>
+
+    <h2>Independent Events:</h2>
+    <p>In independent events, the probability of event B does not depend at all on event A occurring.</p>
+    <p>Example:</p>
+    <p>Customer A files an insurance claim today. What is the probability of Customer B filing a claim tomorrow?</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h2>Mutually Exclusive Events:</h2>
+    <p>In mutually exclusive events, if event A happens, event B cannot happen.</p>
+    <p>Example:</p>
+    <p>Customer A files an insurance claim today. What is the likelihood of receiving a no-claim bonus on renewal?</p>
+
+        <h1>Understanding Random Variables and Probability</h1>
+
+    <p>Let's now delve into the concept of random variables and how they apply to statistical theory.</p>
+
+    <h2>Examples of Business Variables:</h2>
+    <ul>
+        <li>Sales in a week</li>
+        <li>Time spent on a website</li>
+        <li>Insurance claims</li>
+        <li>ATM withdrawals</li>
+        <li>Walk-in purchases</li>
+    </ul>
+
+    <p>These examples illustrate various business variables that can be considered as random variables in statistical analysis.</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h1>Probability Concepts: Independent Events and Mutually Exclusive Events</h1>
+
+    <h2>Independent Events:</h2>
+    <p>In independent events, the probability of event B does not depend at all on event A occurring.</p>
+    <p>Example:</p>
+    <p>Customer A files an insurance claim today. What is the probability of Customer B filing a claim tomorrow?</p>
+
+    <hr> <!-- Thick black line -->
+
+    <h2>Mutually Exclusive Events:</h2>
+    <p>In mutually exclusive events, if event A happens, event B cannot happen.</p>
+    <p>Example:</p>
+    <p>Customer A files an insurance claim today. What is the likelihood of receiving a no-claim bonus on renewal?</p>
+
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
