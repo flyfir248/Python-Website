@@ -141,7 +141,21 @@ def Uniform_Distribution():
 @app.route('/8_Binomial_Distribution')
 def Binomial_Distribution():
     return render_template('8_Binomial_Distribution.html')
+@app.route('/9_Exponential_Distribution')
+def Exponential_Distribution():
+    return render_template('9_Exponential_Distribution.html')
 
+@app.route('/10_Gamma_Distribution')
+def Gamma_Distribution():
+    return render_template('10_Gamma_Distribution.html')
+
+@app.route('/11_Poisson_Distribution')
+def Poisson_Distribution():
+    return render_template('11_Poisson_Distribution.html')
+
+@app.route('/12_Probability_and_Population')
+def Probability_and_Population():
+    return render_template('12_Probability_and_Population.html')
 
 @app.route('/Exercise')
 def Exercise():

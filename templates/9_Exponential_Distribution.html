@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+
+        <h2>Exponential Distribution Tutorial</h2>
+    <p>Welcome to our video on exponential distribution! In this tutorial, you will learn about the definition of exponential distribution, see examples illustrating exponential distribution, and understand the lack of memory property associated with exponential distribution.</p>
+
+    <h3>1. Definition of Exponential Distribution</h3>
+    <p>An exponential distribution describes the probability distribution of the time between events in a Poisson process, where events occur continuously and independently at a constant average rate. The probability density function of an exponential distribution is given by:</p>
+    <p style="font-style: italic;">\[ f(x) = \lambda e^{-\lambda x} \]</p>
+    <p>where \( \lambda \) is the rate parameter, and \( x \) represents the time between events.</p>
+
+    <h3>2. Examples of Exponential Distribution</h3>
+    <p>Consider the following examples:</p>
+    <ul>
+        <li>Customers arriving at a local bar and restaurant follow an approximate Poisson process with a mean rate of 30 customers per hour. What is the probability that the bouncer has to wait more than 3 minutes to allow the next customer inside?</li>
+        <li>The number of miles that a car can run before its battery wears out follows an exponential distribution with an average of 10,000 miles. If the owner needs to take a 5,000 mile trip, what is the probability that the trip can be completed without replacing the battery?</li>
+    </ul>
+
+    <h3>3. Lack of Memory Property</h3>
+    <p>The exponential distribution exhibits the memoryless property, which means that the probability of an event occurring in the future does not depend on how much time has already elapsed. This property is expressed mathematically as:</p>
+    <p style="font-style: italic;">\[ P(X > s + t | X > t) = P(X > s) \]</p>
+    <p>where \( s \) and \( t \) are non-negative numbers representing time intervals.</p>
+
+    <h3>4. Application of Exponential Distribution</h3>
+    <p>The exponential distribution is widely used in queueing theory to model the service time of customers in a system. It is well-suited for describing the time taken to serve each customer by a server in various service systems.</p>
+
+    <h3>Summary</h3>
+    <p>In this video, you learned about the exponential distribution, saw examples illustrating its application in real-world scenarios, understood its lack of memory property, and learned about its application in queueing theory.</p>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

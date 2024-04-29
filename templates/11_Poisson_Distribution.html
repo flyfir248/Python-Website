@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+      <h1>Summary of Poisson Distribution Concepts</h1>
+
+  <h2>Introduction</h2>
+  <p>In this video, we will cover the definition of Poisson distribution, examples of Poisson distribution, its relation to the binomial distribution, and the transformation of Poisson distribution to standard normal distribution.</p>
+
+  <h2>Definition of Poisson Distribution</h2>
+  <ul>
+    <li>Poisson distribution as a limiting case of binomial distribution.</li>
+    <li>Transformation of Poisson distribution to standard normal distribution.</li>
+    <li>At the end of the video, viewers will be able to:</li>
+      <ul>
+        <li>Define Poisson distribution.</li>
+        <li>Give examples of Poisson distribution.</li>
+        <li>Describe Poisson distribution as a limiting case of binomial distribution.</li>
+        <li>Explain the transformation of Poisson distribution to standard normal distribution.</li>
+      </ul>
+  </ul>
+
+  <h2>Example</h2>
+  <p>The chance of an earthquake occurring in Bangalore is one in 100 years. What is the probability of an earthquake occurring in Bangalore today? This can be described using the Poisson distribution.</p>
+
+  <h2>Poisson Distribution</h2>
+  <ul>
+    <li>Poisson distribution arises when the number of occurrences is large, but the probability of each occurrence is small.</li>
+    <li>Parameter λ represents the average rate of occurrence.</li>
+    <li>Probability mass function of Poisson distribution: P(X = x) = (e^(-λ) * λ^x) / x! for x = 0, 1, 2, ...</li>
+  </ul>
+
+  <h2>Limiting Case of Binomial Distribution</h2>
+  <p>Poisson distribution can be considered a limiting case of binomial distribution when the number of trials approaches infinity and the probability of success approaches zero, while the product of the two remains constant.</p>
+
+  <h2>Transformation to Standard Normal Distribution</h2>
+  <p>By defining Z = (X - E[X]) / √Var(X), the Poisson distribution can be transformed into a standard normal variable Z, where E[X] = λ and Var(X) = λ.</p>
+
+  <h2>Summary</h2>
+  <p>In this video, we covered:</p>
+  <ul>
+    <li>Concepts of Poisson distribution.</li>
+    <li>An example illustrating Poisson distribution.</li>
+    <li>How Poisson distribution can be a limiting case of binomial distribution.</li>
+    <li>Transformation of Poisson distribution to standard normal distribution.</li>
+  </ul>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

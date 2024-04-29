@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>An Informal Introduction to Python</title>
+     <!-- Add these lines to your HTML head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='res/favicon.png') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Toggler for Background and Text Color -->
+    <button id="colorToggler">Color</button>
+
+    <div class="image-container">
+        <a href="https://pythonpythonme.netlify.app/">
+            <img alt="Logo" src="static/Images/Icon.png" style="border-radius: 5px; width: 306px; height: 234px;" class="auto-style25"></img>
+        </a>
+    </div>
+
+      <h1>Gamma Distribution Overview</h1>
+
+  <h2>Introduction to Gamma Distribution</h2>
+  <ul>
+    <li>Definition of Gamma distribution.</li>
+    <li>Properties of Gamma distribution.</li>
+    <li>Examples illustrating Gamma distribution.</li>
+  </ul>
+
+  <h2>Definition of Gamma Function</h2>
+  <ul>
+    <li>The Gamma function is defined as:</li>
+    <li>Γ(α) = ∫<sub>0</sub><sup>∞</sup> x^(α - 1) e^(-x) dx</li>
+    <li>It's part of the Gamma family for α > 0.</li>
+  </ul>
+
+  <h2>Gamma Distribution</h2>
+  <ul>
+    <li>Continuous random variable x follows a Gamma distribution if its probability density function is given by:</li>
+    <li>f(x; α, β) = (1 / (β^α Γ(α))) x^(α - 1) e^(-x/β)</li>
+    <li>Conditions: α > 0, β > 0.</li>
+  </ul>
+
+  <h2>Standard Gamma Distribution</h2>
+  <ul>
+    <li>When β = 1, it yields the standard Gamma distribution.</li>
+    <li>Its probability density function depends solely on the shape parameter α.</li>
+  </ul>
+
+  <h2>Properties of Gamma Function</h2>
+  <ul>
+    <li>Γ(α + 1) = α Γ(α) for α > 1.</li>
+    <li>Γ(n) = (n - 1)! for positive integers n.</li>
+    <li>Γ(α) always yields √π.</li>
+  </ul>
+
+  <h2>Example</h2>
+  <ul>
+    <li>Given: Reaction time x follows a standard Gamma distribution with α = 2 seconds.</li>
+    <li>Calculated the probability of reaction time being between 3 and 5 seconds, and greater than 4 seconds.</li>
+  </ul>
+
+  <h2>Solution</h2>
+  <ul>
+    <li>Used the standard Gamma distribution function to find probabilities.</li>
+    <li>Utilized integration to compute probabilities within certain ranges.</li>
+    <li>Provided step-by-step calculations to find the desired probabilities.</li>
+  </ul>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>Recap of the concepts covered: Gamma distribution, properties of the Gamma function, and example applications of Gamma distribution.</li>
+  </ul>
+
+    <!-- You can continue to add more sections as needed -->
+    <div class="menu-box">
+        <p></p><br>
+        <a href="/">Home</a><br><br>
+        <a href="/about">About</a><br><br>
+        <a href="/contact">Contact</a><br><br>
+    </div>
+    <!-- JavaScript for toggling background and text color -->
+    <script>
+        $(document).ready(function() {
+            $("#colorToggler").click(function() {
+                $("body").toggleClass("bg-lightgray");
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+            <div class="col-md-4 text-center">
+                <div>
+                </div>
+                <h4>Anoop Johny 🤖</h4>
+                <h4>Follow Me</h4>
+                <ul class="social-icons">
+                    <a href="https://www.linkedin.com/in/anoop-johny-30a746181/"><img src="{{ url_for('static', filename='res/linkedin.png') }}" alt="LinkedIn"></a>
+                    <a href="https://github.com/flyfir248"><img src="{{ url_for('static', filename='res/github.png') }}" alt="GitHub"></a>
+                    <a href="https://pythonpythonme.netlify.app/index.html"><img src="{{ url_for('static', filename='res/web.png') }}" alt="Website"></a>
+                    <a href="https://medium.com/@anoopjohny2000"><img src="{{ url_for('static', filename='res/medium.png') }}" alt="Medium"></a>
+                    <a href="https://www.kooapp.com/profile/anoop2DEVLJ"><img src="https://www.kooapp.com/_next/static/media/logoKuSolidOutline.1f4fa971.svg" alt="The Koo App" width="55" height="55"></a>
+                    <a href="https://www.kaggle.com/anoopjohny"><img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/189_Kaggle-1024.png" alt="The Kaggle App" width="55" height="55"></a>
+                </ul>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© 2023-2024 PythonPythonME.</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
