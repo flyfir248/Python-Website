@@ -556,6 +556,105 @@
 
   <p>Understanding these probability distribution functions is crucial for analyzing data, making predictions, and drawing conclusions in various fields such as statistics, engineering, finance, and natural sciences.</p>
 
+
+      <h1>Types of Distribution</h1>
+
+  <h2>Discrete Distribution</h2>
+  <p>A discrete distribution involves outcomes that are distinct and separate, often represented by whole numbers or categories. Examples include:</p>
+  <ul>
+    <li>A coin flip</li>
+      <div class="container">
+    <img src="static/Misc/7.png" alt="Weight distribution" class="image">
+    <p class="caption">Tossing a coin</p>
+    </div>
+    <li>The number of customers walking into a store on any given day</li>
+    <li>The number of times a machine breaks down in a year</li>
+    <li>The number of people claiming fire insurance in a month</li>
+  </ul>
+  <p>Discrete distributions can take various forms, including binomial, negative binomial, geometric, and Poisson distributions.</p>
+
+  <h2>Binomial Distribution</h2>
+  <p>The Binomial Distribution is a specific type of discrete probability distribution that describes the probability of a given number of successes in a fixed number of independent Bernoulli trials. Key features include:</p>
+  <div class="container">
+    <img src="static/Misc/8.png" alt="Weight distribution" class="image">
+    <p class="caption">Understanding Binomial Distribution: This concept illustrates the probability distribution of a discrete random variable that represents the number of successes in a fixed number of independent Bernoulli trials. Key features include two possible outcomes, independence of trials, and a fixed number of trials.</p>
+  </div>
+    <div class="container">
+    <img src="static/Misc/9.png" alt="Weight distribution" class="image">
+    <p class="caption">Binomial distribution</p>
+  </div>
+
+  </div>
+    <ul>
+    <li>Two possible outcomes (e.g., win or lose, success or failure)</li>
+    <li>Independence of each trial's outcome from previous trials</li>
+    <li>Fixed number of trials</li>
+  </ul>
+  <p>Examples of binomial distribution include the gender of babies delivered in a hospital and the occurrence of fatal side effects for a Schedule H drug.</p>
+
+  <h2>Bernoulli Trial</h2>
+  <p>A Bernoulli trial is a single experiment or observation that can result in one of two possible outcomes, typically denoted as success or failure, yes or no, or 1 or 0. It is the simplest form of a binomial trial, where the outcome is determined by a random process and remains constant across trials.</p>
+  <p>For example, tossing a coin once is a Bernoulli trial, where the outcome (heads or tails) follows a binomial distribution.</p>
+
+        <h1>Binomial Distribution</h1>
+  <h2>Probability Distribution Function (PDF) for Binomial Distribution</h2>
+  <p>The probability distribution function (PDF) for a binomial distribution is calculated using the following formula:</p>
+  <p>PDF: \( P(X = x) = \binom{n}{x} \cdot p^x \cdot (1 - p)^{n-x} \)</p>
+  <p>Where:</p>
+
+    <div class="container">
+    <img src="static/Misc/10.png" alt="Weight distribution" class="image">
+    <p class="caption">Binomial Distribution Graph: Illustration of the probability distribution for a binomial experiment, showing the likelihood of different outcomes occurring in a fixed number of trials.</p>
+    </div>
+  <ul>
+    <li>\( x \) = Outcome</li>
+    <li>\( n \) = Number of trials</li>
+    <li>\( p \) = Probability of success on each trial</li>
+  </ul>
+
+  <h2>Example: Probability of 4 Heads in 10 Coin Flips</h2>
+      <div class="container">
+    <img src="static/Misc/11.png" alt="Weight distribution" class="image">
+    <p class="caption">Excel BINOM.DIST Function: Screenshot showing how to use the BINOM.DIST function in Excel to calculate binomial probabilities.</p>
+    </div>
+  <p>The probability of getting exactly 4 heads in 10 coin flips can be calculated using the binomial distribution formula:</p>
+        <div class="container">
+    <img src="static/Misc/12.png" alt="Weight distribution" class="image">
+    <p class="caption">Quality Control Process: Image depicting a manufacturing unit's quality control process, highlighting the inspection of products to identify defects.</p>
+  </div>
+  <p> \( P(4) = \binom{10}{4} \cdot (0.5)^4 \cdot (0.5)^6 \)</p>
+  <p>In Excel, you can use the function BINOM.DIST to compute these probabilities.</p>
+
+  <h2>Applications of Binomial Distribution</h2>
+  <h3>1. Quality Control Process</h3>
+          <div class="container">
+    <img src="static/Misc/13.png" alt="Weight distribution" class="image">
+    <p class="caption">Quality Control Process: Image depicting a manufacturing unit's quality control process, highlighting the inspection of products to identify defects.</p>
+    </div>
+  <p>In a manufacturing unit with a defect rate of 10%, the probability of finding 2 defects in a random sample of 10 products can be calculated using binomial distribution.</p>
+
+  <h3>2. Financial Management</h3>
+            <div class="container">
+    <img src="static/Misc/14.png" alt="Weight distribution" class="image">
+    <p class="caption">Quality Control Process: Image depicting a manufacturing unit's quality control process, highlighting the inspection of products to identify defects.</p>
+    </div>
+  <p>Finance managers can use binomial distribution to estimate the likelihood of specific financial outcomes. For example, they may analyze the probability of more than 50% of customers being late with payments based on past data.</p>
+
+  <h2>Other Binomial Type Distributions</h2>
+  <h3>Negative Binomial Distribution</h3>
+              <div class="container">
+    <img src="static/Misc/15.png" alt="Weight distribution" class="image">
+    <p class="caption">Negative Binomial Distribution: Visualization of the negative binomial distribution, showing the probability of achieving a certain number of successes in a fixed number of trials.</p>
+    </div>
+  <p>The negative binomial distribution calculates the number of trials needed to achieve a certain number of successes. For example, determining the probability of the 30th purchase happening with the 100th customer.</p>
+
+  <h3>Geometric Distribution</h3>
+              <div class="container">
+    <img src="static/Misc/16.png" alt="Weight distribution" class="image">
+    <p class="caption">Geometric Distribution: Diagram illustrating the geometric distribution, which describes the probability of the first success occurring on a specific trial in a series of independent trials.</p>
+    </div>
+  <p>The geometric distribution calculates the probability of the first success occurring on the \( r^{th} \) trial. For example, determining the probability of a QC inspector needing to review at least 19 mechanical components before finding a defect with a 2% defect rate.</p>
+
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
         <p></p><br>
