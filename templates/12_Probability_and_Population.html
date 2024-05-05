@@ -649,11 +649,82 @@
   <p>The negative binomial distribution calculates the number of trials needed to achieve a certain number of successes. For example, determining the probability of the 30th purchase happening with the 100th customer.</p>
 
   <h3>Geometric Distribution</h3>
-              <div class="container">
-    <img src="static/Misc/16.png" alt="Weight distribution" class="image">
+
+  <p>The geometric distribution calculates the probability of the first success occurring on the \( r^{th} \) trial. For example, determining the probability of a QC inspector needing to review at least 19 mechanical components before finding a defect with a 2% defect rate.</p>
+  <div class="container">
+    <img src="static/Misc/17.png" alt="Weight distribution" class="image">
     <p class="caption">Geometric Distribution: Diagram illustrating the geometric distribution, which describes the probability of the first success occurring on a specific trial in a series of independent trials.</p>
     </div>
-  <p>The geometric distribution calculates the probability of the first success occurring on the \( r^{th} \) trial. For example, determining the probability of a QC inspector needing to review at least 19 mechanical components before finding a defect with a 2% defect rate.</p>
+     <h1>Discrete Distributions</h1>
+
+  <h2>Hypergeometric Distribution</h2>
+  <p>A hypergeometric distribution is generated when you have Bernoulli trials, but selections are not replaced.</p>
+  <h3>Example: HR Policies and Diversity</h3>
+
+    <div class="container">
+    <img src="static/Misc/18.png" alt="Weight distribution" class="image">
+    <p class="caption">Geometric Distribution: Diagram illustrating the geometric distribution, which describes the probability of the first success occurring on a specific trial in a series of independent trials.</p>
+    </div>
+  <p>A company wants to encourage diversity in its management ranks. Of the 18 employees eligible for promotion into middle management, 9 are women. The promotions are announced: 8 are promoted of which 3 are women. Is there a problem? In this case, we use Hypergeometric Distribution rather than Binomial.</p>
+  <p>\( P = \text{hypgeom.dist}(3, 8, 9, 18, \text{false}) = 0.24 \)</p>
+
+  <h2>Poisson Distribution</h2>
+  <p>The Poisson distribution is another discrete probability distribution used to model the number of events occurring in a time frame.</p>
+  <p>Conditions to correctly use a Poisson Distribution:</p>
+  <ol>
+    <li>Events have to be counted as whole numbers</li>
+    <li>Events are independent: so if one event occurs, it does not impact the chances of the second event occurring</li>
+    <li>Average frequency of occurrence for the given time period is known</li>
+    <li>Number of events that have already occurred can be counted</li>
+  </ol>
+  <p>Poisson Probabilities are calculated as: \( P(X = x) = \frac{e^{-\lambda} \cdot \lambda^x}{x!} \) where Lambda is the mean number of occurrences in a given interval of time. Notice here that there is no \( n \) (sample size) impact.</p>
+
+  <h3>Example: Call Centre Management</h3>
+  <p>You are a Manager in a call center with a staff of 55 people, who on average handle 330 calls in an hour. A holiday is coming up and 5 resources want to leave. You estimate the 50 remaining resources can manage 20% greater calls, but want to plan for the chance of greater than 20% increased call volume.</p>
+
+  <h3>Example: ATM Machine</h3>
+  <p>At an ATM machine in a particular location, a bank notes that there is an average of 80 withdrawals a day, with an average transaction amount of $40. The bank needs to stock the ATM machine with appropriate levels of cash.</p>
+  <p>Assuming that they start with a zero balance, what is the most appropriate amount of cash that needs to be stocked, for a 4-day period? A customer service KRA is to keep customer complaints to less than 10%.</p>
+
+    <h1>Binomial or Poisson?</h1>
+
+  <p>If an exact probability of an event happening is given, or implied, in the question, and you are asked to calculate the probability of this event happening k times out of n, then the Binomial Distribution must be used.</p>
+
+  <p>If a mean/average probability of an event happening per unit time/per page/per mile cycled etc., is given, and you are asked to calculate a probability of n events happening in a given time/number of pages/number of miles cycled, then the Poisson Distribution is used.</p>
+
+  <h2>Types of Distributions</h2>
+  <h3>Discrete Distributions</h3>
+  <p>Binomial: Describes the distribution of binary data from a finite sample, giving the probability of getting r events out of n trials.</p>
+  <p>Poisson: Describes the distribution of binary data from an infinite sample, giving the probability of getting r events in a population.</p>
+
+  <h3>Continuous Distributions</h3>
+  <p>Examples of continuous distributions include:</p>
+  <ul>
+    <li>Height of males in Bangalore</li>
+    <li>Average waiting time per patient at a hospital</li>
+  </ul>
+  <p>Continuous distributions are applicable when an event can take on any value within a given range. The Normal Distribution is the most common kind of continuous probability distribution.</p>
+
+  <h2>Normal Probability Distribution</h2>
+  <p>Key characteristics of the Normal Distribution include:</p>
+  <ol>
+    <li>Symmetric about the (single) mean</li>
+    <li>Mean = Median = Mode</li>
+    <li>The two tails extend indefinitely and never touch the axis</li>
+  </ol>
+
+  <p>The equation for the Normal Distribution is represented as:</p>
+  <p>\( y = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \)</p>
+
+  <p>The total area under a normal probability curve is always 1, allowing us to compute probabilities between two values on the curve.</p>
+
+  <h3>Examples:</h3>
+  <ul>
+    <li>Jigsaw Students IQ Testing</li>
+    <li>Product Guarantee</li>
+  </ul>
+
+  <p>Excel can also be used for calculations with the NORMDIST function.</p>
 
     <!-- You can continue to add more sections as needed -->
     <div class="menu-box">
